@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hermes Finder</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="stripes" id="stripes"></div>
+  <main class="page">
+    <h1 data-i18n="optH1">Hermes Finder settings</h1>
+    <p class="lead" data-i18n="optLead"></p>
+
+    <form id="form">
+      <fieldset>
+        <legend data-i18n="optLang">Language</legend>
+        <label for="language" data-i18n="optLangLabel">Interface language</label>
+        <select id="language"></select>
+        <p id="langHelp" class="help"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="optServer">Server connection</legend>
+        <label for="backendUrl" data-i18n="optAddress">Server address</label>
+        <div class="inline">
+          <input id="backendUrl" type="url" required placeholder="http://127.0.0.1:8000" />
+          <button type="button" id="test" class="secondary" data-i18n="optTest">Test connection</button>
+        </div>
+        <p id="testResult" class="help" aria-live="polite"></p>
+        <label class="check"><input id="useLlm" type="checkbox" /> <span data-i18n="optUseLlm"></span></label>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="optDetection">Claim detection</legend>
+        <label class="check"><input id="autoScan" type="checkbox" /> <span data-i18n="optAutoScan"></span></label>
+        <label class="check"><input id="articlesOnly" type="checkbox" /> <span data-i18n="optArticlesOnly"></span></label>
+
+        <label for="sensitivity" data-i18n="optSensitivity">Sensitivity</label>
+        <select id="sensitivity">
+          <option value="low" data-i18n="optSensLow"></option>
+          <option value="medium" data-i18n="optSensMed"></option>
+          <option value="high" data-i18n="optSensHigh"></option>
+        </select>
+
+        <label for="maxHighlights" data-i18n="optMaxHl">Maximum highlights per page</label>
+        <input id="maxHighlights" type="number" min="1" max="30" />
+
+        <label for="highlightStyle" data-i18n="optStyle">Highlight style</label>
+        <select id="highlightStyle">
+          <option value="underline" data-i18n="optUnderline"></option>
+          <option value="background" data-i18n="optBackground"></option>
+          <option value="none" data-i18n="optNone"></option>
+        </select>
+
+        <label for="excludedSites" data-i18n="optExcluded">Never scan these sites</label>
+        <textarea id="excludedSites" rows="3" data-i18n-ph="optExcludedPh"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="optSummary">Summary</legend>
+        <label for="maxCharts" data-i18n="optCharts">Charts in the summary</label>
+        <select id="maxCharts">
+          <option value="1" data-i18n="optCharts1"></option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <label for="panelPosition" data-i18n="optPosition">Panel position</label>
+        <select id="panelPosition">
+          <option value="bottom-right" data-i18n="optBR"></option>
+          <option value="bottom-left" data-i18n="optBL"></option>
+          <option value="top-right" data-i18n="optTR"></option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="optPerms">Permissions</legend>
+        <p id="permState" class="help"></p>
+        <button type="button" id="grant" class="secondary" data-i18n="optGrant">Allow on all websites</button>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" class="primary" data-i18n="optSave">Save settings</button>
+        <button type="button" id="reset" class="secondary" data-i18n="optReset">Restore defaults</button>
+        <span id="saved" class="help" aria-live="polite"></span>
+      </div>
+    </form>
+  </main>
+  <script src="../shared/langdetect.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="../shared/settings.js"></script>
+  <script src="../shared/api.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

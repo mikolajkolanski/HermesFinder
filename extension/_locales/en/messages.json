@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "Finds climate claims in news articles and shows what data from NASA, Copernicus, NOAA and other institutions says about them."
+  },
+  "actionTitle": {
+    "message": "Hermes Finder: check a claim"
+  },
+  "cmdDesc": {
+    "message": "Open Hermes Finder"
+  }
+}

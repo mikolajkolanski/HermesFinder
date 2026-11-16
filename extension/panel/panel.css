@@ -1,0 +1,6 @@
+/* Panel w rogu strony: osobny dokument rozszerzenia w ramce, wiec ani CSS, ani CSP
+   strony go nie dotycza. Tokeny wspolne z oknem rozszerzenia (shared/render.js). */
+html, body { margin: 0; padding: 0; background: #ffffff; }
+body { overflow: hidden; }
+.cv-root { display: flex; flex-direction: column; height: 100vh; }
+.cv-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; position: relative; }

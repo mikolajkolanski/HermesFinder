@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "Trova le affermazioni sul clima negli articoli di notizie e mostra cosa dicono i dati di NASA, Copernicus, NOAA e altri istituti."
+  },
+  "actionTitle": {
+    "message": "Hermes Finder: verifica un’affermazione"
+  },
+  "cmdDesc": {
+    "message": "Apri Hermes Finder"
+  }
+}

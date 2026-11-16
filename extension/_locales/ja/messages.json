@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "ニュース記事の気候に関する主張を見つけ、NASA、Copernicus、NOAA などの機関のデータが示す内容を表示します。"
+  },
+  "actionTitle": {
+    "message": "Hermes Finder：主張を確認"
+  },
+  "cmdDesc": {
+    "message": "Hermes Finder を開く"
+  }
+}

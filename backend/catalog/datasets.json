@@ -1,0 +1,863 @@
+{
+ "power_t2m": {
+  "title": "Średnia temperatura powietrza 2 m nad powierzchnią",
+  "title_en": "Air temperature at 2 m (monthly mean)",
+  "description": "Miesięczne i roczne średnie temperatury powietrza na wysokości 2 m nad ziemią dla dowolnego obszaru na świecie (siatka ~0,5°). Reanaliza meteorologiczna CERES/MERRA-2 udostępniana przez NASA POWER. Idealne do tez o ociepleniu klimatu w konkretnym kraju czy regionie.",
+  "description_en": "Monthly/annual mean near-surface air temperature at 2 m for any region on Earth (NASA POWER reanalysis, CERES/MERRA-2).",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "cieplej",
+   "średnia temperatura",
+   "temperatura powietrza",
+   "grzało"
+  ],
+  "keywords_en": [
+   "temperature",
+   "air temperature",
+   "surface temperature",
+   "t2m",
+   "mean temperature",
+   "seasonal temperature"
+  ],
+  "hint_terms": [
+   "temperature",
+   "warming",
+   "heat"
+  ],
+  "variables": [
+   {
+    "id": "T2M",
+    "unit": "°C",
+    "desc": "średnia miesięczna temperatura 2 m"
+   }
+  ],
+  "unit": "°C",
+  "connector": "power",
+  "connector_params": {
+   "parameters": [
+    "T2M"
+   ]
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "NASA POWER (CERES/MERRA-2 reanalysis)",
+   "url": "https://power.larc.nasa.gov/",
+   "dataset_url": "https://power.larc.nasa.gov/data-access-viewer/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "regional_temperature",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "any",
+  "baseline": null,
+  "sanity": {
+   "min": -15,
+   "max": 30
+  },
+  "short": "NASA POWER (MERRA-2)",
+  "is_model": false,
+  "data_type": "reanalysis"
+ },
+ "power_t2m_max": {
+  "title": "Temperatura maksymalna 2 m (dzienne maksimum)",
+  "title_en": "Daily maximum air temperature at 2 m",
+  "description": "Miesięczne średnie z dziennych temperatur maksymalnych na wysokości 2 m. Przydatne do tez o falach upałów, wzroście ekstremów ciepła, rekordowych maksimach dobowych.",
+  "description_en": "Monthly mean of daily maximum air temperature at 2 m (NASA POWER). Useful for heat-wave and extreme-heat theses.",
+  "keywords_pl": [
+   "maksymalna temperatura",
+   "temperatura maksymalna",
+   "upał",
+   "upały",
+   "fala upałów",
+   "rekordy ciepła",
+   "maksimum",
+   "najcieplejszy",
+   "ekstremum",
+   "upały nocą",
+   "upały",
+   "upałach"
+  ],
+  "keywords_en": [
+   "maximum temperature",
+   "max temperature",
+   "heat wave",
+   "heatwave",
+   "extreme heat",
+   "record heat",
+   "daily high"
+  ],
+  "hint_terms": [
+   "temperature",
+   "heat",
+   "extreme"
+  ],
+  "variables": [
+   {
+    "id": "T2M_MAX",
+    "unit": "°C",
+    "desc": "średnia miesięczna z maksimów dobowych"
+   }
+  ],
+  "unit": "°C",
+  "connector": "power",
+  "connector_params": {
+   "parameters": [
+    "T2M_MAX"
+   ]
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "NASA POWER (CERES/MERRA-2 reanalysis)",
+   "url": "https://power.larc.nasa.gov/",
+   "dataset_url": "https://power.larc.nasa.gov/data-access-viewer/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "regional_tmax",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "any",
+  "baseline": null,
+  "sanity": {},
+  "short": "NASA POWER (MERRA-2)",
+  "is_model": false,
+  "data_type": "reanalysis"
+ },
+ "power_t2m_min": {
+  "title": "Temperatura minimalna 2 m (dzienne minimum)",
+  "title_en": "Daily minimum air temperature at 2 m",
+  "description": "Miesięczne średnie z dziennych temperatur minimalnych na wysokości 2 m. Przydatne do tez o łagodnieniu zim, mrozach, przymrozkach i minimalnych ekstremach chłodu.",
+  "description_en": "Monthly mean of daily minimum air temperature at 2 m (NASA POWER). Useful for frost and cold-extreme theses.",
+  "keywords_pl": [
+   "minimalna temperatura",
+   "temperatura minimalna",
+   "mrozy",
+   "mróz",
+   "przymrozki",
+   "zimy",
+   "chłody",
+   "minimum",
+   "najzimniejszy",
+   "fale chłodu",
+   "mrozów",
+   "zima",
+   "łagodne zimy"
+  ],
+  "keywords_en": [
+   "minimum temperature",
+   "min temperature",
+   "frost",
+   "cold wave",
+   "cold snap",
+   "freezing",
+   "daily low"
+  ],
+  "hint_terms": [
+   "temperature",
+   "cold",
+   "frost"
+  ],
+  "variables": [
+   {
+    "id": "T2M_MIN",
+    "unit": "°C",
+    "desc": "średnia miesięczna z minimów dobowych"
+   }
+  ],
+  "unit": "°C",
+  "connector": "power",
+  "connector_params": {
+   "parameters": [
+    "T2M_MIN"
+   ]
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "NASA POWER (CERES/MERRA-2 reanalysis)",
+   "url": "https://power.larc.nasa.gov/",
+   "dataset_url": "https://power.larc.nasa.gov/data-access-viewer/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "regional_tmin",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "any",
+  "baseline": null,
+  "sanity": {},
+  "short": "NASA POWER (MERRA-2)",
+  "is_model": false,
+  "data_type": "reanalysis"
+ },
+ "power_prec": {
+  "title": "Sumy opadów atmosferycznych",
+  "title_en": "Precipitation totals (PRECTOTCORR)",
+  "description": "Miesięczne sumy opadów (korekta MERRA-2) dla dowolnego obszaru. Przydatne do tez o suszach, deszczach, powodziach, zmianie wilgotności klimatu.",
+  "description_en": "Monthly corrected precipitation totals for any region (NASA POWER, MERRA-2).",
+  "keywords_pl": [
+   "opady",
+   "opadów",
+   "deszcz",
+   "deszcze",
+   "deszczowe",
+   "susza",
+   "susz",
+   "powódź",
+   "powodzie",
+   "śnieg",
+   "śniegu",
+   "opadów atmosferycznych",
+   "wilgotność klimatu"
+  ],
+  "keywords_en": [
+   "precipitation",
+   "rain",
+   "rainfall",
+   "drought",
+   "flood",
+   "snow",
+   "snowfall",
+   "wet"
+  ],
+  "hint_terms": [
+   "precipitation",
+   "rain",
+   "drought"
+  ],
+  "variables": [
+   {
+    "id": "PRECTOTCORR",
+    "unit": "mm/dzień",
+    "desc": "średnia dobowa suma opadów w miesiącu"
+   }
+  ],
+  "unit": "mm/dzień",
+  "connector": "power",
+  "connector_params": {
+   "parameters": [
+    "PRECTOTCORR"
+   ]
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "precipitation",
+  "source": {
+   "name": "NASA POWER (MERRA-2 corrected)",
+   "url": "https://power.larc.nasa.gov/",
+   "dataset_url": "https://power.larc.nasa.gov/data-access-viewer/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "regional_precipitation",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "any",
+  "baseline": null,
+  "sanity": {},
+  "short": "NASA POWER (MERRA-2)",
+  "is_model": false,
+  "data_type": "reanalysis"
+ },
+ "power_rh": {
+  "title": "Wilgotność względna powietrza 2 m",
+  "title_en": "Relative humidity at 2 m",
+  "description": "Miesięczna średnia wilgotność względna na wysokości 2 m. Przydatne do tez o wilgotności powietrza, komforcie termicznym, parowaniu.",
+  "description_en": "Monthly mean relative humidity at 2 m (NASA POWER).",
+  "keywords_pl": [
+   "wilgotność",
+   "wilgotności",
+   "wilgotność powietrza",
+   "parowanie",
+   "suchość",
+   "powietrza"
+  ],
+  "keywords_en": [
+   "humidity",
+   "relative humidity",
+   "moisture"
+  ],
+  "hint_terms": [
+   "humidity"
+  ],
+  "variables": [
+   {
+    "id": "RH2M",
+    "unit": "%",
+    "desc": "średnia miesięczna wilgotność względna"
+   }
+  ],
+  "unit": "%",
+  "connector": "power",
+  "connector_params": {
+   "parameters": [
+    "RH2M"
+   ]
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "humidity",
+  "source": {
+   "name": "NASA POWER (MERRA-2)",
+   "url": "https://power.larc.nasa.gov/",
+   "dataset_url": "https://power.larc.nasa.gov/data-access-viewer/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "regional_humidity",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "any",
+  "baseline": null,
+  "sanity": {},
+  "short": "NASA POWER (MERRA-2)",
+  "is_model": false,
+  "data_type": "reanalysis"
+ },
+ "power_wind": {
+  "title": "Prędkość wiatru na wysokości 2 m",
+  "title_en": "Wind speed at 2 m",
+  "description": "Miesięczna średnia prędkość wiatru na wysokości 2 m. Przydatne do tez o zmianach wiatrowości, energetyce wiatrowej.",
+  "description_en": "Monthly mean wind speed at 2 m (NASA POWER).",
+  "keywords_pl": [
+   "wiatr",
+   "wiatru",
+   "wiatrowe",
+   "prędkość wiatru",
+   "wichury",
+   "halny",
+   "zmiennność wiatru"
+  ],
+  "keywords_en": [
+   "wind",
+   "wind speed",
+   "windy",
+   "gales"
+  ],
+  "hint_terms": [
+   "wind"
+  ],
+  "variables": [
+   {
+    "id": "WS2M",
+    "unit": "m/s",
+    "desc": "średnia miesięczna prędkość wiatru"
+   }
+  ],
+  "unit": "m/s",
+  "connector": "power",
+  "connector_params": {
+   "parameters": [
+    "WS2M"
+   ]
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "wind",
+  "source": {
+   "name": "NASA POWER (MERRA-2)",
+   "url": "https://power.larc.nasa.gov/",
+   "dataset_url": "https://power.larc.nasa.gov/data-access-viewer/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "regional_wind",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "any",
+  "baseline": null,
+  "sanity": {},
+  "short": "NASA POWER (MERRA-2)",
+  "is_model": false,
+  "data_type": "reanalysis"
+ },
+ "power_radiation": {
+  "title": "Promieniowanie słoneczne docierające do powierzchni",
+  "title_en": "All-sky surface shortwave radiation",
+  "description": "Miesięczne średnie całkowite promieniowanie krótkofalowe (all-sky) na powierzchni. Przydatne do tez o nasłonecznieniu, zachmurzeniu, energetyce fotowoltaicznej.",
+  "description_en": "Monthly all-sky surface shortwave irradiance (NASA POWER).",
+  "keywords_pl": [
+   "nasłonecznienie",
+   "promieniowanie słoneczne",
+   "słońca",
+   "słońce",
+   "zachmurzenie",
+   "insolacja",
+   "fotowoltaika",
+   "promieniowania"
+  ],
+  "keywords_en": [
+   "solar radiation",
+   "sunlight",
+   "insolation",
+   "sunshine",
+   "cloudiness",
+   "solar"
+  ],
+  "hint_terms": [
+   "radiation",
+   "sunlight"
+  ],
+  "variables": [
+   {
+    "id": "ALLSKY_SFC_SW_DWN",
+    "unit": "MJ/m²/dzień",
+    "desc": "całkowite promieniowanie krótkofalowe padające do powierzchni, all-sky (MJ/m²/dzień)"
+   }
+  ],
+  "unit": "MJ/m²/dzień",
+  "connector": "power",
+  "connector_params": {
+   "parameters": [
+    "ALLSKY_SFC_SW_DWN"
+   ]
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "radiation",
+  "source": {
+   "name": "NASA POWER (CERES/MERRA-2)",
+   "url": "https://power.larc.nasa.gov/",
+   "dataset_url": "https://power.larc.nasa.gov/data-access-viewer/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "regional_radiation",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "any",
+  "baseline": null,
+  "sanity": {},
+  "short": "NASA POWER (MERRA-2)",
+  "is_model": false,
+  "data_type": "reanalysis"
+ },
+ "gistemp_global": {
+  "title": "Globalna anomalia temperatury (GISTEMP v4: lądy + oceany)",
+  "title_en": "Global land-ocean temperature anomaly (GISTEMP v4)",
+  "description": "Miesięczne i roczne anomalie łącznej temperatury powierzchni lądów i oceanów względem średniej 1951–1980. Klasyczny wskaźnik globalnego ocieplenia tworzony przez NASA GISS na bazie pomiarów stacji i sondowań morskich.",
+  "description_en": "Monthly/annual combined land-ocean surface temperature anomaly relative to 1951-1980 (NASA GISS GISTEMP v4).",
+  "keywords_pl": [
+   "globalna temperatura",
+   "globalne ocieplenie",
+   "anomalia temperatury",
+   "średnia globalna",
+   "na świecie",
+   "glob",
+   "planeta",
+   "ziemia",
+   "rekordy ciepła",
+   "najcieplejszy rok",
+   "globalnego ocieplenia",
+   "ocieplenia klimatu"
+  ],
+  "keywords_en": [
+   "global temperature",
+   "global warming",
+   "temperature anomaly",
+   "mean global temperature",
+   "hottest year",
+   "record",
+   "climate change"
+  ],
+  "hint_terms": [
+   "global temperature",
+   "global warming"
+  ],
+  "variables": [
+   {
+    "id": "J-D",
+    "unit": "°C",
+    "desc": "roczna anomalia względem 1951–1980"
+   }
+  ],
+  "unit": "°C (anomalia wzgl. 1951–1980)",
+  "connector": "gistemp",
+  "connector_params": {
+   "zone": "global"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1880,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "global_temp",
+  "source": {
+   "name": "NASA GISTEMP v4 (GISS Surface Temperature Analysis)",
+   "url": "https://data.giss.nasa.gov/gistemp/",
+   "dataset_url": "https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "global_temperature",
+  "kind": "anomaly",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "baseline": "1951–1980",
+  "sanity": {
+   "min": -1.0,
+   "max": 1.8
+  },
+  "short": "NASA GISTEMP v4",
+  "is_model": false,
+  "data_type": "analysis"
+ },
+ "gistemp_nh": {
+  "title": "Anomalia temperatury półkuli północnej (GISTEMP v4)",
+  "title_en": "Northern hemisphere temperature anomaly (GISTEMP v4)",
+  "description": "Miesięczne i roczne anomalie temperatury powierzchni półkuli północnej względem średniej 1951–1980. Przydatne do tez o ociepleniu szybszym na półkuli północnej (większy udział lądów).",
+  "description_en": "Monthly/annual Northern Hemisphere surface temperature anomaly relative to 1951-1980 (NASA GISS GISTEMP v4).",
+  "keywords_pl": [
+   "półkula północna",
+   "półkuli północnej",
+   "hemisfera północna",
+   "nh"
+  ],
+  "keywords_en": [
+   "northern hemisphere",
+   "nh temperature"
+  ],
+  "hint_terms": [
+   "global temperature",
+   "northern hemisphere"
+  ],
+  "variables": [
+   {
+    "id": "J-D",
+    "unit": "°C",
+    "desc": "roczna anomalia półkuli północnej"
+   }
+  ],
+  "unit": "°C (anomalia wzgl. 1951–1980)",
+  "connector": "gistemp",
+  "connector_params": {
+   "zone": "nh"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1880,
+   "end": null,
+   "resolution": "miesięczna"
+  },
+  "category": "global_temp",
+  "source": {
+   "name": "NASA GISTEMP v4 (GISS Surface Temperature Analysis)",
+   "url": "https://data.giss.nasa.gov/gistemp/",
+   "dataset_url": "https://data.giss.nasa.gov/gistemp/tabledata_v4/NH.Ts+dSST.csv"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "nh_temperature",
+  "kind": "anomaly",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "baseline": "1951–1980",
+  "sanity": {
+   "min": -1.5,
+   "max": 2.5
+  },
+  "short": "NASA GISTEMP v4 (półkula N)",
+  "is_model": false,
+  "data_type": "analysis"
+ },
+ "co2": {
+  "title": "Stężenie dwutlenku węgla CO₂ w atmosferze (Mauna Loa)",
+  "title_en": "Atmospheric CO₂ concentration (Mauna Loa)",
+  "description": "Roczne średnie stężenie CO₂ w atmosferze mierzone na obserwatorium Mauna Loa (Hawaje). Dane serwowane przez NASA na stronie Vital Signs of the Planet (źródło pomiarów: NOAA GML). Kluczowy wskaźnik emisji gazów cieplarnianych.",
+  "description_en": "Annual mean atmospheric CO₂ at Mauna Loa, served by NASA Vital Signs (measurements by NOAA GML).",
+  "keywords_pl": [
+   "co2",
+   "dwutlenek węgla",
+   "dwutlenku węgla",
+   "emisje",
+   "emisji",
+   "gazy cieplarniane",
+   "gazów cieplarnianych",
+   "greenhouse",
+   "słynne wykresy",
+   "mauna loa",
+   "spalanie paliw"
+  ],
+  "keywords_en": [
+   "co2",
+   "carbon dioxide",
+   "greenhouse gases",
+   "emissions",
+   "keeling",
+   "mauna loa"
+  ],
+  "hint_terms": [
+   "co2",
+   "greenhouse"
+  ],
+  "variables": [
+   {
+    "id": "co2",
+    "unit": "ppm",
+    "desc": "roczne średnie stężenie CO₂"
+   }
+  ],
+  "unit": "ppm",
+  "connector": "co2",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1959,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "NASA Vital Signs (dane: NOAA GML, Mauna Loa)",
+   "url": "https://science.nasa.gov/climate-change/vital-signs/carbon-dioxide/",
+   "dataset_url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.csv"
+  },
+  "provider": {
+   "org": "NOAA GML (via NASA Vital Signs)",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "co2",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "baseline": null,
+  "sanity": {
+   "min": 310,
+   "max": 450
+  },
+  "short": "NOAA/NASA Mauna Loa",
+  "is_model": false,
+  "data_type": "observation"
+ },
+ "sea_level": {
+  "title": "Globalny poziom morza (satelitarna altymetria)",
+  "title_en": "Global mean sea level (satellite altimetry)",
+  "description": "Zmiany globalnego średniego poziomu morza mierzone satelitarno (TOPEX/Poseidon, Jason, Sentinel-6) od 1993 r., względem poziomu z 1993 r. Dane publikowane przez NASA na stronie Vital Signs of the Planet. Przydatne do tez o podnoszeniu się oceanów i topnieniu lądolodów.",
+  "description_en": "Global mean sea level change from satellite altimetry since 1993 (NASA Vital Signs).",
+  "keywords_pl": [
+   "poziom morza",
+   "poziomu morza",
+   "podnoszenie się oceanów",
+   "oceanów",
+   "morza",
+   "marine",
+   "wzrost poziomu",
+   "podniesienie poziomu",
+   "altymetria",
+   "lądolody",
+   "lądolodów",
+   "grenlandia",
+   "grenlandii",
+   "topnienie lądolodów",
+   "poziom oceanów",
+   "podnoszenie się poziomu morza"
+  ],
+  "keywords_en": [
+   "sea level",
+   "ocean level",
+   "sea level rise",
+   "altimetry",
+   "ocean rise"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "gmsl",
+    "unit": "mm",
+    "desc": "zmiana globalnego poziomu morza wzgl. 1993"
+   }
+  ],
+  "unit": "mm (wzgl. 1993)",
+  "connector": "sea_level",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1993,
+   "end": null,
+   "resolution": "roczna (agregacja z pomiarów satelitarnych)"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "NASA Vital Signs of the Planet — Global Mean Sea Level",
+   "url": "https://sealevel.nasa.gov/vital-signs/global-mean-sea-level",
+   "dataset_url": "https://science.nasa.gov/earth/explore/earth-indicators/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "sea_level",
+  "kind": "anomaly",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "baseline": null,
+  "sanity": {
+   "min": -20,
+   "max": 160
+  },
+  "short": "NASA altymetria",
+  "is_model": false,
+  "data_type": "observation"
+ },
+ "arctic_ice": {
+  "title": "Zasięg lodu morskiego w Arktyce (wrzesień)",
+  "title_en": "Arctic sea ice extent (September minimum)",
+  "description": "Miesięczny zasięg lodu morskiego w Arktyce — klasycznie analizowany we wrześniu (koniec sezonu topnienia, minimum roczne). Dane Sea Ice Index (NSIDC/NASA). Przydatne do tez o topnieniu arktycznego lodu morskiego. Dostępne też inne miesiące.",
+  "description_en": "Monthly Arctic sea ice extent from the Sea Ice Index (NSIDC, NASA DAAC); September minimum is the classic indicator.",
+  "keywords_pl": [
+   "lód",
+   "lodu",
+   "lody",
+   "lodowce",
+   "lód arktyczny",
+   "arktyki",
+   "morze arktyczne",
+   "topnienie lodów",
+   "polarny",
+   "biegun",
+   "biegunów",
+   "grenlandia",
+   "grenlandii",
+   "arktyce",
+   "arktyczny",
+   "wrzesień",
+   "wrześniu"
+  ],
+  "keywords_en": [
+   "sea ice",
+   "arctic ice",
+   "ice extent",
+   "ice melting",
+   "polar",
+   "glacier",
+   "north pole"
+  ],
+  "hint_terms": [
+   "sea ice",
+   "arctic"
+  ],
+  "variables": [
+   {
+    "id": "extent",
+    "unit": "mln km²",
+    "desc": "zasięg lodu morskiego"
+   }
+  ],
+  "unit": "mln km²",
+  "connector": "arctic_ice",
+  "connector_params": {
+   "pole": "north",
+   "month": 9
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1979,
+   "end": null,
+   "resolution": "miesięczna (domyślnie wrzesień)"
+  },
+  "category": "sea_ice",
+  "source": {
+   "name": "NSIDC Sea Ice Index (NASA DAAC)",
+   "url": "https://nsidc.org/data/seaice_index/",
+   "dataset_url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "arctic_sea_ice",
+  "kind": "absolute",
+  "body": "earth",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "baseline": null,
+  "sanity": {
+   "min": 2.5,
+   "max": 9.0
+  },
+  "short": "NSIDC (NASA DAAC)",
+  "is_model": false,
+  "data_type": "observation"
+ }
+}

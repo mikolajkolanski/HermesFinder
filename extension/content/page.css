@@ -1,0 +1,51 @@
+/* Zaznaczenie tez na stronie. Plik deklarowany w manifescie (content_scripts.css),
+   wiec przegladarka wstrzykuje go niezaleznie od CSP strony.
+   Subtelnie: kropkowane podkreslenie w kolorze dopasowanym do tekstu strony
+   + mala kropka na koncu tezy (sygnal "kliknij"); wyrazniej dopiero po najechaniu.
+   `all: unset` neutralizuje style strony dla <mark> (np. zolte tlo). */
+
+mark.cv-claim {
+  all: unset !important;
+  cursor: pointer !important;
+  border-radius: 2px !important;
+  text-decoration-line: underline !important;
+  text-decoration-style: dotted !important;
+  text-decoration-thickness: 1.5px !important;
+  text-underline-offset: 0.24em !important;
+  text-decoration-skip-ink: auto !important;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, #3d7bd9) !important;
+  transition: background-color 0.15s ease !important;
+}
+
+mark.cv-claim.cv-background {
+  text-decoration-line: none !important;
+  background-color: color-mix(in srgb, #3d7bd9 9%, transparent) !important;
+}
+
+mark.cv-claim:hover,
+mark.cv-claim.cv-active {
+  text-decoration-style: solid !important;
+  background-color: color-mix(in srgb, #3d7bd9 13%, transparent) !important;
+}
+
+/* kropka na koncu tezy */
+mark.cv-claim.cv-end::after {
+  content: "" !important;
+  display: inline-block !important;
+  width: 0.36em !important;
+  height: 0.36em !important;
+  margin: 0 0 0.12em 0.28em !important;
+  border-radius: 50% !important;
+  vertical-align: middle !important;
+  background: color-mix(in srgb, currentColor 30%, #3d7bd9) !important;
+  opacity: 0.85 !important;
+}
+
+mark.cv-claim:focus-visible {
+  outline: 2px solid #3d7bd9 !important;
+  outline-offset: 2px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  mark.cv-claim { transition: none !important; }
+}

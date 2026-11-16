@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hermes Finder</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="cv-root">
+    <div id="stripes"></div>
+    <main class="wrap">
+      <form id="askForm" class="ask">
+        <label for="q" data-i18n="claimToCheck">Claim to check</label>
+        <textarea id="q" rows="3" maxlength="600" data-i18n-ph="placeholder"></textarea>
+        <div class="row">
+          <button id="go" type="submit" class="btn" data-i18n="checkData">Check the data</button>
+          <span class="hint" data-i18n="orEnter">or press Enter</span>
+        </div>
+      </form>
+
+      <section id="result" class="result" aria-live="polite"></section>
+
+      <section id="pageClaims" class="claims hidden">
+        <h2 data-i18n="claimsFound">Claims found on this page</h2>
+        <ul id="claimList"></ul>
+        <button id="rescan" type="button" class="link" data-i18n="rescan">Scan the page again</button>
+      </section>
+      <p id="noClaims" class="muted hidden">
+        <span data-i18n="noClaims">No climate claims found on this page.</span>
+        <button id="rescan2" type="button" class="link" data-i18n="scanAnyway">Scan anyway</button>
+      </p>
+    </main>
+    <footer class="foot">
+      <span id="status" class="muted"></span>
+      <button id="openOptions" type="button" class="link" data-i18n="settings">Settings</button>
+    </footer>
+  </div>
+  <script src="../shared/langdetect.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="../shared/settings.js"></script>
+  <script src="../shared/render.js"></script>
+  <script src="../shared/api.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

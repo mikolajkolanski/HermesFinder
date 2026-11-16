@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "Знаходить твердження про клімат у новинах і показує, що про них кажуть дані NASA, Copernicus, NOAA та інших установ."
+  },
+  "actionTitle": {
+    "message": "Hermes Finder: перевірити твердження"
+  },
+  "cmdDesc": {
+    "message": "Відкрити Hermes Finder"
+  }
+}

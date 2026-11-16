@@ -1,0 +1,3107 @@
+{
+ "generated_at": "2026-11-14T23:00:28.955172+00:00",
+ "n_datasets": 61,
+ "n_ok": 61,
+ "datasets": {
+  "power_t2m": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Air temperature at 2 m (monthly mean)",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 5.8, max 10.4 (allowed -15…30)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "power_t2m_max": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Daily maximum air temperature at 2 m",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "power_t2m_min": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Daily minimum air temperature at 2 m",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "power_prec": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Precipitation totals (PRECTOTCORR)",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "power_rh": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Relative humidity at 2 m",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "power_wind": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Wind speed at 2 m",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "power_radiation": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "All-sky surface shortwave radiation",
+   "n_points": 42,
+   "range": [
+    1984,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "42 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1984–2025",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "gistemp_global": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Global land-ocean temperature anomaly (GISTEMP v4)",
+   "n_points": 146,
+   "range": [
+    1880,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "146 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1880–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.48, max 1.28 (allowed -1.0…1.8)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "gistemp_nh": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Northern hemisphere temperature anomaly (GISTEMP v4)",
+   "n_points": 146,
+   "range": [
+    1880,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "146 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1880–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.58, max 1.65 (allowed -1.5…2.5)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "co2": {
+   "ok": true,
+   "error": null,
+   "provider": "NOAA GML (via NASA Vital Signs)",
+   "title": "Atmospheric CO₂ concentration (Mauna Loa)",
+   "n_points": 67,
+   "range": [
+    1959,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "67 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1959–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 316, max 427 (allowed 310…450)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "sea_level": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Global mean sea level (satellite altimetry)",
+   "n_points": 33,
+   "range": [
+    1993,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "33 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1993–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0, max 101 (allowed -20…160)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "arctic_ice": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Arctic sea ice extent (September minimum)",
+   "n_points": 47,
+   "range": [
+    1979,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "47 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1979–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 3.57, max 7.67 (allowed 2.5…9.0)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "noaa_global_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "NOAA",
+   "title": "Global land+ocean temperature anomaly (NOAA NOAAGlobalTemp)",
+   "n_points": 176,
+   "range": [
+    1850,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "176 (min. 150)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1850–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.42, max 1.26 (allowed -1.0…2.2)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "hadcrut5": {
+   "ok": true,
+   "error": null,
+   "provider": "Met Office Hadley Centre / UEA CRU",
+   "title": "Global temperature anomaly (Met Office HadCRUT5)",
+   "n_points": 176,
+   "range": [
+    1850,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "176 (min. 150)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1850–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.597, max 1.17 (allowed -1.0…2.2)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "berkeley_global": {
+   "ok": true,
+   "error": null,
+   "provider": "Berkeley Earth",
+   "title": "Global land+ocean temperature anomaly (Berkeley Earth)",
+   "n_points": 175,
+   "range": [
+    1850,
+    2024
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "175 (min. 150)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1850–2024",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.554, max 1.31 (allowed -1.0…2.2)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2024 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "jma_global": {
+   "ok": true,
+   "error": null,
+   "provider": "JMA (Japan Meteorological Agency)",
+   "title": "Global temperature anomaly (Japan Meteorological Agency)",
+   "n_points": 135,
+   "range": [
+    1891,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "135 (min. 100)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1891–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.94, max 0.63 (allowed -1.0…1.5)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "era5_global_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "Copernicus C3S / ECMWF (UE, ESA)",
+   "title": "Global 2 m air temperature (Copernicus ERA5)",
+   "n_points": 86,
+   "range": [
+    1940,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "86 (min. 70)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1940–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.848, max 0.719 (allowed -1.0…1.5)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "noaa_ocean_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "NOAA",
+   "title": "Global ocean temperature anomaly (NOAA ERSST)",
+   "n_points": 176,
+   "range": [
+    1850,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "176 (min. 150)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1850–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.39, max 0.95 (allowed -1.0…1.6)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "oisst_sst": {
+   "ok": true,
+   "error": null,
+   "provider": "Climate Reanalyzer, University of Maine",
+   "title": "Sea surface temperature 60S–60N (NOAA OISST via Climate Reanalyzer)",
+   "n_points": 42,
+   "range": [
+    1982,
+    2023
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "42 (min. 35)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1982–2023",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 19.9, max 20.9 (allowed 19.0…22.5)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2023 (required ≥ 2022)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "era5_sst": {
+   "ok": true,
+   "error": null,
+   "provider": "Copernicus C3S / ECMWF (UE, ESA)",
+   "title": "Sea surface temperature 60S–60N (Copernicus ERA5)",
+   "n_points": 45,
+   "range": [
+    1979,
+    2023
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 40)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1979–2023",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -0.34, max 0.445 (allowed -0.7…1.0)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2023 (required ≥ 2022)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "noaa_co2_global": {
+   "ok": true,
+   "error": null,
+   "provider": "NOAA",
+   "title": "Global mean atmospheric CO2 (NOAA GML)",
+   "n_points": 47,
+   "range": [
+    1979,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "47 (min. 40)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1979–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 337, max 426 (allowed 330…450)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "noaa_ch4_global": {
+   "ok": true,
+   "error": null,
+   "provider": "NOAA",
+   "title": "Global mean atmospheric methane (NOAA GML)",
+   "n_points": 42,
+   "range": [
+    1984,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "42 (min. 35)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1984–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 1.64e+03, max 1.94e+03 (allowed 1600…2100)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "noaa_n2o_global": {
+   "ok": true,
+   "error": null,
+   "provider": "NOAA",
+   "title": "Global mean atmospheric nitrous oxide (NOAA GML)",
+   "n_points": 25,
+   "range": [
+    2001,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "25 (min. 20)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "2001–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 316, max 339 (allowed 310…345)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "noaa_star_sea_level": {
+   "ok": true,
+   "error": null,
+   "provider": "NOAA",
+   "title": "Global mean sea level — satellite altimetry (NOAA LSA)",
+   "n_points": 32,
+   "range": [
+    1993,
+    2024
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "32 (min. 25)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1993–2024",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -19.5, max 83.3 (allowed -40…160)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2024 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "csiro_sea_level": {
+   "ok": true,
+   "error": null,
+   "provider": "CSIRO",
+   "title": "Global mean sea level — reconstruction (CSIRO, Church & White)",
+   "n_points": 134,
+   "range": [
+    1880,
+    2013
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "134 (min. 120)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1880–2013",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -170, max 76.1 (allowed -230…100)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2013 (required ≥ 2012)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "uhslc_sea_level": {
+   "ok": true,
+   "error": null,
+   "provider": "University of Hawaii Sea Level Center",
+   "title": "Global mean sea level — tide gauges (University of Hawaii Sea Level Center)",
+   "n_points": 51,
+   "range": [
+    1970,
+    2020
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "51 (min. 40)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1970–2020",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -67.3, max 66 (allowed -250…120)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2020 (required ≥ 2019)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "psmsl_1": {
+   "ok": true,
+   "error": null,
+   "provider": "PSMSL / National Oceanography Centre",
+   "title": "Relative sea level — tide gauge Brest (Francja) (PSMSL)",
+   "n_points": 187,
+   "range": [
+    1807,
+    2023
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "187 (min. 50)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1807–2023",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": false,
+     "detail": "last year 2023 (required ≥ 2024)",
+     "level": "warning"
+    },
+    {
+     "check": "continuity",
+     "ok": false,
+     "detail": "missing years: 30",
+     "level": "warning"
+    }
+   ]
+  },
+  "psmsl_64": {
+   "ok": true,
+   "error": null,
+   "provider": "PSMSL / National Oceanography Centre",
+   "title": "Relative sea level — tide gauge Gdańsk Nowy Port (PSMSL)",
+   "n_points": 49,
+   "range": [
+    1951,
+    1999
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "49 (min. 40)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1951–1999",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 1999 (required ≥ 1998)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "psmsl_2": {
+   "ok": true,
+   "error": null,
+   "provider": "PSMSL / National Oceanography Centre",
+   "title": "Relative sea level — tide gauge Świnoujście (PSMSL)",
+   "n_points": 181,
+   "range": [
+    1811,
+    1999
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "181 (min. 50)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1811–1999",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 1999 (required ≥ 1998)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 8",
+     "level": "ok"
+    }
+   ]
+  },
+  "psmsl_78": {
+   "ok": true,
+   "error": null,
+   "provider": "PSMSL / National Oceanography Centre",
+   "title": "Relative sea level — tide gauge Sztokholm (PSMSL)",
+   "n_points": 136,
+   "range": [
+    1889,
+    2024
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "136 (min. 50)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1889–2024",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2024 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "psmsl_202": {
+   "ok": true,
+   "error": null,
+   "provider": "PSMSL / National Oceanography Centre",
+   "title": "Relative sea level — tide gauge Newlyn (UK) (PSMSL)",
+   "n_points": 104,
+   "range": [
+    1916,
+    2024
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "104 (min. 50)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1916–2024",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2024 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 5",
+     "level": "ok"
+    }
+   ]
+  },
+  "psmsl_12": {
+   "ok": true,
+   "error": null,
+   "provider": "PSMSL / National Oceanography Centre",
+   "title": "Relative sea level — tide gauge Nowy Jork (Battery) (PSMSL)",
+   "n_points": 152,
+   "range": [
+    1856,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "152 (min. 50)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1856–2025",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": false,
+     "detail": "missing years: 18",
+     "level": "warning"
+    }
+   ]
+  },
+  "psmsl_155": {
+   "ok": true,
+   "error": null,
+   "provider": "PSMSL / National Oceanography Centre",
+   "title": "Relative sea level — tide gauge Honolulu (PSMSL)",
+   "n_points": 121,
+   "range": [
+    1905,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "121 (min. 50)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1905–2025",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "psmsl_196": {
+   "ok": true,
+   "error": null,
+   "provider": "PSMSL / National Oceanography Centre",
+   "title": "Relative sea level — tide gauge Sydney (PSMSL)",
+   "n_points": 107,
+   "range": [
+    1915,
+    2024
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "107 (min. 50)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1915–2024",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2024 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 3",
+     "level": "ok"
+    }
+   ]
+  },
+  "arctic_ice_south": {
+   "ok": true,
+   "error": null,
+   "provider": "NSIDC (NOAA/NASA DAAC)",
+   "title": "Antarctic sea ice extent (September)",
+   "n_points": 47,
+   "range": [
+    1979,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "47 (min. 35)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1979–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 16.9, max 19.8 (allowed 14.0…21.0)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "sunspots_silso": {
+   "ok": true,
+   "error": null,
+   "provider": "SILSO, Royal Observatory of Belgium",
+   "title": "Annual sunspot number (SILSO)",
+   "n_points": 326,
+   "range": [
+    1700,
+    2025
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "326 (min. 250)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1700–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 0, max 269 (allowed 0…300)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "berkeley_region_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "Berkeley Earth",
+   "title": "Country/continent land temperature anomaly — Berkeley Earth",
+   "n_points": 171,
+   "range": [
+    1850,
+    2020
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "171 (min. 100)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1850–2020",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -2.17, max 2.62 (allowed -4…6)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2020 (required ≥ 2019)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "owid_era5_temp_anomaly": {
+   "ok": true,
+   "error": null,
+   "provider": "Copernicus ERA5 (compiled by Our World in Data)",
+   "title": "Country temperature anomaly — ERA5 (Copernicus via Our World in Data)",
+   "n_points": 86,
+   "range": [
+    1940,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "86 (min. 70)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1940–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -3.35, max 2.19 (allowed -4…5)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "owid_co2_emissions": {
+   "ok": true,
+   "error": null,
+   "provider": "Global Carbon Project (via OWID)",
+   "title": "Annual CO2 emissions (Global Carbon Project)",
+   "n_points": 76,
+   "range": [
+    1950,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "76 (min. 60)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1950–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 112, max 469 (allowed 0…15000)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "owid_ghg_total": {
+   "ok": true,
+   "error": null,
+   "provider": "Climate Watch / WRI (compiled by Our World in Data)",
+   "title": "Total greenhouse gas emissions incl. land use (Climate Watch via OWID)",
+   "n_points": 175,
+   "range": [
+    1850,
+    2024
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "175 (min. 25)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1850–2024",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 26.6, max 664 (allowed -500…70000)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2024 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "eurostat_ghg": {
+   "ok": true,
+   "error": null,
+   "provider": "Eurostat (European Commission)",
+   "title": "Greenhouse gas emissions (Eurostat)",
+   "n_points": 35,
+   "range": [
+    1990,
+    2024
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "35 (min. 25)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1990–2024",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 341, max 476 (allowed 1…5500)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2024 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "owid_co2_per_capita": {
+   "ok": true,
+   "error": null,
+   "provider": "Global Carbon Project (via OWID)",
+   "title": "CO2 emissions per capita (Global Carbon Project)",
+   "n_points": 76,
+   "range": [
+    1950,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "76 (min. 60)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1950–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 4.52, max 12.9 (allowed 0…40)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "owid_renewables_share": {
+   "ok": true,
+   "error": null,
+   "provider": "Ember (via OWID)",
+   "title": "Renewables share of electricity (Ember via OWID)",
+   "n_points": 26,
+   "range": [
+    2000,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "26 (min. 15)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "2000–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 1.5, max 31.5 (allowed 0…100)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "mars_rems_max_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "title": "Mars: daily maximum air temperature — Curiosity REMS (NASA/CAB)",
+   "n_points": 24,
+   "range": [
+    7.5,
+    352.5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "24 (min. 20)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "7.5–352.5",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -27.3, max -0.807 (allowed -60…40)",
+     "level": "ok"
+    }
+   ]
+  },
+  "mars_mcd_max_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "LMD / CNES / Open Univ. / IAA / ESA (Mars Climate Database)",
+   "title": "Mars: daily maximum air temperature — Mars Climate Database (ESA/CNES)",
+   "n_points": 12,
+   "range": [
+    7.5,
+    337.5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "12 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "7.5–337.5",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -37, max -13.5 (allowed -80…40)",
+     "level": "ok"
+    }
+   ]
+  },
+  "mars_rems_min_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "title": "Mars: daily minimum air temperature — Curiosity REMS (NASA/CAB)",
+   "n_points": 24,
+   "range": [
+    7.5,
+    352.5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "24 (min. 20)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "7.5–352.5",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -81.8, max -68.5 (allowed -120…0)",
+     "level": "ok"
+    }
+   ]
+  },
+  "mars_mcd_min_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "LMD / CNES / Open Univ. / IAA / ESA (Mars Climate Database)",
+   "title": "Mars: daily minimum air temperature — Mars Climate Database (ESA/CNES)",
+   "n_points": 12,
+   "range": [
+    7.5,
+    337.5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "12 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "7.5–337.5",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -87.5, max -75.3 (allowed -140…0)",
+     "level": "ok"
+    }
+   ]
+  },
+  "mars_rems_pressure": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "title": "Mars: atmospheric pressure — Curiosity REMS (NASA/CAB)",
+   "n_points": 24,
+   "range": [
+    7.5,
+    352.5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "24 (min. 20)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "7.5–352.5",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 713, max 882 (allowed 600…1000)",
+     "level": "ok"
+    }
+   ]
+  },
+  "mars_mcd_pressure": {
+   "ok": true,
+   "error": null,
+   "provider": "LMD / CNES / Open Univ. / IAA / ESA (Mars Climate Database)",
+   "title": "Mars: atmospheric pressure — Mars Climate Database (ESA/CNES)",
+   "n_points": 12,
+   "range": [
+    7.5,
+    337.5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "12 (min. 10)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "7.5–337.5",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 725, max 910 (allowed 500…1100)",
+     "level": "ok"
+    }
+   ]
+  },
+  "mars_rems_max_gts_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "title": "Mars: daily maximum ground temperature — Curiosity REMS",
+   "n_points": 24,
+   "range": [
+    7.5,
+    352.5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "24 (min. 20)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "7.5–352.5",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -9.86, max 12.9 (allowed -40…60)",
+     "level": "ok"
+    }
+   ]
+  },
+  "mars_rems_min_gts_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "title": "Mars: daily minimum ground temperature — Curiosity REMS",
+   "n_points": 24,
+   "range": [
+    7.5,
+    352.5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "24 (min. 20)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "7.5–352.5",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min -88.7, max -72.6 (allowed -120…0)",
+     "level": "ok"
+    }
+   ]
+  },
+  "planet_mean_temp": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Mean temperature of the planets (NASA Planetary Fact Sheet)",
+   "n_points": 10,
+   "range": [
+    0,
+    9
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "10 (min. 5)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "0–9",
+     "level": "ok"
+    }
+   ]
+  },
+  "planet_gravity": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Surface gravity of the planets (NASA Planetary Fact Sheet)",
+   "n_points": 10,
+   "range": [
+    0,
+    9
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "10 (min. 5)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "0–9",
+     "level": "ok"
+    }
+   ]
+  },
+  "planet_distance_sun": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Distance of the planets from the Sun (NASA Planetary Fact Sheet)",
+   "n_points": 10,
+   "range": [
+    0,
+    9
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "10 (min. 5)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "0–9",
+     "level": "ok"
+    }
+   ]
+  },
+  "planet_day_length": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Length of day on the planets (NASA Planetary Fact Sheet)",
+   "n_points": 10,
+   "range": [
+    0,
+    9
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "10 (min. 5)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "0–9",
+     "level": "ok"
+    }
+   ]
+  },
+  "planet_surface_pressure": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Surface pressure of the planets (NASA Planetary Fact Sheet)",
+   "n_points": 6,
+   "range": [
+    0,
+    5
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "6 (min. 5)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "0–5",
+     "level": "ok"
+    }
+   ]
+  },
+  "planet_orbital_period": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Orbital period of the planets (NASA Planetary Fact Sheet)",
+   "n_points": 10,
+   "range": [
+    0,
+    9
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "10 (min. 5)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "0–9",
+     "level": "ok"
+    }
+   ]
+  },
+  "planet_diameter": {
+   "ok": true,
+   "error": null,
+   "provider": "NASA",
+   "title": "Diameter of the planets (NASA Planetary Fact Sheet)",
+   "n_points": 10,
+   "range": [
+    0,
+    9
+   ],
+   "test_region": null,
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "10 (min. 5)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "0–9",
+     "level": "ok"
+    }
+   ]
+  },
+  "openmeteo_era5_t2m": {
+   "ok": true,
+   "error": null,
+   "provider": "Open-Meteo (ECMWF ERA5 data)",
+   "title": "Air temperature 2 m — ERA5 reanalysis (Open-Meteo)",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 35)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 6.87, max 11.4 (allowed -15…30)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "openmeteo_era5land_t2m": {
+   "ok": true,
+   "error": null,
+   "provider": "Open-Meteo (ECMWF ERA5 data)",
+   "title": "Air temperature 2 m — ERA5-Land (Open-Meteo)",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 35)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 6.86, max 11.5 (allowed -15…30)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  },
+  "openmeteo_era5_prec": {
+   "ok": true,
+   "error": null,
+   "provider": "Open-Meteo (ECMWF ERA5 data)",
+   "title": "Precipitation — ERA5 (Open-Meteo)",
+   "n_points": 45,
+   "range": [
+    1981,
+    2025
+   ],
+   "test_region": "Poland",
+   "checks": [
+    {
+     "check": "number of points",
+     "ok": true,
+     "detail": "45 (min. 35)",
+     "level": "ok"
+    },
+    {
+     "check": "finite values",
+     "ok": true,
+     "detail": "no NaN/inf",
+     "level": "ok"
+    },
+    {
+     "check": "increasing axis, no duplicates",
+     "ok": true,
+     "detail": "1981–2025",
+     "level": "ok"
+    },
+    {
+     "check": "plausible range",
+     "ok": true,
+     "detail": "min 1.16, max 2.31 (allowed 0…15)",
+     "level": "ok"
+    },
+    {
+     "check": "up to date",
+     "ok": true,
+     "detail": "last year 2025 (required ≥ 2024)",
+     "level": "ok"
+    },
+    {
+     "check": "continuity",
+     "ok": true,
+     "detail": "missing years: 0",
+     "level": "ok"
+    }
+   ]
+  }
+ },
+ "cross_checks": [
+  {
+   "topic": "regional_temperature",
+   "baseline": [
+    1991,
+    2020
+   ],
+   "threshold": [
+    0.9,
+    0.45
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "power_t2m",
+     "b": "berkeley_region_temp",
+     "n_common": 40,
+     "r": 0.991,
+     "rmse": 0.137,
+     "ok": true
+    },
+    {
+     "a": "power_t2m",
+     "b": "owid_era5_temp_anomaly",
+     "n_common": 45,
+     "r": 0.991,
+     "rmse": 0.149,
+     "ok": true
+    },
+    {
+     "a": "power_t2m",
+     "b": "openmeteo_era5_t2m",
+     "n_common": 45,
+     "r": 0.988,
+     "rmse": 0.159,
+     "ok": true
+    },
+    {
+     "a": "power_t2m",
+     "b": "openmeteo_era5land_t2m",
+     "n_common": 45,
+     "r": 0.99,
+     "rmse": 0.15,
+     "ok": true
+    }
+   ]
+  },
+  {
+   "topic": "regional_precipitation",
+   "baseline": null,
+   "threshold": [
+    0.6,
+    0.5
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "power_prec",
+     "b": "openmeteo_era5_prec",
+     "n_common": 45,
+     "r": 0.85,
+     "rmse": 0.228,
+     "ok": true
+    }
+   ]
+  },
+  {
+   "topic": "global_temperature",
+   "baseline": [
+    1991,
+    2020
+   ],
+   "threshold": [
+    0.95,
+    0.12
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "gistemp_global",
+     "b": "noaa_global_temp",
+     "n_common": 146,
+     "r": 0.998,
+     "rmse": 0.039,
+     "ok": true
+    },
+    {
+     "a": "gistemp_global",
+     "b": "hadcrut5",
+     "n_common": 146,
+     "r": 0.993,
+     "rmse": 0.049,
+     "ok": true
+    },
+    {
+     "a": "gistemp_global",
+     "b": "berkeley_global",
+     "n_common": 145,
+     "r": 0.994,
+     "rmse": 0.079,
+     "ok": true
+    },
+    {
+     "a": "gistemp_global",
+     "b": "jma_global",
+     "n_common": 135,
+     "r": 0.986,
+     "rmse": 0.108,
+     "ok": true
+    },
+    {
+     "a": "gistemp_global",
+     "b": "era5_global_temp",
+     "n_common": 86,
+     "r": 0.99,
+     "rmse": 0.059,
+     "ok": true
+    }
+   ]
+  },
+  {
+   "topic": "co2",
+   "baseline": null,
+   "threshold": [
+    0.99,
+    2.5
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "co2",
+     "b": "noaa_co2_global",
+     "n_common": 47,
+     "r": 1.0,
+     "rmse": 1.061,
+     "ok": true
+    }
+   ]
+  },
+  {
+   "topic": "sea_level",
+   "baseline": [
+    1993,
+    2012
+   ],
+   "threshold": [
+    0.95,
+    8.0
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "sea_level",
+     "b": "noaa_star_sea_level",
+     "n_common": 32,
+     "r": 0.999,
+     "rmse": 1.074,
+     "ok": true
+    },
+    {
+     "a": "sea_level",
+     "b": "csiro_sea_level",
+     "n_common": 21,
+     "r": 0.981,
+     "rmse": 6.686,
+     "ok": true
+    },
+    {
+     "a": "sea_level",
+     "b": "uhslc_sea_level",
+     "n_common": 28,
+     "r": 0.986,
+     "rmse": 4.491,
+     "ok": true
+    }
+   ]
+  },
+  {
+   "topic": "ocean_temperature",
+   "baseline": [
+    1991,
+    2020
+   ],
+   "threshold": [
+    0.9,
+    0.15
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "noaa_ocean_temp",
+     "b": "oisst_sst",
+     "n_common": 42,
+     "r": 0.985,
+     "rmse": 0.064,
+     "ok": true
+    },
+    {
+     "a": "noaa_ocean_temp",
+     "b": "era5_sst",
+     "n_common": 45,
+     "r": 0.989,
+     "rmse": 0.027,
+     "ok": true
+    }
+   ]
+  },
+  {
+   "topic": "tide_gauge_sea_level",
+   "baseline": [
+    1981,
+    1991
+   ],
+   "threshold": null,
+   "info_only": true,
+   "pairs": [
+    {
+     "a": "psmsl_1",
+     "b": "psmsl_64",
+     "n_common": 46,
+     "r": 0.213,
+     "rmse": 82.244,
+     "ok": null
+    },
+    {
+     "a": "psmsl_1",
+     "b": "psmsl_2",
+     "n_common": 157,
+     "r": 0.638,
+     "rmse": 54.429,
+     "ok": null
+    },
+    {
+     "a": "psmsl_1",
+     "b": "psmsl_78",
+     "n_common": 121,
+     "r": -0.833,
+     "rmse": 255.4,
+     "ok": null
+    },
+    {
+     "a": "psmsl_1",
+     "b": "psmsl_202",
+     "n_common": 91,
+     "r": 0.946,
+     "rmse": 26.761,
+     "ok": null
+    },
+    {
+     "a": "psmsl_1",
+     "b": "psmsl_12",
+     "n_common": 130,
+     "r": 0.873,
+     "rmse": 99.215,
+     "ok": null
+    },
+    {
+     "a": "psmsl_1",
+     "b": "psmsl_155",
+     "n_common": 106,
+     "r": 0.748,
+     "rmse": 47.416,
+     "ok": null
+    },
+    {
+     "a": "psmsl_1",
+     "b": "psmsl_196",
+     "n_common": 93,
+     "r": 0.657,
+     "rmse": 47.026,
+     "ok": null
+    }
+   ]
+  },
+  {
+   "topic": "emissions",
+   "baseline": null,
+   "threshold": null,
+   "info_only": true,
+   "pairs": [
+    {
+     "a": "owid_co2_emissions",
+     "b": "owid_ghg_total",
+     "n_common": 75,
+     "r": 0.921,
+     "rmse": 131.574,
+     "ok": null
+    },
+    {
+     "a": "owid_co2_emissions",
+     "b": "eurostat_ghg",
+     "n_common": 35,
+     "r": 0.99,
+     "rmse": 75.854,
+     "ok": null
+    }
+   ]
+  },
+  {
+   "topic": "mars_max_temp",
+   "baseline": null,
+   "threshold": [
+    0.6,
+    15.0
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "mars_rems_max_temp",
+     "b": "mars_mcd_max_temp",
+     "n_common": 12,
+     "r": 0.972,
+     "rmse": 13.349,
+     "ok": true
+    }
+   ]
+  },
+  {
+   "topic": "mars_min_temp",
+   "baseline": null,
+   "threshold": [
+    0.6,
+    15.0
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "mars_rems_min_temp",
+     "b": "mars_mcd_min_temp",
+     "n_common": 12,
+     "r": 0.915,
+     "rmse": 7.41,
+     "ok": true
+    }
+   ]
+  },
+  {
+   "topic": "mars_pressure",
+   "baseline": null,
+   "threshold": [
+    0.8,
+    60.0
+   ],
+   "info_only": false,
+   "pairs": [
+    {
+     "a": "mars_rems_pressure",
+     "b": "mars_mcd_pressure",
+     "n_common": 12,
+     "r": 0.996,
+     "rmse": 21.363,
+     "ok": true
+    }
+   ]
+  }
+ ]
+}

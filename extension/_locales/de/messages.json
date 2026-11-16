@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "Findet Klimaaussagen in Nachrichtenartikeln und zeigt, was Daten von NASA, Copernicus, NOAA und anderen Institutionen dazu sagen."
+  },
+  "actionTitle": {
+    "message": "Hermes Finder: Aussage prüfen"
+  },
+  "cmdDesc": {
+    "message": "Hermes Finder öffnen"
+  }
+}

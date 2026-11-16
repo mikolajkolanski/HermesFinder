@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "在新闻文章中找出气候相关说法，并展示 NASA、Copernicus、NOAA 等机构的数据显示了什么。"
+  },
+  "actionTitle": {
+    "message": "Hermes Finder：核查说法"
+  },
+  "cmdDesc": {
+    "message": "打开 Hermes Finder"
+  }
+}

@@ -1,0 +1,355 @@
+[
+ {
+  "id": "pl_temp_zimy",
+  "thesis": "Według danych IMGW średnia temperatura w Polsce wzrosła od 1990 roku o niemal 2°C, a zimy są coraz łagodniejsze.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "poland"
+    ],
+    "months": null
+   },
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "poland"
+    ],
+    "months": [
+     12,
+     1,
+     2
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "pl_1961",
+  "thesis": "W Polsce średnia roczna temperatura w latach 1961–1970 wynosiła 7,2 st. C.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "poland"
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "europa_24",
+  "thesis": "Europa nagrzewa się najszybciej na świecie, z temperaturą wzrastającą o ponad 2,4°C od epoki przedprzemysłowej.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "europe"
+    ]
+   },
+   {
+    "topic": "global_temperature"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "global_13",
+  "thesis": "Dla porównania, globalny wzrost temperatury wynosi obecnie około 1,3-1,4°C.",
+  "require": [
+   {
+    "topic": "global_temperature"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "wroclaw_gdansk",
+  "thesis": "Wrocław ogrzewał się w tempie aż 0,77 st. C na dekadę, a Gdańsk, choć najwolniej w tym zestawieniu, i tak notował wzrost o 0,53 st. C na dekadę.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "wroclaw",
+     "gdansk"
+    ]
+   }
+  ],
+  "optional": [],
+  "max_cards": 2
+ },
+ {
+  "id": "arktyka",
+  "thesis": "Arktyka ociepla się znacznie szybciej niż reszta planety.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "arctic"
+    ]
+   },
+   {
+    "topic": "global_temperature"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "wmo_144",
+  "thesis": "Zgodnie z analizą WMO średnia globalna temperatura osiągnęła w roku 2025 wartość 1,44 stopnia Celsjusza powyżej średniej przedindustrialnej.",
+  "require": [
+   {
+    "topic": "global_temperature"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "co2_426",
+  "thesis": "Średnia koncentracja dwutlenku węgla w atmosferze osiągnęła w 2025 roku nową rekordową wartość 426 ppm.",
+  "require": [
+   {
+    "topic": "co2"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "emisje_381",
+  "thesis": "Emisja dwutlenku węgla ze spalania kopalin w 2025 roku osiągnęła rekordowy poziom 38,1 miliardów ton.",
+  "require": [
+   {
+    "topic": "emissions",
+    "regions": []
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "pl_2024",
+  "thesis": "Rekordowy rok 2024 zakończył się w Polsce anomalią temperatury powietrza wynoszącą +2,3°C (średnia roczna temperatura 11,0°C).",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "poland"
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "co2_ch4",
+  "thesis": "Rok 2024 okazał się rekordowy, stężenia CO2 i metanu dobiły do poziomu odpowiednio 422 ppm i 1897 ppb.",
+  "require": [
+   {
+    "topic": "co2"
+   },
+   {
+    "topic": "methane"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "baltyk",
+  "thesis": "Naukowcy potwierdzili, że poziom Morza Bałtyckiego stale rośnie.",
+  "require": [
+   {
+    "topic": "tide_gauge_sea_level"
+   }
+  ],
+  "optional": [
+   {
+    "topic": "sea_level"
+   }
+  ]
+ },
+ {
+  "id": "sea_200mm",
+  "thesis": "Sea levels have risen by over 0.2 metres (200mm) since 1900.",
+  "require": [
+   {
+    "topic": "sea_level"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "antarctic_ice",
+  "thesis": "After decades of expansion, the sea ice surrounding Antarctica also hit a record low, NSIDC reported.",
+  "require": [
+   {
+    "topic": "antarctic_sea_ice"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "arctic_ice",
+  "thesis": "The Arctic has seen a steady stream of new records, as both January and February saw record-low ice levels.",
+  "require": [
+   {
+    "topic": "arctic_sea_ice"
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "mars_avg",
+  "thesis": "On average, the temperature on Mars is about minus 80 degrees F (minus 60 degrees Celsius) according to NASA.",
+  "require": [
+   {
+    "topic": "planet_mean_temp"
+   }
+  ],
+  "optional": [
+   {
+    "topic": "mars_max_temp"
+   },
+   {
+    "topic": "mars_min_temp"
+   }
+  ]
+ },
+ {
+  "id": "mars_6c",
+  "thesis": "For instance, Curiosity measured air temperatures as high as 43 degrees F (6 degrees C) in the afternoon on Mars.",
+  "require": [
+   {
+    "topic": "mars_max_temp"
+   }
+  ],
+  "optional": [
+   {
+    "topic": "mars_min_temp"
+   }
+  ]
+ },
+ {
+  "id": "de_25",
+  "thesis": "Nun ist es wissenschaftlich so warm wie gefühlt in Deutschland – statt 1,9 Grad beträgt das Temperaturplus seit 1881 bereits 2,5 Grad Celsius.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "germany"
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "de_2024",
+  "thesis": "So war in Deutschland 2024 mit 10,9 Grad Celsius das wärmste Jahr seit Beginn der Wetteraufzeichnungen.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "germany"
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "it_mari",
+  "thesis": "Mari italiani sempre più caldi: nel 2025 +1,18°C sopra la media 1991-2020.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "mediterranean"
+    ]
+   }
+  ],
+  "optional": [
+   {
+    "topic": "ocean_temperature"
+   }
+  ]
+ },
+ {
+  "id": "fr_06",
+  "thesis": "Ces dix dernières années, durant la période 2011-2020, la hausse atteint +0,6 °C et marque la plus forte progression observée entre deux décennies en France depuis 1900.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "france"
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "es_peninsula",
+  "thesis": "Desde la época preindustrial, 1850-1900, la temperatura media global ha aumentado 1,1 ºC, mientras que en la península ese incremento es de 1,6 ºC.",
+  "require": [
+   {
+    "topic": "global_temperature"
+   },
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "spain"
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "es_2022",
+  "thesis": "De hecho, 2022 fue el año más cálido registrado en España, donde se alcanzaron los 15,3ºC de media.",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "spain"
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "pl_opady",
+  "thesis": "Prof. J. Kowalski uważa, że susza w 2018 r. była najgorsza od 100 lat, ale opady w Polsce wcale nie maleją.",
+  "require": [
+   {
+    "topic": "regional_precipitation",
+    "regions": [
+     "poland"
+    ]
+   }
+  ],
+  "optional": []
+ },
+ {
+  "id": "pl_upaly",
+  "thesis": "Liczba dni upalnych (z Tmax⩾30°C) w ostatniej dekadzie w stosunku do lat 1951-1990 wzrosła blisko trzykrotnie!",
+  "require": [
+   {
+    "topic": "regional_tmax",
+    "regions": [
+     "poland"
+    ]
+   }
+  ],
+  "optional": [],
+  "context": "Upały w Polsce coraz większe i rekordowo długie. Temperatury mogą sięgnąć znacznie ponad 40 °C"
+ },
+ {
+  "id": "es_60s",
+  "thesis": "Desde los 60, la temperatura ha subido alrededor de 0,3 ºC por década.",
+  "context": "La temperatura en España aumenta 0,3 ºC por década desde los años 60",
+  "require": [
+   {
+    "topic": "regional_temperature",
+    "regions": [
+     "spain"
+    ]
+   }
+  ],
+  "optional": []
+ }
+]

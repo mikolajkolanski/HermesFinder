@@ -1,0 +1,3726 @@
+{
+ "noaa_global_temp": {
+  "title": "Globalna anomalia temperatury (NOAA NOAAGlobalTemp)",
+  "title_en": "Global land+ocean temperature anomaly (NOAA NOAAGlobalTemp)",
+  "description": "Roczne odchylenia temperatury powierzchni lądów i oceanów od średniej 1901–2000, NOAA NCEI (NOAAGlobalTemp).",
+  "description_en": "Annual global land+ocean surface temperature departures from the 1901–2000 mean (NOAA NCEI).",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie",
+   "globalna temperatura",
+   "globalne ocieplenie",
+   "temperatura ziemi"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming",
+   "global mean temperature",
+   "global surface temperature"
+  ],
+  "hint_terms": [
+   "global temperature",
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "noaa_global_temp",
+    "unit": "°C",
+    "desc": "Globalna anomalia temperatury (NOAA NOAAGlobalTemp)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "noaa_cag",
+  "connector_params": {
+   "region": "globe",
+   "surface": "land_ocean"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1850,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "NOAA NCEI — Climate at a Glance / NOAAGlobalTemp",
+   "url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series",
+   "dataset_url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series"
+  },
+  "provider": {
+   "org": "NOAA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "global_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1901–2000",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -1.0,
+   "max": 2.2,
+   "min_points": 150
+  },
+  "notes": null,
+  "short": "NOAA NOAAGlobalTemp",
+  "data_type": "analysis",
+  "is_model": false
+ },
+ "hadcrut5": {
+  "title": "Globalna anomalia temperatury (Met Office HadCRUT5)",
+  "title_en": "Global temperature anomaly (Met Office HadCRUT5)",
+  "description": "Roczne anomalie globalnej temperatury względem 1961–1990 z brytyjskiego Met Office Hadley Centre i University of East Anglia (HadCRUT5, ensemble).",
+  "description_en": "Annual global surface temperature anomalies vs 1961–1990 (Met Office Hadley Centre & UEA CRU).",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie",
+   "globalna temperatura",
+   "globalne ocieplenie",
+   "temperatura ziemi"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming",
+   "global mean temperature",
+   "global surface temperature"
+  ],
+  "hint_terms": [
+   "global temperature",
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "hadcrut5",
+    "unit": "°C",
+    "desc": "Globalna anomalia temperatury (Met Office HadCRUT5)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "hadcrut5",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1850,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "Met Office Hadley Centre HadCRUT5",
+   "url": "https://www.metoffice.gov.uk/hadobs/hadcrut5/",
+   "dataset_url": "https://www.metoffice.gov.uk/hadobs/hadcrut5/"
+  },
+  "provider": {
+   "org": "Met Office Hadley Centre / UEA CRU",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "global_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1961–1990",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -1.0,
+   "max": 2.2,
+   "min_points": 150
+  },
+  "notes": null,
+  "short": "Met Office HadCRUT5",
+  "data_type": "analysis",
+  "is_model": false
+ },
+ "berkeley_global": {
+  "title": "Globalna anomalia temperatury (Berkeley Earth)",
+  "title_en": "Global land+ocean temperature anomaly (Berkeley Earth)",
+  "description": "Roczne anomalie temperatury lądów i oceanów względem 1951–1980, niezależna analiza organizacji non-profit Berkeley Earth (50 tys. stacji + obserwacje oceaniczne).",
+  "description_en": "Annual global land+ocean anomalies vs 1951–1980 from the independent non-profit Berkeley Earth.",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie",
+   "globalna temperatura",
+   "globalne ocieplenie",
+   "temperatura ziemi"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming",
+   "global mean temperature",
+   "global surface temperature"
+  ],
+  "hint_terms": [
+   "global temperature",
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "berkeley_global",
+    "unit": "°C",
+    "desc": "Globalna anomalia temperatury (Berkeley Earth)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "berkeley_global",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1850,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "Berkeley Earth — Global Temperature Report",
+   "url": "https://berkeleyearth.org/data/",
+   "dataset_url": "https://berkeleyearth.org/data/"
+  },
+  "provider": {
+   "org": "Berkeley Earth",
+   "country": "USA",
+   "type": "nonprofit"
+  },
+  "topic": "global_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1951–1980",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -1.0,
+   "max": 2.2,
+   "min_points": 150
+  },
+  "notes": null,
+  "short": "Berkeley Earth",
+  "data_type": "analysis",
+  "is_model": false
+ },
+ "jma_global": {
+  "title": "Globalna anomalia temperatury (JMA)",
+  "title_en": "Global temperature anomaly (Japan Meteorological Agency)",
+  "description": "Roczne anomalie globalnej temperatury względem 1991–2020, Japońska Agencja Meteorologiczna (analiza COBE-SST + stacje lądowe).",
+  "description_en": "Annual global surface temperature anomalies vs 1991–2020 (JMA).",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie",
+   "globalna temperatura",
+   "globalne ocieplenie",
+   "temperatura ziemi"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming",
+   "global mean temperature",
+   "global surface temperature"
+  ],
+  "hint_terms": [
+   "global temperature",
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "jma_global",
+    "unit": "°C",
+    "desc": "Globalna anomalia temperatury (JMA)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "jma_global",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1891,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "Japan Meteorological Agency — Global Surface Temperature Anomalies",
+   "url": "https://www.data.jma.go.jp/cpd/longfcst/en/tcc/",
+   "dataset_url": "https://www.data.jma.go.jp/cpd/longfcst/en/tcc/"
+  },
+  "provider": {
+   "org": "JMA (Japońska Agencja Meteorologiczna)",
+   "country": "Japonia",
+   "type": "agency"
+  },
+  "topic": "global_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1991–2020",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -1.0,
+   "max": 1.5,
+   "min_points": 100
+  },
+  "notes": null,
+  "short": "JMA (Japonia)",
+  "data_type": "analysis",
+  "is_model": false
+ },
+ "era5_global_temp": {
+  "title": "Globalna temperatura powietrza (Copernicus ERA5)",
+  "title_en": "Global 2 m air temperature (Copernicus ERA5)",
+  "description": "Roczne średnie dobowych anomalii temperatury powietrza 2 m z reanalizy ERA5 (Copernicus Climate Change Service, ECMWF), baza 1991–2020, od 1940.",
+  "description_en": "Annual mean of daily ERA5 2 m air temperature anomalies vs 1991–2020 (Copernicus C3S / ECMWF).",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie",
+   "globalna temperatura",
+   "globalne ocieplenie",
+   "temperatura ziemi",
+   "copernicus",
+   "era5",
+   "esa"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming",
+   "global mean temperature",
+   "global surface temperature",
+   "copernicus",
+   "era5",
+   "ecmwf",
+   "esa"
+  ],
+  "hint_terms": [
+   "global temperature",
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "era5_global_temp",
+    "unit": "°C",
+    "desc": "Globalna temperatura powietrza (Copernicus ERA5)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "era5_pulse",
+  "connector_params": {
+   "var": "2t_global"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1940,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "Copernicus Climate Pulse (ERA5)",
+   "url": "https://pulse.climate.copernicus.eu/",
+   "dataset_url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels"
+  },
+  "provider": {
+   "org": "Copernicus C3S / ECMWF (UE, ESA)",
+   "country": "UE",
+   "type": "intergovernmental"
+  },
+  "topic": "global_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1991–2020",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -1.0,
+   "max": 1.5,
+   "min_points": 70
+  },
+  "notes": null,
+  "short": "Copernicus ERA5",
+  "data_type": "reanalysis",
+  "is_model": false
+ },
+ "noaa_ocean_temp": {
+  "title": "Anomalia temperatury oceanów (NOAA ERSST)",
+  "title_en": "Global ocean temperature anomaly (NOAA ERSST)",
+  "description": "Roczne odchylenia temperatury powierzchni oceanów od średniej 1901–2000 (NOAA NCEI).",
+  "description_en": "Annual global ocean surface temperature departures vs 1901–2000 (NOAA NCEI).",
+  "keywords_pl": [
+   "temperatura oceanu",
+   "temperatura wody",
+   "temperatura morza",
+   "oceany",
+   "ocean",
+   "temperatura powierzchni oceanu",
+   "morza",
+   "ocieplenie oceanów",
+   "wody"
+  ],
+  "keywords_en": [
+   "sea surface temperature",
+   "sst",
+   "ocean temperature",
+   "ocean warming"
+  ],
+  "hint_terms": [
+   "ocean temperature",
+   "temperature"
+  ],
+  "variables": [
+   {
+    "id": "noaa_ocean_temp",
+    "unit": "°C",
+    "desc": "Anomalia temperatury oceanów (NOAA ERSST)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "noaa_cag",
+  "connector_params": {
+   "region": "globe",
+   "surface": "ocean"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1850,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "ocean",
+  "source": {
+   "name": "NOAA NCEI — Climate at a Glance (ocean)",
+   "url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series",
+   "dataset_url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series"
+  },
+  "provider": {
+   "org": "NOAA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "ocean_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1901–2000",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -1.0,
+   "max": 1.6,
+   "min_points": 150
+  },
+  "notes": null,
+  "short": "NOAA ERSST",
+  "data_type": "analysis",
+  "is_model": false
+ },
+ "oisst_sst": {
+  "title": "Temperatura powierzchni oceanu 60°S–60°N (NOAA OISST)",
+  "title_en": "Sea surface temperature 60S–60N (NOAA OISST via Climate Reanalyzer)",
+  "description": "Średnia roczna temperatura powierzchni oceanu 60°S–60°N z satelitarnej analizy NOAA OISST v2.1, udostępniana przez Climate Reanalyzer (University of Maine).",
+  "description_en": "Annual mean SST (60S–60N) from NOAA OISST v2.1 served by Climate Reanalyzer (Univ. of Maine).",
+  "keywords_pl": [
+   "temperatura oceanu",
+   "temperatura wody",
+   "temperatura morza",
+   "oceany",
+   "ocean",
+   "temperatura powierzchni oceanu",
+   "morza",
+   "ocieplenie oceanów",
+   "wody"
+  ],
+  "keywords_en": [
+   "sea surface temperature",
+   "sst",
+   "ocean temperature",
+   "ocean warming"
+  ],
+  "hint_terms": [
+   "ocean temperature",
+   "temperature"
+  ],
+  "variables": [
+   {
+    "id": "oisst_sst",
+    "unit": "°C",
+    "desc": "Temperatura powierzchni oceanu 60°S–60°N (NOAA OISST)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "oisst",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1982,
+   "end": 2023,
+   "resolution": "roczna"
+  },
+  "category": "ocean",
+  "source": {
+   "name": "Climate Reanalyzer (Univ. of Maine) — OISST v2.1",
+   "url": "https://climatereanalyzer.org/clim/sst_daily/",
+   "dataset_url": "https://climatereanalyzer.org/clim/sst_daily/"
+  },
+  "provider": {
+   "org": "Climate Reanalyzer, University of Maine",
+   "country": "USA",
+   "type": "academic"
+  },
+  "topic": "ocean_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości bezwzględne",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": 19.0,
+   "max": 22.5,
+   "min_points": 35
+  },
+  "notes": "plik źródłowy nieaktualizowany od 2024 r.",
+  "short": "NOAA OISST (UMaine)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "era5_sst": {
+  "title": "Temperatura powierzchni oceanu 60°S–60°N (Copernicus ERA5)",
+  "title_en": "Sea surface temperature 60S–60N (Copernicus ERA5)",
+  "description": "Roczne średnie dobowych anomalii SST 60°S–60°N z reanalizy ERA5 (Copernicus C3S / ECMWF), baza 1991–2020.",
+  "description_en": "Annual mean of daily ERA5 SST anomalies 60S–60N vs 1991–2020 (Copernicus C3S / ECMWF).",
+  "keywords_pl": [
+   "temperatura oceanu",
+   "temperatura wody",
+   "temperatura morza",
+   "oceany",
+   "ocean",
+   "temperatura powierzchni oceanu",
+   "morza",
+   "ocieplenie oceanów",
+   "wody",
+   "copernicus",
+   "esa"
+  ],
+  "keywords_en": [
+   "sea surface temperature",
+   "sst",
+   "ocean temperature",
+   "ocean warming",
+   "copernicus",
+   "ecmwf",
+   "esa"
+  ],
+  "hint_terms": [
+   "ocean temperature",
+   "temperature"
+  ],
+  "variables": [
+   {
+    "id": "era5_sst",
+    "unit": "°C",
+    "desc": "Temperatura powierzchni oceanu 60°S–60°N (Copernicus ERA5)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "era5_pulse",
+  "connector_params": {
+   "var": "sst_60S-60N"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1979,
+   "end": 2023,
+   "resolution": "roczna"
+  },
+  "category": "ocean",
+  "source": {
+   "name": "Copernicus Climate Pulse (ERA5 SST)",
+   "url": "https://pulse.climate.copernicus.eu/",
+   "dataset_url": "https://pulse.climate.copernicus.eu/"
+  },
+  "provider": {
+   "org": "Copernicus C3S / ECMWF (UE, ESA)",
+   "country": "UE",
+   "type": "intergovernmental"
+  },
+  "topic": "ocean_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1991–2020",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -0.7,
+   "max": 1.0,
+   "min_points": 40
+  },
+  "notes": "plik źródłowy nieaktualizowany od 2024 r.",
+  "short": "Copernicus ERA5",
+  "data_type": "reanalysis",
+  "is_model": false
+ },
+ "noaa_co2_global": {
+  "title": "Globalne stężenie CO₂ (NOAA GML)",
+  "title_en": "Global mean atmospheric CO2 (NOAA GML)",
+  "description": "Roczna średnia globalna stężenia CO₂ w atmosferze z sieci stacji NOAA GML (ppm).",
+  "description_en": "Annual global mean marine-surface atmospheric CO2 from the NOAA GML network.",
+  "keywords_pl": [
+   "co2",
+   "dwutlenek węgla",
+   "dwutlenku węgla",
+   "stężenie co2",
+   "gazy cieplarniane",
+   "globalne stężenie co2"
+  ],
+  "keywords_en": [
+   "co2",
+   "carbon dioxide",
+   "atmospheric co2",
+   "global mean co2",
+   "greenhouse gases"
+  ],
+  "hint_terms": [
+   "co2",
+   "greenhouse"
+  ],
+  "variables": [
+   {
+    "id": "noaa_co2_global",
+    "unit": "ppm",
+    "desc": "Globalne stężenie CO₂ (NOAA GML)"
+   }
+  ],
+  "unit": "ppm",
+  "connector": "gml",
+  "connector_params": {
+   "gas": "co2",
+   "scope": "gl"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1979,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "NOAA GML — Global Monitoring Laboratory",
+   "url": "https://gml.noaa.gov/ccgg/trends/",
+   "dataset_url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.csv"
+  },
+  "provider": {
+   "org": "NOAA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "co2",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": 330,
+   "max": 450,
+   "min_points": 40
+  },
+  "notes": null,
+  "short": "NOAA GML (średnia globalna)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "noaa_ch4_global": {
+  "title": "Globalne stężenie metanu CH₄ (NOAA GML)",
+  "title_en": "Global mean atmospheric methane (NOAA GML)",
+  "description": "Roczna średnia globalna stężenia metanu w atmosferze (ppb), NOAA GML.",
+  "description_en": "Annual global mean atmospheric methane (ppb), NOAA GML.",
+  "keywords_pl": [
+   "metan",
+   "metanu",
+   "ch4",
+   "gazy cieplarniane",
+   "gazów cieplarnianych",
+   "krowy",
+   "bagna"
+  ],
+  "keywords_en": [
+   "methane",
+   "ch4",
+   "greenhouse gases"
+  ],
+  "hint_terms": [
+   "methane",
+   "greenhouse"
+  ],
+  "variables": [
+   {
+    "id": "noaa_ch4_global",
+    "unit": "ppb",
+    "desc": "Globalne stężenie metanu CH₄ (NOAA GML)"
+   }
+  ],
+  "unit": "ppb",
+  "connector": "gml",
+  "connector_params": {
+   "gas": "ch4",
+   "scope": "gl"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1984,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "NOAA GML — Methane",
+   "url": "https://gml.noaa.gov/ccgg/trends_ch4/",
+   "dataset_url": "https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.csv"
+  },
+  "provider": {
+   "org": "NOAA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "methane",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": 1600,
+   "max": 2100,
+   "min_points": 35
+  },
+  "notes": null,
+  "short": "NOAA GML",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "noaa_n2o_global": {
+  "title": "Globalne stężenie N₂O (NOAA GML)",
+  "title_en": "Global mean atmospheric nitrous oxide (NOAA GML)",
+  "description": "Roczna średnia globalna stężenia podtlenku azotu w atmosferze (ppb), NOAA GML.",
+  "description_en": "Annual global mean atmospheric nitrous oxide (ppb), NOAA GML.",
+  "keywords_pl": [
+   "podtlenek azotu",
+   "podtlenku azotu",
+   "n2o",
+   "gazy cieplarniane",
+   "nawozy"
+  ],
+  "keywords_en": [
+   "nitrous oxide",
+   "n2o",
+   "greenhouse gases"
+  ],
+  "hint_terms": [
+   "n2o",
+   "greenhouse"
+  ],
+  "variables": [
+   {
+    "id": "noaa_n2o_global",
+    "unit": "ppb",
+    "desc": "Globalne stężenie N₂O (NOAA GML)"
+   }
+  ],
+  "unit": "ppb",
+  "connector": "gml",
+  "connector_params": {
+   "gas": "n2o",
+   "scope": "gl"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2001,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "NOAA GML — Nitrous oxide",
+   "url": "https://gml.noaa.gov/ccgg/trends_n2o/",
+   "dataset_url": "https://gml.noaa.gov/webdata/ccgg/trends/n2o/n2o_annmean_gl.csv"
+  },
+  "provider": {
+   "org": "NOAA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "n2o",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": 310,
+   "max": 345,
+   "min_points": 20
+  },
+  "notes": null,
+  "short": "NOAA GML",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "noaa_star_sea_level": {
+  "title": "Globalny poziom morza — altymetria (NOAA STAR)",
+  "title_en": "Global mean sea level — satellite altimetry (NOAA LSA)",
+  "description": "Średnia roczna globalnego poziomu morza z altymetrii satelitarnej TOPEX/Poseidon–Jason–Sentinel-6 (NOAA Laboratory for Satellite Altimetry), mm.",
+  "description_en": "Annual GMSL from TOPEX/Poseidon, Jason-1/2/3 and Sentinel-6 altimetry (NOAA LSA).",
+  "keywords_pl": [
+   "poziom morza",
+   "poziomu morza",
+   "podnoszenie się oceanów",
+   "poziom oceanów",
+   "wzrost poziomu morza"
+  ],
+  "keywords_en": [
+   "sea level",
+   "sea level rise",
+   "global mean sea level",
+   "gmsl"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "noaa_star_sea_level",
+    "unit": "mm",
+    "desc": "Globalny poziom morza — altymetria (NOAA STAR)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "noaa_star",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1993,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "NOAA Laboratory for Satellite Altimetry",
+   "url": "https://www.star.nesdis.noaa.gov/socd/lsa/SeaLevelRise/",
+   "dataset_url": "https://www.star.nesdis.noaa.gov/socd/lsa/SeaLevelRise/"
+  },
+  "provider": {
+   "org": "NOAA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -40,
+   "max": 160,
+   "min_points": 25
+  },
+  "notes": null,
+  "short": "NOAA altymetria",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "csiro_sea_level": {
+  "title": "Globalny poziom morza — rekonstrukcja (CSIRO)",
+  "title_en": "Global mean sea level — reconstruction (CSIRO, Church & White)",
+  "description": "Rekonstrukcja globalnego poziomu morza z mareografów i altymetrii (Church & White 2011, aktualizacja CSIRO 2015), mm, 1880–2013.",
+  "description_en": "Tide-gauge + altimetry GMSL reconstruction, 1880–2013 (CSIRO, Church & White).",
+  "keywords_pl": [
+   "poziom morza",
+   "poziomu morza",
+   "podnoszenie się oceanów",
+   "poziom oceanów",
+   "wzrost poziomu morza"
+  ],
+  "keywords_en": [
+   "sea level",
+   "sea level rise",
+   "global mean sea level",
+   "gmsl"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "csiro_sea_level",
+    "unit": "mm",
+    "desc": "Globalny poziom morza — rekonstrukcja (CSIRO)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "csiro",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1880,
+   "end": 2013,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "CSIRO — Sea level data",
+   "url": "https://www.cmar.csiro.au/sealevel/sl_data_cmar.html",
+   "dataset_url": "https://www.cmar.csiro.au/sealevel/sl_data_cmar.html"
+  },
+  "provider": {
+   "org": "CSIRO",
+   "country": "Australia",
+   "type": "agency"
+  },
+  "topic": "sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -230,
+   "max": 100,
+   "min_points": 120
+  },
+  "notes": null,
+  "short": "CSIRO (mareografy+altymetria)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "uhslc_sea_level": {
+  "title": "Globalny poziom morza — mareografy (Univ. of Hawaii)",
+  "title_en": "Global mean sea level — tide gauges (University of Hawaii Sea Level Center)",
+  "description": "Globalny poziom morza z sieci mareografów (UHSLC; dane z Our World in Data), mm.",
+  "description_en": "GMSL from the global tide-gauge network (UHSLC, via Our World in Data).",
+  "keywords_pl": [
+   "poziom morza",
+   "poziomu morza",
+   "podnoszenie się oceanów",
+   "poziom oceanów",
+   "wzrost poziomu morza"
+  ],
+  "keywords_en": [
+   "sea level",
+   "sea level rise",
+   "global mean sea level",
+   "gmsl"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "uhslc_sea_level",
+    "unit": "mm",
+    "desc": "Globalny poziom morza — mareografy (Univ. of Hawaii)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "owid_sea_level",
+  "connector_params": {
+   "column": "UHSLC"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1970,
+   "end": 2020,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "University of Hawaii Sea Level Center",
+   "url": "https://uhslc.soest.hawaii.edu/",
+   "dataset_url": "https://ourworldindata.org/grapher/sea-level"
+  },
+  "provider": {
+   "org": "University of Hawaii Sea Level Center",
+   "country": "USA",
+   "type": "academic"
+  },
+  "topic": "sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": -250,
+   "max": 120,
+   "min_points": 40
+  },
+  "notes": null,
+  "short": "Univ. of Hawaii (mareografy)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "psmsl_1": {
+  "title": "Poziom morza — mareograf Brest (Francja) (PSMSL)",
+  "title_en": "Relative sea level — tide gauge Brest (Francja) (PSMSL)",
+  "description": "Roczny względny poziom morza z mareografu Brest (Francja) (PSMSL, National Oceanography Centre UK), mm RLR.",
+  "description_en": "Annual relative sea level at the Brest (Francja) tide gauge (PSMSL RLR), mm.",
+  "keywords_pl": [
+   "mareograf",
+   "poziom morza",
+   "poziomu morza",
+   "brest",
+   "bałtyk",
+   "wybrzeże"
+  ],
+  "keywords_en": [
+   "tide gauge",
+   "sea level",
+   "brest"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "psmsl_1",
+    "unit": "mm",
+    "desc": "Poziom morza — mareograf Brest (Francja) (PSMSL)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "psmsl",
+  "connector_params": {
+   "station_id": 1
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1807,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "Permanent Service for Mean Sea Level (PSMSL)",
+   "url": "https://psmsl.org/",
+   "dataset_url": "https://psmsl.org/data/obtaining/stations/1.php"
+  },
+  "provider": {
+   "org": "PSMSL / National Oceanography Centre",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "tide_gauge_sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne (RLR)",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 50
+  },
+  "notes": null,
+  "short": "PSMSL · Brest (Francja)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "psmsl_64": {
+  "title": "Poziom morza — mareograf Gdańsk Nowy Port (PSMSL)",
+  "title_en": "Relative sea level — tide gauge Gdańsk Nowy Port (PSMSL)",
+  "description": "Roczny względny poziom morza z mareografu Gdańsk Nowy Port (PSMSL, National Oceanography Centre UK), mm RLR.",
+  "description_en": "Annual relative sea level at the Gdańsk Nowy Port tide gauge (PSMSL RLR), mm.",
+  "keywords_pl": [
+   "mareograf",
+   "poziom morza",
+   "poziomu morza",
+   "gdańsk",
+   "bałtyk",
+   "wybrzeże"
+  ],
+  "keywords_en": [
+   "tide gauge",
+   "sea level",
+   "gdańsk"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "psmsl_64",
+    "unit": "mm",
+    "desc": "Poziom morza — mareograf Gdańsk Nowy Port (PSMSL)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "psmsl",
+  "connector_params": {
+   "station_id": 64
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1951,
+   "end": 1999,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "Permanent Service for Mean Sea Level (PSMSL)",
+   "url": "https://psmsl.org/",
+   "dataset_url": "https://psmsl.org/data/obtaining/stations/64.php"
+  },
+  "provider": {
+   "org": "PSMSL / National Oceanography Centre",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "tide_gauge_sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne (RLR)",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 40
+  },
+  "notes": null,
+  "short": "PSMSL · Gdańsk Nowy Port",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "psmsl_2": {
+  "title": "Poziom morza — mareograf Świnoujście (PSMSL)",
+  "title_en": "Relative sea level — tide gauge Świnoujście (PSMSL)",
+  "description": "Roczny względny poziom morza z mareografu Świnoujście (PSMSL, National Oceanography Centre UK), mm RLR.",
+  "description_en": "Annual relative sea level at the Świnoujście tide gauge (PSMSL RLR), mm.",
+  "keywords_pl": [
+   "mareograf",
+   "poziom morza",
+   "poziomu morza",
+   "świnoujście",
+   "bałtyk",
+   "wybrzeże"
+  ],
+  "keywords_en": [
+   "tide gauge",
+   "sea level",
+   "świnoujście"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "psmsl_2",
+    "unit": "mm",
+    "desc": "Poziom morza — mareograf Świnoujście (PSMSL)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "psmsl",
+  "connector_params": {
+   "station_id": 2
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1811,
+   "end": 1999,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "Permanent Service for Mean Sea Level (PSMSL)",
+   "url": "https://psmsl.org/",
+   "dataset_url": "https://psmsl.org/data/obtaining/stations/2.php"
+  },
+  "provider": {
+   "org": "PSMSL / National Oceanography Centre",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "tide_gauge_sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne (RLR)",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 50
+  },
+  "notes": null,
+  "short": "PSMSL · Świnoujście",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "psmsl_78": {
+  "title": "Poziom morza — mareograf Sztokholm (PSMSL)",
+  "title_en": "Relative sea level — tide gauge Sztokholm (PSMSL)",
+  "description": "Roczny względny poziom morza z mareografu Sztokholm (PSMSL, National Oceanography Centre UK), mm RLR.",
+  "description_en": "Annual relative sea level at the Sztokholm tide gauge (PSMSL RLR), mm.",
+  "keywords_pl": [
+   "mareograf",
+   "poziom morza",
+   "poziomu morza",
+   "sztokholm",
+   "bałtyk",
+   "wybrzeże"
+  ],
+  "keywords_en": [
+   "tide gauge",
+   "sea level",
+   "sztokholm"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "psmsl_78",
+    "unit": "mm",
+    "desc": "Poziom morza — mareograf Sztokholm (PSMSL)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "psmsl",
+  "connector_params": {
+   "station_id": 78
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1889,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "Permanent Service for Mean Sea Level (PSMSL)",
+   "url": "https://psmsl.org/",
+   "dataset_url": "https://psmsl.org/data/obtaining/stations/78.php"
+  },
+  "provider": {
+   "org": "PSMSL / National Oceanography Centre",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "tide_gauge_sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne (RLR)",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 50
+  },
+  "notes": null,
+  "short": "PSMSL · Sztokholm",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "psmsl_202": {
+  "title": "Poziom morza — mareograf Newlyn (UK) (PSMSL)",
+  "title_en": "Relative sea level — tide gauge Newlyn (UK) (PSMSL)",
+  "description": "Roczny względny poziom morza z mareografu Newlyn (UK) (PSMSL, National Oceanography Centre UK), mm RLR.",
+  "description_en": "Annual relative sea level at the Newlyn (UK) tide gauge (PSMSL RLR), mm.",
+  "keywords_pl": [
+   "mareograf",
+   "poziom morza",
+   "poziomu morza",
+   "newlyn",
+   "bałtyk",
+   "wybrzeże"
+  ],
+  "keywords_en": [
+   "tide gauge",
+   "sea level",
+   "newlyn"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "psmsl_202",
+    "unit": "mm",
+    "desc": "Poziom morza — mareograf Newlyn (UK) (PSMSL)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "psmsl",
+  "connector_params": {
+   "station_id": 202
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1916,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "Permanent Service for Mean Sea Level (PSMSL)",
+   "url": "https://psmsl.org/",
+   "dataset_url": "https://psmsl.org/data/obtaining/stations/202.php"
+  },
+  "provider": {
+   "org": "PSMSL / National Oceanography Centre",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "tide_gauge_sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne (RLR)",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 50
+  },
+  "notes": null,
+  "short": "PSMSL · Newlyn (UK)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "psmsl_12": {
+  "title": "Poziom morza — mareograf Nowy Jork (Battery) (PSMSL)",
+  "title_en": "Relative sea level — tide gauge Nowy Jork (Battery) (PSMSL)",
+  "description": "Roczny względny poziom morza z mareografu Nowy Jork (Battery) (PSMSL, National Oceanography Centre UK), mm RLR.",
+  "description_en": "Annual relative sea level at the Nowy Jork (Battery) tide gauge (PSMSL RLR), mm.",
+  "keywords_pl": [
+   "mareograf",
+   "poziom morza",
+   "poziomu morza",
+   "nowy",
+   "bałtyk",
+   "wybrzeże"
+  ],
+  "keywords_en": [
+   "tide gauge",
+   "sea level",
+   "nowy"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "psmsl_12",
+    "unit": "mm",
+    "desc": "Poziom morza — mareograf Nowy Jork (Battery) (PSMSL)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "psmsl",
+  "connector_params": {
+   "station_id": 12
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1856,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "Permanent Service for Mean Sea Level (PSMSL)",
+   "url": "https://psmsl.org/",
+   "dataset_url": "https://psmsl.org/data/obtaining/stations/12.php"
+  },
+  "provider": {
+   "org": "PSMSL / National Oceanography Centre",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "tide_gauge_sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne (RLR)",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 50
+  },
+  "notes": null,
+  "short": "PSMSL · Nowy Jork (Battery)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "psmsl_155": {
+  "title": "Poziom morza — mareograf Honolulu (PSMSL)",
+  "title_en": "Relative sea level — tide gauge Honolulu (PSMSL)",
+  "description": "Roczny względny poziom morza z mareografu Honolulu (PSMSL, National Oceanography Centre UK), mm RLR.",
+  "description_en": "Annual relative sea level at the Honolulu tide gauge (PSMSL RLR), mm.",
+  "keywords_pl": [
+   "mareograf",
+   "poziom morza",
+   "poziomu morza",
+   "honolulu",
+   "bałtyk",
+   "wybrzeże"
+  ],
+  "keywords_en": [
+   "tide gauge",
+   "sea level",
+   "honolulu"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "psmsl_155",
+    "unit": "mm",
+    "desc": "Poziom morza — mareograf Honolulu (PSMSL)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "psmsl",
+  "connector_params": {
+   "station_id": 155
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1905,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "Permanent Service for Mean Sea Level (PSMSL)",
+   "url": "https://psmsl.org/",
+   "dataset_url": "https://psmsl.org/data/obtaining/stations/155.php"
+  },
+  "provider": {
+   "org": "PSMSL / National Oceanography Centre",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "tide_gauge_sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne (RLR)",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 50
+  },
+  "notes": null,
+  "short": "PSMSL · Honolulu",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "psmsl_196": {
+  "title": "Poziom morza — mareograf Sydney (PSMSL)",
+  "title_en": "Relative sea level — tide gauge Sydney (PSMSL)",
+  "description": "Roczny względny poziom morza z mareografu Sydney (PSMSL, National Oceanography Centre UK), mm RLR.",
+  "description_en": "Annual relative sea level at the Sydney tide gauge (PSMSL RLR), mm.",
+  "keywords_pl": [
+   "mareograf",
+   "poziom morza",
+   "poziomu morza",
+   "sydney",
+   "bałtyk",
+   "wybrzeże"
+  ],
+  "keywords_en": [
+   "tide gauge",
+   "sea level",
+   "sydney"
+  ],
+  "hint_terms": [
+   "sea level"
+  ],
+  "variables": [
+   {
+    "id": "psmsl_196",
+    "unit": "mm",
+    "desc": "Poziom morza — mareograf Sydney (PSMSL)"
+   }
+  ],
+  "unit": "mm",
+  "connector": "psmsl",
+  "connector_params": {
+   "station_id": 196
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1915,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sea_level",
+  "source": {
+   "name": "Permanent Service for Mean Sea Level (PSMSL)",
+   "url": "https://psmsl.org/",
+   "dataset_url": "https://psmsl.org/data/obtaining/stations/196.php"
+  },
+  "provider": {
+   "org": "PSMSL / National Oceanography Centre",
+   "country": "UK",
+   "type": "agency"
+  },
+  "topic": "tide_gauge_sea_level",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "wartości względne (RLR)",
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 50
+  },
+  "notes": null,
+  "short": "PSMSL · Sydney",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "arctic_ice_south": {
+  "title": "Zasięg lodu morskiego Antarktyki (wrzesień)",
+  "title_en": "Antarctic sea ice extent (September)",
+  "description": "Zasięg lodu morskiego wokół Antarktydy we wrześniu (Sea Ice Index, NSIDC), mln km².",
+  "description_en": "September Antarctic sea ice extent (NSIDC Sea Ice Index), million km².",
+  "keywords_pl": [
+   "antarktyka",
+   "antarktydy",
+   "lód antarktyczny",
+   "lód południowy",
+   "biegun południowy",
+   "lody antarktyki"
+  ],
+  "keywords_en": [
+   "antarctic sea ice",
+   "south pole ice",
+   "antarctica"
+  ],
+  "hint_terms": [
+   "sea ice",
+   "antarctic"
+  ],
+  "variables": [
+   {
+    "id": "arctic_ice_south",
+    "unit": "mln km²",
+    "desc": "Zasięg lodu morskiego Antarktyki (wrzesień)"
+   }
+  ],
+  "unit": "mln km²",
+  "connector": "arctic_ice",
+  "connector_params": {
+   "pole": "south",
+   "month": 9
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1979,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sea_ice",
+  "source": {
+   "name": "NSIDC Sea Ice Index",
+   "url": "https://nsidc.org/data/seaice_index/",
+   "dataset_url": "https://noaadata.apps.nsidc.org/NOAA/G02135/south/monthly/data/"
+  },
+  "provider": {
+   "org": "NSIDC (NOAA/NASA DAAC)",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "antarctic_sea_ice",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": 14.0,
+   "max": 21.0,
+   "min_points": 35
+  },
+  "notes": null,
+  "short": "NSIDC",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "sunspots_silso": {
+  "title": "Liczba plam słonecznych (SILSO)",
+  "title_en": "Annual sunspot number (SILSO)",
+  "description": "Roczna średnia liczba plam słonecznych (SN v2.0), Royal Observatory of Belgium — wskaźnik aktywności Słońca.",
+  "description_en": "Annual mean total sunspot number v2.0 (SILSO, Royal Observatory of Belgium).",
+  "keywords_pl": [
+   "plamy słoneczne",
+   "plam słonecznych",
+   "aktywność słońca",
+   "słońce",
+   "cykl słoneczny",
+   "słoneczna"
+  ],
+  "keywords_en": [
+   "sunspots",
+   "solar activity",
+   "solar cycle",
+   "sun"
+  ],
+  "hint_terms": [
+   "sunspots",
+   "solar activity"
+  ],
+  "variables": [
+   {
+    "id": "sunspots_silso",
+    "unit": "liczba plam",
+    "desc": "Liczba plam słonecznych (SILSO)"
+   }
+  ],
+  "unit": "liczba plam",
+  "connector": "silso",
+  "connector_params": {},
+  "supports_regions": false,
+  "coverage": {
+   "start": 1700,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "sun",
+  "source": {
+   "name": "SILSO — Sunspot Index and Long-term Solar Observations",
+   "url": "https://www.sidc.be/SILSO/",
+   "dataset_url": "https://www.sidc.be/SILSO/"
+  },
+  "provider": {
+   "org": "SILSO, Royal Observatory of Belgium",
+   "country": "Belgia",
+   "type": "agency"
+  },
+  "topic": "solar_activity",
+  "body": "sun",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "global",
+  "sanity": {
+   "min": 0,
+   "max": 300,
+   "min_points": 250
+  },
+  "notes": null,
+  "short": "SILSO",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "openmeteo_era5_t2m": {
+  "title": "Temperatura powietrza 2 m — ERA5 (Open-Meteo)",
+  "title_en": "Air temperature 2 m — ERA5 reanalysis (Open-Meteo)",
+  "description": "Średnia temperatura powietrza 2 m z reanalizy ECMWF ERA5 (Copernicus) dla dowolnego punktu/obszaru, udostępniana przez Open-Meteo; od 1981.",
+  "description_en": "2 m air temperature from ECMWF ERA5 reanalysis for any point/area, served by Open-Meteo.",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie",
+   "era5",
+   "copernicus",
+   "esa",
+   "ecmwf"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming",
+   "era5",
+   "copernicus",
+   "ecmwf",
+   "esa"
+  ],
+  "hint_terms": [
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "openmeteo_era5_t2m",
+    "unit": "°C",
+    "desc": "Temperatura powietrza 2 m — ERA5 (Open-Meteo)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "open_meteo",
+  "connector_params": {
+   "variable": "temperature_2m_mean",
+   "model": "era5"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "Open-Meteo Historical Weather API (ECMWF ERA5)",
+   "url": "https://open-meteo.com/en/docs/historical-weather-api",
+   "dataset_url": "https://open-meteo.com/en/docs/historical-weather-api"
+  },
+  "provider": {
+   "org": "Open-Meteo (dane ECMWF ERA5)",
+   "country": "Szwajcaria",
+   "type": "private"
+  },
+  "topic": "regional_temperature",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "any",
+  "sanity": {
+   "min": -15,
+   "max": 30,
+   "min_points": 35,
+   "max_gap": 1
+  },
+  "notes": null,
+  "short": "ECMWF ERA5 (Open-Meteo)",
+  "data_type": "reanalysis",
+  "is_model": false
+ },
+ "openmeteo_era5land_t2m": {
+  "title": "Temperatura powietrza 2 m — ERA5-Land (Open-Meteo)",
+  "title_en": "Air temperature 2 m — ERA5-Land (Open-Meteo)",
+  "description": "Średnia temperatura powietrza 2 m z modelu lądowego ERA5-Land (ECMWF/Copernicus, 9 km) przez Open-Meteo.",
+  "description_en": "2 m air temperature from ECMWF ERA5-Land (9 km land reanalysis) via Open-Meteo.",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie",
+   "era5-land",
+   "copernicus",
+   "esa"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming",
+   "era5-land",
+   "copernicus",
+   "ecmwf",
+   "esa"
+  ],
+  "hint_terms": [
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "openmeteo_era5land_t2m",
+    "unit": "°C",
+    "desc": "Temperatura powietrza 2 m — ERA5-Land (Open-Meteo)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "open_meteo",
+  "connector_params": {
+   "variable": "temperature_2m_mean",
+   "model": "era5_land"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "Open-Meteo Historical Weather API (ERA5-Land)",
+   "url": "https://open-meteo.com/en/docs/historical-weather-api",
+   "dataset_url": "https://open-meteo.com/en/docs/historical-weather-api"
+  },
+  "provider": {
+   "org": "Open-Meteo (dane ECMWF ERA5)",
+   "country": "Szwajcaria",
+   "type": "private"
+  },
+  "topic": "regional_temperature",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "any",
+  "sanity": {
+   "min": -15,
+   "max": 30,
+   "min_points": 35
+  },
+  "notes": null,
+  "short": "ECMWF ERA5-Land (Open-Meteo)",
+  "data_type": "reanalysis",
+  "is_model": false
+ },
+ "berkeley_region_temp": {
+  "title": "Anomalia temperatury kraju/kontynentu — Berkeley Earth",
+  "title_en": "Country/continent land temperature anomaly — Berkeley Earth",
+  "description": "Roczne anomalie temperatury lądu dla kraju lub kontynentu względem 1951–1980 (Berkeley Earth, niezależna analiza stacji naziemnych).",
+  "description_en": "Annual land temperature anomalies for a country or continent vs 1951–1980 (Berkeley Earth).",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming"
+  ],
+  "hint_terms": [
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "berkeley_region_temp",
+    "unit": "°C",
+    "desc": "Anomalia temperatury kraju/kontynentu — Berkeley Earth"
+   }
+  ],
+  "unit": "°C",
+  "connector": "berkeley_region",
+  "connector_params": {},
+  "supports_regions": true,
+  "coverage": {
+   "start": 1850,
+   "end": 2020,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "Berkeley Earth — Regional temperature",
+   "url": "https://berkeleyearth.org/data/",
+   "dataset_url": "https://berkeleyearth.org/data/"
+  },
+  "provider": {
+   "org": "Berkeley Earth",
+   "country": "USA",
+   "type": "nonprofit"
+  },
+  "topic": "regional_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1951–1980",
+  "series_kind": "annual",
+  "region_scope": "country",
+  "sanity": {
+   "min": -4,
+   "max": 6,
+   "min_points": 100
+  },
+  "notes": "regionalne pliki Berkeley Earth kończą się w 2020 r.",
+  "short": "Berkeley Earth",
+  "data_type": "analysis",
+  "is_model": false
+ },
+ "owid_era5_temp_anomaly": {
+  "title": "Anomalia temperatury kraju — ERA5 (Copernicus via OWID)",
+  "title_en": "Country temperature anomaly — ERA5 (Copernicus via Our World in Data)",
+  "description": "Roczna anomalia temperatury przy powierzchni dla kraju względem 1991–2020 (reanaliza ERA5, Copernicus C3S) w opracowaniu Our World in Data; od 1940.",
+  "description_en": "Annual country-level near-surface temperature anomaly vs 1991–2020 (Copernicus ERA5 via OWID).",
+  "keywords_pl": [
+   "temperatura",
+   "temperatury",
+   "temperaturze",
+   "ocieplenie",
+   "ocieplenia",
+   "cieplej",
+   "średnia temperatura",
+   "anomalia temperatury",
+   "anomalie",
+   "copernicus",
+   "esa"
+  ],
+  "keywords_en": [
+   "temperature",
+   "warming",
+   "anomaly",
+   "temperature anomaly",
+   "global warming",
+   "copernicus",
+   "esa"
+  ],
+  "hint_terms": [
+   "temperature",
+   "warming"
+  ],
+  "variables": [
+   {
+    "id": "owid_era5_temp_anomaly",
+    "unit": "°C",
+    "desc": "Anomalia temperatury kraju — ERA5 (Copernicus via OWID)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "owid_temp",
+  "connector_params": {
+   "slug": "annual-temperature-anomalies"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1940,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "temperature",
+  "source": {
+   "name": "Our World in Data / Copernicus C3S",
+   "url": "https://ourworldindata.org/grapher/annual-temperature-anomalies",
+   "dataset_url": "https://ourworldindata.org/grapher/annual-temperature-anomalies"
+  },
+  "provider": {
+   "org": "Copernicus ERA5 (opracowanie Our World in Data)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "regional_temperature",
+  "body": "earth",
+  "kind": "anomaly",
+  "baseline": "1991–2020",
+  "series_kind": "annual",
+  "region_scope": "country",
+  "sanity": {
+   "min": -4,
+   "max": 5,
+   "min_points": 70
+  },
+  "notes": null,
+  "short": "Copernicus ERA5 (OWID)",
+  "data_type": "reanalysis",
+  "is_model": false
+ },
+ "openmeteo_era5_prec": {
+  "title": "Opady — ERA5 (Open-Meteo)",
+  "title_en": "Precipitation — ERA5 (Open-Meteo)",
+  "description": "Średni dobowy opad (mm/dzień) z reanalizy ECMWF ERA5 przez Open-Meteo; od 1981.",
+  "description_en": "Mean daily precipitation (mm/day) from ECMWF ERA5 via Open-Meteo.",
+  "keywords_pl": [
+   "opady",
+   "opadów",
+   "deszcz",
+   "susza",
+   "susze",
+   "powódź",
+   "powodzie",
+   "deszczowe"
+  ],
+  "keywords_en": [
+   "precipitation",
+   "rain",
+   "drought",
+   "rainfall"
+  ],
+  "hint_terms": [
+   "precipitation",
+   "rain"
+  ],
+  "variables": [
+   {
+    "id": "openmeteo_era5_prec",
+    "unit": "mm/dzień",
+    "desc": "Opady — ERA5 (Open-Meteo)"
+   }
+  ],
+  "unit": "mm/dzień",
+  "connector": "open_meteo",
+  "connector_params": {
+   "variable": "precipitation_sum",
+   "model": "era5"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1981,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "precipitation",
+  "source": {
+   "name": "Open-Meteo Historical Weather API (ECMWF ERA5)",
+   "url": "https://open-meteo.com/en/docs/historical-weather-api",
+   "dataset_url": "https://open-meteo.com/en/docs/historical-weather-api"
+  },
+  "provider": {
+   "org": "Open-Meteo (dane ECMWF ERA5)",
+   "country": "Szwajcaria",
+   "type": "private"
+  },
+  "topic": "regional_precipitation",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "any",
+  "sanity": {
+   "min": 0,
+   "max": 15,
+   "min_points": 35
+  },
+  "notes": null,
+  "short": "ECMWF ERA5 (Open-Meteo)",
+  "data_type": "reanalysis",
+  "is_model": false
+ },
+ "owid_co2_emissions": {
+  "title": "Emisje CO₂ ze spalania paliw (Global Carbon Project)",
+  "title_en": "Annual CO2 emissions (Global Carbon Project)",
+  "description": "Roczne emisje CO₂ ze spalania paliw kopalnych i przemysłu (Global Carbon Project, via Our World in Data) dla kraju lub świata.",
+  "description_en": "Annual fossil CO2 emissions (Global Carbon Project via OWID) for a country or the world.",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "emisje co2",
+   "emisje gazów cieplarnianych",
+   "gazy cieplarniane",
+   "spalanie paliw",
+   "emituje"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2 emissions",
+   "greenhouse gas emissions",
+   "carbon emissions"
+  ],
+  "hint_terms": [
+   "co2",
+   "greenhouse",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_co2_emissions",
+    "unit": "mln t CO₂",
+    "desc": "Emisje CO₂ ze spalania paliw (Global Carbon Project)"
+   }
+  ],
+  "unit": "mln t CO₂",
+  "connector": "owid",
+  "connector_params": {
+   "slug": "annual-co2-emissions-per-country",
+   "column": 3,
+   "scale": 1e-06
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Global Carbon Project / Our World in Data",
+   "url": "https://ourworldindata.org/co2-emissions",
+   "dataset_url": "https://ourworldindata.org/grapher/annual-co2-emissions-per-country"
+  },
+  "provider": {
+   "org": "Global Carbon Project (via OWID)",
+   "country": "międzynarodowy",
+   "type": "academic"
+  },
+  "topic": "emissions",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 15000,
+   "min_points": 60
+  },
+  "notes": null,
+  "short": "Global Carbon Project (CO₂)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_ghg_total": {
+  "title": "Emisje wszystkich gazów cieplarnianych (Climate Watch via OWID)",
+  "title_en": "Total greenhouse gas emissions incl. land use (Climate Watch via OWID)",
+  "description": "Roczne emisje wszystkich gazów cieplarnianych z użytkowaniem gruntów (CO₂e), Climate Watch / Our World in Data.",
+  "description_en": "Annual total GHG emissions incl. land use (CO2e), Climate Watch via OWID.",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "emisje co2",
+   "emisje gazów cieplarnianych",
+   "gazy cieplarniane",
+   "spalanie paliw",
+   "emituje"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2 emissions",
+   "greenhouse gas emissions",
+   "carbon emissions"
+  ],
+  "hint_terms": [
+   "co2",
+   "greenhouse",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_ghg_total",
+    "unit": "mln t CO₂e",
+    "desc": "Emisje wszystkich gazów cieplarnianych (Climate Watch via OWID)"
+   }
+  ],
+  "unit": "mln t CO₂e",
+  "connector": "owid",
+  "connector_params": {
+   "slug": "total-ghg-emissions",
+   "column": 3,
+   "scale": 1e-06
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1850,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Climate Watch / Our World in Data",
+   "url": "https://ourworldindata.org/greenhouse-gas-emissions",
+   "dataset_url": "https://ourworldindata.org/grapher/total-ghg-emissions"
+  },
+  "provider": {
+   "org": "Climate Watch / WRI (opracowanie Our World in Data)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": -500,
+   "max": 70000,
+   "min_points": 25
+  },
+  "notes": null,
+  "short": "Climate Watch (GHG łącznie)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "eurostat_ghg": {
+  "title": "Emisje gazów cieplarnianych (Eurostat)",
+  "title_en": "Greenhouse gas emissions (Eurostat)",
+  "description": "Roczne emisje gazów cieplarnianych bez LULUCF dla krajów UE i UE-27 (Eurostat, inwentaryzacje krajowe CRF).",
+  "description_en": "Annual GHG emissions excl. LULUCF for EU member states and the EU-27 (Eurostat).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "emisje co2",
+   "emisje gazów cieplarnianych",
+   "gazy cieplarniane",
+   "spalanie paliw",
+   "emituje"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2 emissions",
+   "greenhouse gas emissions",
+   "carbon emissions"
+  ],
+  "hint_terms": [
+   "co2",
+   "greenhouse",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "eurostat_ghg",
+    "unit": "mln t CO₂e",
+    "desc": "Emisje gazów cieplarnianych (Eurostat)"
+   }
+  ],
+  "unit": "mln t CO₂e",
+  "connector": "eurostat_ghg",
+  "connector_params": {},
+  "supports_regions": true,
+  "coverage": {
+   "start": 1990,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Eurostat — env_air_gge",
+   "url": "https://ec.europa.eu/eurostat/databrowser/view/env_air_gge/",
+   "dataset_url": "https://ec.europa.eu/eurostat/databrowser/view/env_air_gge/"
+  },
+  "provider": {
+   "org": "Eurostat (Komisja Europejska)",
+   "country": "UE",
+   "type": "intergovernmental"
+  },
+  "topic": "emissions",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "eu",
+  "sanity": {
+   "min": 1,
+   "max": 5500,
+   "min_points": 25
+  },
+  "notes": null,
+  "short": "Eurostat (GHG, UE)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_co2_per_capita": {
+  "title": "Emisje CO₂ na mieszkańca (Global Carbon Project)",
+  "title_en": "CO2 emissions per capita (Global Carbon Project)",
+  "description": "Roczne emisje CO₂ na mieszkańca (Global Carbon Project via Our World in Data).",
+  "description_en": "Annual CO2 emissions per capita (GCP via OWID).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "emisje co2",
+   "emisje gazów cieplarnianych",
+   "gazy cieplarniane",
+   "spalanie paliw",
+   "emituje"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2 emissions",
+   "greenhouse gas emissions",
+   "carbon emissions"
+  ],
+  "hint_terms": [
+   "co2",
+   "greenhouse",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_co2_per_capita",
+    "unit": "t CO₂/osobę",
+    "desc": "Emisje CO₂ na mieszkańca (Global Carbon Project)"
+   }
+  ],
+  "unit": "t CO₂/osobę",
+  "connector": "owid",
+  "connector_params": {
+   "slug": "co-emissions-per-capita",
+   "column": 3,
+   "scale": 1.0
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Global Carbon Project / Our World in Data",
+   "url": "https://ourworldindata.org/co2-emissions",
+   "dataset_url": "https://ourworldindata.org/grapher/co-emissions-per-capita"
+  },
+  "provider": {
+   "org": "Global Carbon Project (via OWID)",
+   "country": "międzynarodowy",
+   "type": "academic"
+  },
+  "topic": "emissions_per_capita",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 40,
+   "min_points": 60
+  },
+  "notes": null,
+  "short": "Global Carbon Project",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_renewables_share": {
+  "title": "Udział OZE w produkcji energii elektrycznej (Ember)",
+  "title_en": "Renewables share of electricity (Ember via OWID)",
+  "description": "Udział odnawialnych źródeł energii w produkcji energii elektrycznej (Ember, via Our World in Data).",
+  "description_en": "Share of electricity from renewables (Ember via OWID).",
+  "keywords_pl": [
+   "odnawialne",
+   "oze",
+   "energia odnawialna",
+   "wiatr",
+   "słońce",
+   "fotowoltaika",
+   "energetyka"
+  ],
+  "keywords_en": [
+   "renewables",
+   "renewable energy",
+   "electricity mix",
+   "wind",
+   "solar"
+  ],
+  "hint_terms": [
+   "renewables",
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_renewables_share",
+    "unit": "%",
+    "desc": "Udział OZE w produkcji energii elektrycznej (Ember)"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid",
+  "connector_params": {
+   "slug": "share-electricity-renewables",
+   "column": 3,
+   "scale": 1.0
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 2000,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Ember / Our World in Data",
+   "url": "https://ourworldindata.org/renewable-energy",
+   "dataset_url": "https://ourworldindata.org/grapher/share-electricity-renewables"
+  },
+  "provider": {
+   "org": "Ember (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "renewables",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 15
+  },
+  "notes": null,
+  "short": "Ember",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "mars_rems_max_temp": {
+  "title": "Mars: dzienne maksimum temperatury powietrza — Curiosity REMS (NASA)",
+  "title_en": "Mars: daily maximum air temperature — Curiosity REMS (NASA/CAB)",
+  "description": "Dzienne maksimum temperatury powietrza na Marsie w kraterze Gale mierzone przez stację REMS łazika Curiosity, średnie wg Ls z pełnych lat marsjańskich (od 2012).",
+  "description_en": "Daily maximum air temperature on Mars in Gale crater measured by the REMS station on the Curiosity rover, averaged by Ls over full Martian years (since 2012).",
+  "keywords_pl": [
+   "mars",
+   "marsa",
+   "marsie",
+   "marsem",
+   "marsjański",
+   "marsjańska",
+   "marsjańskie",
+   "czerwona planeta",
+   "pogoda na marsie",
+   "klimat marsa",
+   "curiosity",
+   "łazik",
+   "krater gale",
+   "maksimum",
+   "ciepło",
+   "temperatura w dzień"
+  ],
+  "keywords_en": [
+   "mars",
+   "martian",
+   "red planet",
+   "curiosity rover",
+   "gale crater",
+   "rems",
+   "mars weather",
+   "temperature"
+  ],
+  "hint_terms": [
+   "mars",
+   "planets"
+  ],
+  "variables": [
+   {
+    "id": "mars_rems_max_temp",
+    "unit": "°C",
+    "desc": "Mars: dzienne maksimum temperatury powietrza — Curiosity REMS (NASA)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "mars_rems",
+  "connector_params": {
+   "var": "max_temp"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2012,
+   "end": null,
+   "resolution": "dobowa (sol) -> przedziały Ls 15°"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA Curiosity REMS (CAB-INTA / NASA-JPL)",
+   "url": "https://mars.nasa.gov/msl/mission/weather/",
+   "dataset_url": "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json"
+  },
+  "provider": {
+   "org": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "country": "USA/Hiszpania",
+   "type": "agency"
+  },
+  "topic": "mars_max_temp",
+  "body": "mars",
+  "kind": "absolute",
+  "baseline": "klimatologia sezonowa wg Ls",
+  "series_kind": "seasonal_ls",
+  "region_scope": "global",
+  "sanity": {
+   "min": -60,
+   "max": 40,
+   "min_points": 20
+  },
+  "notes": null,
+  "short": "NASA Curiosity REMS (obserwacje)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "mars_mcd_max_temp": {
+  "title": "Mars: dzienne maksimum temperatury powietrza — model MCD (ESA/CNES/LMD)",
+  "title_en": "Mars: daily maximum air temperature — Mars Climate Database (ESA/CNES)",
+  "description": "Modelowana klimatologia (dzienne maksimum temperatury powietrza) dla krateru Gale z Mars Climate Database (LMD, CNES, Open University, IAA, ESA) — MODEL, nie obserwacja.",
+  "description_en": "Modelled climatology (daily maximum air temperature) for Gale crater from the Mars Climate Database (LMD, CNES, Open University, IAA, ESA). A MODEL, not an observation.",
+  "keywords_pl": [
+   "mars",
+   "marsa",
+   "marsie",
+   "marsem",
+   "marsjański",
+   "marsjańska",
+   "marsjańskie",
+   "czerwona planeta",
+   "pogoda na marsie",
+   "klimat marsa",
+   "curiosity",
+   "łazik",
+   "krater gale",
+   "maksimum",
+   "ciepło",
+   "temperatura w dzień",
+   "model",
+   "esa",
+   "mcd"
+  ],
+  "keywords_en": [
+   "mars",
+   "martian",
+   "red planet",
+   "curiosity rover",
+   "gale crater",
+   "rems",
+   "mars weather",
+   "model",
+   "esa",
+   "mcd",
+   "temperature"
+  ],
+  "hint_terms": [
+   "mars",
+   "planets"
+  ],
+  "variables": [
+   {
+    "id": "mars_mcd_max_temp",
+    "unit": "°C",
+    "desc": "Mars: dzienne maksimum temperatury powietrza — model MCD (ESA/CNES/LMD)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "mars_mcd",
+  "connector_params": {
+   "kind": "max_temp"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2012,
+   "end": null,
+   "resolution": "dobowa (sol) -> przedziały Ls 15°"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "Mars Climate Database (LMD/CNES/Open University/IAA/ESA)",
+   "url": "http://www-mars.lmd.jussieu.fr/mcd_python/",
+   "dataset_url": "http://www-mars.lmd.jussieu.fr/mars/access.html"
+  },
+  "provider": {
+   "org": "LMD / CNES / Open Univ. / IAA / ESA (Mars Climate Database)",
+   "country": "Francja/UE",
+   "type": "intergovernmental"
+  },
+  "topic": "mars_max_temp",
+  "body": "mars",
+  "kind": "absolute",
+  "baseline": "klimatologia sezonowa wg Ls",
+  "series_kind": "seasonal_ls",
+  "region_scope": "global",
+  "sanity": {
+   "min": -80,
+   "max": 40,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "MCD ESA/CNES (model)",
+  "data_type": "model",
+  "is_model": true
+ },
+ "mars_rems_min_temp": {
+  "title": "Mars: dzienne minimum temperatury powietrza — Curiosity REMS (NASA)",
+  "title_en": "Mars: daily minimum air temperature — Curiosity REMS (NASA/CAB)",
+  "description": "Dzienne minimum temperatury powietrza na Marsie w kraterze Gale mierzone przez stację REMS łazika Curiosity, średnie wg Ls z pełnych lat marsjańskich (od 2012).",
+  "description_en": "Daily minimum air temperature on Mars in Gale crater measured by the REMS station on the Curiosity rover, averaged by Ls over full Martian years (since 2012).",
+  "keywords_pl": [
+   "mars",
+   "marsa",
+   "marsie",
+   "marsem",
+   "marsjański",
+   "marsjańska",
+   "marsjańskie",
+   "czerwona planeta",
+   "pogoda na marsie",
+   "klimat marsa",
+   "curiosity",
+   "łazik",
+   "krater gale",
+   "minimum",
+   "mróz",
+   "noc",
+   "temperatura w nocy"
+  ],
+  "keywords_en": [
+   "mars",
+   "martian",
+   "red planet",
+   "curiosity rover",
+   "gale crater",
+   "rems",
+   "mars weather",
+   "temperature"
+  ],
+  "hint_terms": [
+   "mars",
+   "planets"
+  ],
+  "variables": [
+   {
+    "id": "mars_rems_min_temp",
+    "unit": "°C",
+    "desc": "Mars: dzienne minimum temperatury powietrza — Curiosity REMS (NASA)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "mars_rems",
+  "connector_params": {
+   "var": "min_temp"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2012,
+   "end": null,
+   "resolution": "dobowa (sol) -> przedziały Ls 15°"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA Curiosity REMS (CAB-INTA / NASA-JPL)",
+   "url": "https://mars.nasa.gov/msl/mission/weather/",
+   "dataset_url": "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json"
+  },
+  "provider": {
+   "org": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "country": "USA/Hiszpania",
+   "type": "agency"
+  },
+  "topic": "mars_min_temp",
+  "body": "mars",
+  "kind": "absolute",
+  "baseline": "klimatologia sezonowa wg Ls",
+  "series_kind": "seasonal_ls",
+  "region_scope": "global",
+  "sanity": {
+   "min": -120,
+   "max": 0,
+   "min_points": 20
+  },
+  "notes": null,
+  "short": "NASA Curiosity REMS (obserwacje)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "mars_mcd_min_temp": {
+  "title": "Mars: dzienne minimum temperatury powietrza — model MCD (ESA/CNES/LMD)",
+  "title_en": "Mars: daily minimum air temperature — Mars Climate Database (ESA/CNES)",
+  "description": "Modelowana klimatologia (dzienne minimum temperatury powietrza) dla krateru Gale z Mars Climate Database (LMD, CNES, Open University, IAA, ESA) — MODEL, nie obserwacja.",
+  "description_en": "Modelled climatology (daily minimum air temperature) for Gale crater from the Mars Climate Database (LMD, CNES, Open University, IAA, ESA). A MODEL, not an observation.",
+  "keywords_pl": [
+   "mars",
+   "marsa",
+   "marsie",
+   "marsem",
+   "marsjański",
+   "marsjańska",
+   "marsjańskie",
+   "czerwona planeta",
+   "pogoda na marsie",
+   "klimat marsa",
+   "curiosity",
+   "łazik",
+   "krater gale",
+   "minimum",
+   "mróz",
+   "noc",
+   "temperatura w nocy",
+   "model",
+   "esa",
+   "mcd"
+  ],
+  "keywords_en": [
+   "mars",
+   "martian",
+   "red planet",
+   "curiosity rover",
+   "gale crater",
+   "rems",
+   "mars weather",
+   "model",
+   "esa",
+   "mcd",
+   "temperature"
+  ],
+  "hint_terms": [
+   "mars",
+   "planets"
+  ],
+  "variables": [
+   {
+    "id": "mars_mcd_min_temp",
+    "unit": "°C",
+    "desc": "Mars: dzienne minimum temperatury powietrza — model MCD (ESA/CNES/LMD)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "mars_mcd",
+  "connector_params": {
+   "kind": "min_temp"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2012,
+   "end": null,
+   "resolution": "dobowa (sol) -> przedziały Ls 15°"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "Mars Climate Database (LMD/CNES/Open University/IAA/ESA)",
+   "url": "http://www-mars.lmd.jussieu.fr/mcd_python/",
+   "dataset_url": "http://www-mars.lmd.jussieu.fr/mars/access.html"
+  },
+  "provider": {
+   "org": "LMD / CNES / Open Univ. / IAA / ESA (Mars Climate Database)",
+   "country": "Francja/UE",
+   "type": "intergovernmental"
+  },
+  "topic": "mars_min_temp",
+  "body": "mars",
+  "kind": "absolute",
+  "baseline": "klimatologia sezonowa wg Ls",
+  "series_kind": "seasonal_ls",
+  "region_scope": "global",
+  "sanity": {
+   "min": -140,
+   "max": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "MCD ESA/CNES (model)",
+  "data_type": "model",
+  "is_model": true
+ },
+ "mars_rems_pressure": {
+  "title": "Mars: ciśnienie atmosferyczne — Curiosity REMS (NASA)",
+  "title_en": "Mars: atmospheric pressure — Curiosity REMS (NASA/CAB)",
+  "description": "Ciśnienie atmosferyczne na Marsie w kraterze Gale mierzone przez stację REMS łazika Curiosity, średnie wg Ls z pełnych lat marsjańskich (od 2012).",
+  "description_en": "Atmospheric pressure on Mars in Gale crater measured by the REMS station on the Curiosity rover, averaged by Ls over full Martian years (since 2012).",
+  "keywords_pl": [
+   "mars",
+   "marsa",
+   "marsie",
+   "marsem",
+   "marsjański",
+   "marsjańska",
+   "marsjańskie",
+   "czerwona planeta",
+   "pogoda na marsie",
+   "klimat marsa",
+   "curiosity",
+   "łazik",
+   "krater gale",
+   "ciśnienie",
+   "atmosfera",
+   "atmosfery"
+  ],
+  "keywords_en": [
+   "mars",
+   "martian",
+   "red planet",
+   "curiosity rover",
+   "gale crater",
+   "rems",
+   "mars weather",
+   "temperature",
+   "pressure"
+  ],
+  "hint_terms": [
+   "mars",
+   "planets"
+  ],
+  "variables": [
+   {
+    "id": "mars_rems_pressure",
+    "unit": "Pa",
+    "desc": "Mars: ciśnienie atmosferyczne — Curiosity REMS (NASA)"
+   }
+  ],
+  "unit": "Pa",
+  "connector": "mars_rems",
+  "connector_params": {
+   "var": "pressure"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2012,
+   "end": null,
+   "resolution": "dobowa (sol) -> przedziały Ls 15°"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA Curiosity REMS (CAB-INTA / NASA-JPL)",
+   "url": "https://mars.nasa.gov/msl/mission/weather/",
+   "dataset_url": "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json"
+  },
+  "provider": {
+   "org": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "country": "USA/Hiszpania",
+   "type": "agency"
+  },
+  "topic": "mars_pressure",
+  "body": "mars",
+  "kind": "absolute",
+  "baseline": "klimatologia sezonowa wg Ls",
+  "series_kind": "seasonal_ls",
+  "region_scope": "global",
+  "sanity": {
+   "min": 600,
+   "max": 1000,
+   "min_points": 20
+  },
+  "notes": null,
+  "short": "NASA Curiosity REMS (obserwacje)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "mars_mcd_pressure": {
+  "title": "Mars: ciśnienie atmosferyczne — model MCD (ESA/CNES/LMD)",
+  "title_en": "Mars: atmospheric pressure — Mars Climate Database (ESA/CNES)",
+  "description": "Modelowana klimatologia ciśnienia dla krateru Gale z Mars Climate Database (LMD, CNES, Open Univ., IAA, ESA) — MODEL.",
+  "description_en": "Modelled pressure climatology for Gale crater from the Mars Climate Database (LMD, CNES, Open Univ., IAA, ESA). A MODEL.",
+  "keywords_pl": [
+   "mars",
+   "marsa",
+   "marsie",
+   "marsem",
+   "marsjański",
+   "marsjańska",
+   "marsjańskie",
+   "czerwona planeta",
+   "pogoda na marsie",
+   "klimat marsa",
+   "curiosity",
+   "łazik",
+   "krater gale",
+   "ciśnienie",
+   "atmosfera",
+   "atmosfery",
+   "model",
+   "esa",
+   "mcd"
+  ],
+  "keywords_en": [
+   "mars",
+   "martian",
+   "red planet",
+   "curiosity rover",
+   "gale crater",
+   "rems",
+   "mars weather",
+   "model",
+   "esa",
+   "mcd",
+   "pressure"
+  ],
+  "hint_terms": [
+   "mars",
+   "planets"
+  ],
+  "variables": [
+   {
+    "id": "mars_mcd_pressure",
+    "unit": "Pa",
+    "desc": "Mars: ciśnienie atmosferyczne — model MCD (ESA/CNES/LMD)"
+   }
+  ],
+  "unit": "Pa",
+  "connector": "mars_mcd",
+  "connector_params": {
+   "kind": "pressure"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2012,
+   "end": null,
+   "resolution": "dobowa (sol) -> przedziały Ls 15°"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "Mars Climate Database (LMD/CNES/Open University/IAA/ESA)",
+   "url": "http://www-mars.lmd.jussieu.fr/mcd_python/",
+   "dataset_url": "http://www-mars.lmd.jussieu.fr/mars/access.html"
+  },
+  "provider": {
+   "org": "LMD / CNES / Open Univ. / IAA / ESA (Mars Climate Database)",
+   "country": "Francja/UE",
+   "type": "intergovernmental"
+  },
+  "topic": "mars_pressure",
+  "body": "mars",
+  "kind": "absolute",
+  "baseline": "klimatologia sezonowa wg Ls",
+  "series_kind": "seasonal_ls",
+  "region_scope": "global",
+  "sanity": {
+   "min": 500,
+   "max": 1100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "MCD ESA/CNES (model)",
+  "data_type": "model",
+  "is_model": true
+ },
+ "mars_rems_max_gts_temp": {
+  "title": "Mars: dzienne maksimum temperatury gruntu — Curiosity REMS (NASA)",
+  "title_en": "Mars: daily maximum ground temperature — Curiosity REMS",
+  "description": "Dzienne maksimum temperatury gruntu na Marsie (krater Gale, REMS/Curiosity), średnie wg Ls z pełnych lat marsjańskich.",
+  "description_en": "Daily maximum ground temperature on Mars (Gale crater, REMS/Curiosity), averaged by Ls over full Martian years.",
+  "keywords_pl": [
+   "mars",
+   "marsa",
+   "marsie",
+   "marsem",
+   "marsjański",
+   "marsjańska",
+   "marsjańskie",
+   "czerwona planeta",
+   "pogoda na marsie",
+   "klimat marsa",
+   "curiosity",
+   "łazik",
+   "krater gale",
+   "grunt",
+   "gruntu",
+   "powierzchnia"
+  ],
+  "keywords_en": [
+   "mars",
+   "martian",
+   "red planet",
+   "curiosity rover",
+   "gale crater",
+   "rems",
+   "mars weather",
+   "ground temperature",
+   "surface temperature"
+  ],
+  "hint_terms": [
+   "mars",
+   "planets"
+  ],
+  "variables": [
+   {
+    "id": "mars_rems_max_gts_temp",
+    "unit": "°C",
+    "desc": "Mars: dzienne maksimum temperatury gruntu — Curiosity REMS (NASA)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "mars_rems",
+  "connector_params": {
+   "var": "max_gts_temp"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2012,
+   "end": null,
+   "resolution": "dobowa (sol) -> przedziały Ls 15°"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA Curiosity REMS (CAB-INTA / NASA-JPL)",
+   "url": "https://mars.nasa.gov/msl/mission/weather/",
+   "dataset_url": "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json"
+  },
+  "provider": {
+   "org": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "country": "USA/Hiszpania",
+   "type": "agency"
+  },
+  "topic": "mars_max_gts_temp",
+  "body": "mars",
+  "kind": "absolute",
+  "baseline": "klimatologia sezonowa wg Ls",
+  "series_kind": "seasonal_ls",
+  "region_scope": "global",
+  "sanity": {
+   "min": -40,
+   "max": 60,
+   "min_points": 20
+  },
+  "notes": null,
+  "short": "NASA Curiosity REMS (obserwacje)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "mars_rems_min_gts_temp": {
+  "title": "Mars: dzienne minimum temperatury gruntu — Curiosity REMS (NASA)",
+  "title_en": "Mars: daily minimum ground temperature — Curiosity REMS",
+  "description": "Dzienne minimum temperatury gruntu na Marsie (krater Gale, REMS/Curiosity), średnie wg Ls z pełnych lat marsjańskich.",
+  "description_en": "Daily minimum ground temperature on Mars (Gale crater, REMS/Curiosity), averaged by Ls over full Martian years.",
+  "keywords_pl": [
+   "mars",
+   "marsa",
+   "marsie",
+   "marsem",
+   "marsjański",
+   "marsjańska",
+   "marsjańskie",
+   "czerwona planeta",
+   "pogoda na marsie",
+   "klimat marsa",
+   "curiosity",
+   "łazik",
+   "krater gale",
+   "grunt",
+   "gruntu",
+   "powierzchnia"
+  ],
+  "keywords_en": [
+   "mars",
+   "martian",
+   "red planet",
+   "curiosity rover",
+   "gale crater",
+   "rems",
+   "mars weather",
+   "ground temperature",
+   "surface temperature"
+  ],
+  "hint_terms": [
+   "mars",
+   "planets"
+  ],
+  "variables": [
+   {
+    "id": "mars_rems_min_gts_temp",
+    "unit": "°C",
+    "desc": "Mars: dzienne minimum temperatury gruntu — Curiosity REMS (NASA)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "mars_rems",
+  "connector_params": {
+   "var": "min_gts_temp"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 2012,
+   "end": null,
+   "resolution": "dobowa (sol) -> przedziały Ls 15°"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA Curiosity REMS (CAB-INTA / NASA-JPL)",
+   "url": "https://mars.nasa.gov/msl/mission/weather/",
+   "dataset_url": "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json"
+  },
+  "provider": {
+   "org": "NASA/JPL + CAB-INTA (Curiosity REMS)",
+   "country": "USA/Hiszpania",
+   "type": "agency"
+  },
+  "topic": "mars_min_gts_temp",
+  "body": "mars",
+  "kind": "absolute",
+  "baseline": "klimatologia sezonowa wg Ls",
+  "series_kind": "seasonal_ls",
+  "region_scope": "global",
+  "sanity": {
+   "min": -120,
+   "max": 0,
+   "min_points": 20
+  },
+  "notes": null,
+  "short": "NASA Curiosity REMS (obserwacje)",
+  "data_type": "observation",
+  "is_model": false
+ },
+ "planet_mean_temp": {
+  "title": "Średnia temperatura planet (NASA Planetary Fact Sheet)",
+  "title_en": "Mean temperature of the planets (NASA Planetary Fact Sheet)",
+  "description": "Średnia temperatura planet — porównanie ciał Układu Słonecznego wg NASA NSSDCA Planetary Fact Sheet.",
+  "description_en": "Mean temperature of the planets — comparison across Solar System bodies from the NASA NSSDCA Planetary Fact Sheet.",
+  "keywords_pl": [
+   "planety",
+   "planet",
+   "planetach",
+   "układ słoneczny",
+   "układzie słonecznym",
+   "wenus",
+   "wenusie",
+   "merkury",
+   "jowisz",
+   "jowiszu",
+   "saturn",
+   "saturnie",
+   "uran",
+   "neptun",
+   "pluton",
+   "księżyc",
+   "księżycu",
+   "mars",
+   "marsie",
+   "ziemia",
+   "ziemi",
+   "porównanie planet",
+   "temperatura",
+   "temperatura na planetach",
+   "gorąco",
+   "zimno",
+   "ciepło"
+  ],
+  "keywords_en": [
+   "planets",
+   "solar system",
+   "venus",
+   "mercury",
+   "jupiter",
+   "saturn",
+   "uranus",
+   "neptune",
+   "pluto",
+   "moon",
+   "mars",
+   "earth",
+   "temperature",
+   "hottest planet",
+   "coldest planet"
+  ],
+  "hint_terms": [
+   "planets",
+   "mars"
+  ],
+  "variables": [
+   {
+    "id": "planet_mean_temp",
+    "unit": "°C",
+    "desc": "Średnia temperatura planet (NASA Planetary Fact Sheet)"
+   }
+  ],
+  "unit": "°C",
+  "connector": "planet_metric",
+  "connector_params": {
+   "metric": "mean_temp"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1960,
+   "end": null,
+   "resolution": "jedna wartość na ciało"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA NSSDCA Planetary Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+   "dataset_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "planet_mean_temp",
+  "body": "solar_system",
+  "kind": "absolute",
+  "baseline": "wartości wzorcowe",
+  "series_kind": "planet_metric",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 5
+  },
+  "notes": null,
+  "data_type": "reference",
+  "is_model": false
+ },
+ "planet_gravity": {
+  "title": "Grawitacja na planetach (NASA Planetary Fact Sheet)",
+  "title_en": "Surface gravity of the planets (NASA Planetary Fact Sheet)",
+  "description": "Grawitacja na planetach — porównanie ciał Układu Słonecznego wg NASA NSSDCA Planetary Fact Sheet.",
+  "description_en": "Surface gravity of the planets — comparison across Solar System bodies from the NASA NSSDCA Planetary Fact Sheet.",
+  "keywords_pl": [
+   "planety",
+   "planet",
+   "planetach",
+   "układ słoneczny",
+   "układzie słonecznym",
+   "wenus",
+   "wenusie",
+   "merkury",
+   "jowisz",
+   "jowiszu",
+   "saturn",
+   "saturnie",
+   "uran",
+   "neptun",
+   "pluton",
+   "księżyc",
+   "księżycu",
+   "mars",
+   "marsie",
+   "ziemia",
+   "ziemi",
+   "porównanie planet",
+   "grawitacja",
+   "przyciąganie",
+   "ciężar"
+  ],
+  "keywords_en": [
+   "planets",
+   "solar system",
+   "venus",
+   "mercury",
+   "jupiter",
+   "saturn",
+   "uranus",
+   "neptune",
+   "pluto",
+   "moon",
+   "mars",
+   "earth",
+   "gravity"
+  ],
+  "hint_terms": [
+   "planets",
+   "mars"
+  ],
+  "variables": [
+   {
+    "id": "planet_gravity",
+    "unit": "m/s²",
+    "desc": "Grawitacja na planetach (NASA Planetary Fact Sheet)"
+   }
+  ],
+  "unit": "m/s²",
+  "connector": "planet_metric",
+  "connector_params": {
+   "metric": "gravity"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1960,
+   "end": null,
+   "resolution": "jedna wartość na ciało"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA NSSDCA Planetary Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+   "dataset_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "planet_gravity",
+  "body": "solar_system",
+  "kind": "absolute",
+  "baseline": "wartości wzorcowe",
+  "series_kind": "planet_metric",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 5
+  },
+  "notes": null,
+  "data_type": "reference",
+  "is_model": false
+ },
+ "planet_distance_sun": {
+  "title": "Odległość planet od Słońca (NASA Planetary Fact Sheet)",
+  "title_en": "Distance of the planets from the Sun (NASA Planetary Fact Sheet)",
+  "description": "Odległość planet od Słońca — porównanie ciał Układu Słonecznego wg NASA NSSDCA Planetary Fact Sheet.",
+  "description_en": "Distance of the planets from the Sun — comparison across Solar System bodies from the NASA NSSDCA Planetary Fact Sheet.",
+  "keywords_pl": [
+   "planety",
+   "planet",
+   "planetach",
+   "układ słoneczny",
+   "układzie słonecznym",
+   "wenus",
+   "wenusie",
+   "merkury",
+   "jowisz",
+   "jowiszu",
+   "saturn",
+   "saturnie",
+   "uran",
+   "neptun",
+   "pluton",
+   "księżyc",
+   "księżycu",
+   "mars",
+   "marsie",
+   "ziemia",
+   "ziemi",
+   "porównanie planet",
+   "odległość",
+   "od słońca"
+  ],
+  "keywords_en": [
+   "planets",
+   "solar system",
+   "venus",
+   "mercury",
+   "jupiter",
+   "saturn",
+   "uranus",
+   "neptune",
+   "pluto",
+   "moon",
+   "mars",
+   "earth",
+   "distance from sun"
+  ],
+  "hint_terms": [
+   "planets",
+   "mars"
+  ],
+  "variables": [
+   {
+    "id": "planet_distance_sun",
+    "unit": "mln km",
+    "desc": "Odległość planet od Słońca (NASA Planetary Fact Sheet)"
+   }
+  ],
+  "unit": "mln km",
+  "connector": "planet_metric",
+  "connector_params": {
+   "metric": "distance_sun"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1960,
+   "end": null,
+   "resolution": "jedna wartość na ciało"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA NSSDCA Planetary Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+   "dataset_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "planet_distance_sun",
+  "body": "solar_system",
+  "kind": "absolute",
+  "baseline": "wartości wzorcowe",
+  "series_kind": "planet_metric",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 5
+  },
+  "notes": null,
+  "data_type": "reference",
+  "is_model": false
+ },
+ "planet_day_length": {
+  "title": "Długość doby na planetach (NASA Planetary Fact Sheet)",
+  "title_en": "Length of day on the planets (NASA Planetary Fact Sheet)",
+  "description": "Długość doby na planetach — porównanie ciał Układu Słonecznego wg NASA NSSDCA Planetary Fact Sheet.",
+  "description_en": "Length of day on the planets — comparison across Solar System bodies from the NASA NSSDCA Planetary Fact Sheet.",
+  "keywords_pl": [
+   "planety",
+   "planet",
+   "planetach",
+   "układ słoneczny",
+   "układzie słonecznym",
+   "wenus",
+   "wenusie",
+   "merkury",
+   "jowisz",
+   "jowiszu",
+   "saturn",
+   "saturnie",
+   "uran",
+   "neptun",
+   "pluton",
+   "księżyc",
+   "księżycu",
+   "mars",
+   "marsie",
+   "ziemia",
+   "ziemi",
+   "porównanie planet",
+   "doba",
+   "dzień",
+   "długość dnia"
+  ],
+  "keywords_en": [
+   "planets",
+   "solar system",
+   "venus",
+   "mercury",
+   "jupiter",
+   "saturn",
+   "uranus",
+   "neptune",
+   "pluto",
+   "moon",
+   "mars",
+   "earth",
+   "length of day"
+  ],
+  "hint_terms": [
+   "planets",
+   "mars"
+  ],
+  "variables": [
+   {
+    "id": "planet_day_length",
+    "unit": "godz.",
+    "desc": "Długość doby na planetach (NASA Planetary Fact Sheet)"
+   }
+  ],
+  "unit": "godz.",
+  "connector": "planet_metric",
+  "connector_params": {
+   "metric": "day_length"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1960,
+   "end": null,
+   "resolution": "jedna wartość na ciało"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA NSSDCA Planetary Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+   "dataset_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "planet_day_length",
+  "body": "solar_system",
+  "kind": "absolute",
+  "baseline": "wartości wzorcowe",
+  "series_kind": "planet_metric",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 5
+  },
+  "notes": null,
+  "data_type": "reference",
+  "is_model": false
+ },
+ "planet_surface_pressure": {
+  "title": "Ciśnienie przy powierzchni planet (NASA Planetary Fact Sheet)",
+  "title_en": "Surface pressure of the planets (NASA Planetary Fact Sheet)",
+  "description": "Ciśnienie przy powierzchni planet — porównanie ciał Układu Słonecznego wg NASA NSSDCA Planetary Fact Sheet.",
+  "description_en": "Surface pressure of the planets — comparison across Solar System bodies from the NASA NSSDCA Planetary Fact Sheet.",
+  "keywords_pl": [
+   "planety",
+   "planet",
+   "planetach",
+   "układ słoneczny",
+   "układzie słonecznym",
+   "wenus",
+   "wenusie",
+   "merkury",
+   "jowisz",
+   "jowiszu",
+   "saturn",
+   "saturnie",
+   "uran",
+   "neptun",
+   "pluton",
+   "księżyc",
+   "księżycu",
+   "mars",
+   "marsie",
+   "ziemia",
+   "ziemi",
+   "porównanie planet",
+   "ciśnienie",
+   "atmosfera"
+  ],
+  "keywords_en": [
+   "planets",
+   "solar system",
+   "venus",
+   "mercury",
+   "jupiter",
+   "saturn",
+   "uranus",
+   "neptune",
+   "pluto",
+   "moon",
+   "mars",
+   "earth",
+   "pressure",
+   "atmosphere"
+  ],
+  "hint_terms": [
+   "planets",
+   "mars"
+  ],
+  "variables": [
+   {
+    "id": "planet_surface_pressure",
+    "unit": "bar",
+    "desc": "Ciśnienie przy powierzchni planet (NASA Planetary Fact Sheet)"
+   }
+  ],
+  "unit": "bar",
+  "connector": "planet_metric",
+  "connector_params": {
+   "metric": "surface_pressure"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1960,
+   "end": null,
+   "resolution": "jedna wartość na ciało"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA NSSDCA Planetary Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+   "dataset_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "planet_surface_pressure",
+  "body": "solar_system",
+  "kind": "absolute",
+  "baseline": "wartości wzorcowe",
+  "series_kind": "planet_metric",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 5
+  },
+  "notes": null,
+  "data_type": "reference",
+  "is_model": false
+ },
+ "planet_orbital_period": {
+  "title": "Okres obiegu planet wokół Słońca (NASA Planetary Fact Sheet)",
+  "title_en": "Orbital period of the planets (NASA Planetary Fact Sheet)",
+  "description": "Okres obiegu planet wokół Słońca — porównanie ciał Układu Słonecznego wg NASA NSSDCA Planetary Fact Sheet.",
+  "description_en": "Orbital period of the planets — comparison across Solar System bodies from the NASA NSSDCA Planetary Fact Sheet.",
+  "keywords_pl": [
+   "planety",
+   "planet",
+   "planetach",
+   "układ słoneczny",
+   "układzie słonecznym",
+   "wenus",
+   "wenusie",
+   "merkury",
+   "jowisz",
+   "jowiszu",
+   "saturn",
+   "saturnie",
+   "uran",
+   "neptun",
+   "pluton",
+   "księżyc",
+   "księżycu",
+   "mars",
+   "marsie",
+   "ziemia",
+   "ziemi",
+   "porównanie planet",
+   "rok",
+   "okres obiegu"
+  ],
+  "keywords_en": [
+   "planets",
+   "solar system",
+   "venus",
+   "mercury",
+   "jupiter",
+   "saturn",
+   "uranus",
+   "neptune",
+   "pluto",
+   "moon",
+   "mars",
+   "earth",
+   "orbital period",
+   "year length"
+  ],
+  "hint_terms": [
+   "planets",
+   "mars"
+  ],
+  "variables": [
+   {
+    "id": "planet_orbital_period",
+    "unit": "dni",
+    "desc": "Okres obiegu planet wokół Słońca (NASA Planetary Fact Sheet)"
+   }
+  ],
+  "unit": "dni",
+  "connector": "planet_metric",
+  "connector_params": {
+   "metric": "orbital_period"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1960,
+   "end": null,
+   "resolution": "jedna wartość na ciało"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA NSSDCA Planetary Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+   "dataset_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "planet_orbital_period",
+  "body": "solar_system",
+  "kind": "absolute",
+  "baseline": "wartości wzorcowe",
+  "series_kind": "planet_metric",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 5
+  },
+  "notes": null,
+  "data_type": "reference",
+  "is_model": false
+ },
+ "planet_diameter": {
+  "title": "Średnica planet (NASA Planetary Fact Sheet)",
+  "title_en": "Diameter of the planets (NASA Planetary Fact Sheet)",
+  "description": "Średnica planet — porównanie ciał Układu Słonecznego wg NASA NSSDCA Planetary Fact Sheet.",
+  "description_en": "Diameter of the planets — comparison across Solar System bodies from the NASA NSSDCA Planetary Fact Sheet.",
+  "keywords_pl": [
+   "planety",
+   "planet",
+   "planetach",
+   "układ słoneczny",
+   "układzie słonecznym",
+   "wenus",
+   "wenusie",
+   "merkury",
+   "jowisz",
+   "jowiszu",
+   "saturn",
+   "saturnie",
+   "uran",
+   "neptun",
+   "pluton",
+   "księżyc",
+   "księżycu",
+   "mars",
+   "marsie",
+   "ziemia",
+   "ziemi",
+   "porównanie planet",
+   "średnica",
+   "rozmiar",
+   "wielkość"
+  ],
+  "keywords_en": [
+   "planets",
+   "solar system",
+   "venus",
+   "mercury",
+   "jupiter",
+   "saturn",
+   "uranus",
+   "neptune",
+   "pluto",
+   "moon",
+   "mars",
+   "earth",
+   "diameter",
+   "size"
+  ],
+  "hint_terms": [
+   "planets",
+   "mars"
+  ],
+  "variables": [
+   {
+    "id": "planet_diameter",
+    "unit": "km",
+    "desc": "Średnica planet (NASA Planetary Fact Sheet)"
+   }
+  ],
+  "unit": "km",
+  "connector": "planet_metric",
+  "connector_params": {
+   "metric": "diameter"
+  },
+  "supports_regions": false,
+  "coverage": {
+   "start": 1960,
+   "end": null,
+   "resolution": "jedna wartość na ciało"
+  },
+  "category": "planetary",
+  "source": {
+   "name": "NASA NSSDCA Planetary Fact Sheet",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+   "dataset_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+  },
+  "provider": {
+   "org": "NASA",
+   "country": "USA",
+   "type": "agency"
+  },
+  "topic": "planet_diameter",
+  "body": "solar_system",
+  "kind": "absolute",
+  "baseline": "wartości wzorcowe",
+  "series_kind": "planet_metric",
+  "region_scope": "global",
+  "sanity": {
+   "min_points": 5
+  },
+  "notes": null,
+  "data_type": "reference",
+  "is_model": false
+ }
+}

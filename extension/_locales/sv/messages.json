@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "Hittar klimatpåståenden i nyhetsartiklar och visar vad data från NASA, Copernicus, NOAA och andra institutioner säger om dem."
+  },
+  "actionTitle": {
+    "message": "Hermes Finder: kontrollera ett påstående"
+  },
+  "cmdDesc": {
+    "message": "Öppna Hermes Finder"
+  }
+}

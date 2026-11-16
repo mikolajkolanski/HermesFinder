@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "Znajduje tezy o klimacie w artykułach prasowych i pokazuje, co mówią o nich dane NASA, Copernicus, NOAA i innych instytucji."
+  },
+  "actionTitle": {
+    "message": "Hermes Finder: sprawdź tezę"
+  },
+  "cmdDesc": {
+    "message": "Otwórz Hermes Finder"
+  }
+}

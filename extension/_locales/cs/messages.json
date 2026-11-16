@@ -1,0 +1,11 @@
+{
+  "extDesc": {
+    "message": "Najde tvrzení o klimatu ve zpravodajských článcích a ukáže, co o nich říkají data NASA, Copernicus, NOAA a dalších institucí."
+  },
+  "actionTitle": {
+    "message": "Hermes Finder: ověřit tvrzení"
+  },
+  "cmdDesc": {
+    "message": "Otevřít Hermes Finder"
+  }
+}
