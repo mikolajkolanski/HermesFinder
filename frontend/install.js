@@ -17,9 +17,11 @@
     return null;
   }
 
-  // logotypy przegladarek (SVG z pakietow @browser-logos na CDN jsDelivr, wersje
-  // przypiete); bez sieci zostaje kolorowe kolko z litera
-  const LOGO = (name, ver) => `https://cdn.jsdelivr.net/npm/@browser-logos/${name}@${ver}/${name}.svg`;
+  // logotypy przegladarek (SVG z pakietow @browser-logos): najpierw kopia w vendor/
+  // (dziala zawsze, takze gdy CDN jest blokowany), potem CDN jsDelivr (wersje
+  // przypiete), na koncu kolorowe kolko z litera
+  const LOGO = (name, ver) => [`vendor/browser-logos/${name}.svg`,
+    `https://cdn.jsdelivr.net/npm/@browser-logos/${name}@${ver}/${name}.svg`];
   const LOGOS = {
     firefox: { name: "Firefox", src: LOGO("firefox", "3.0.10"), mark: "F", color: "#e66000" },
     chrome: { name: "Chrome", src: LOGO("chrome", "2.0.0"), mark: "C", color: "#1a73e8" },
@@ -37,7 +39,7 @@
     return `<span class="install-logos${ids.length > 1 ? " stack" : ""}" aria-hidden="true">${ids.map((id, i) => {
       const l = LOGOS[id];
       return `<span class="install-logo" style="--c:${l.color};z-index:${ids.length - i}" title="${escapeAttr(l.name)}">
-          <span class="install-mark">${l.mark}</span><img src="${escapeAttr(l.src)}" alt="" width="32" height="32" loading="lazy" decoding="async" referrerpolicy="no-referrer" /></span>`;
+          <span class="install-mark">${l.mark}</span><img src="${escapeAttr(l.src[0])}" data-alt="${escapeAttr(l.src.slice(1).join(" "))}" alt="" width="32" height="32" decoding="async" referrerpolicy="no-referrer" /></span>`;
     }).join("")}</span>`;
   }
 
@@ -71,10 +73,15 @@
     }).join("") + (failed ? `<p class="install-note" style="grid-column:1/-1">${escapeHtml(t("installUnavailable"))}</p>` : "");
     // logo zaladowane -> chowamy litere; blad (offline, CDN zablokowany) -> zostaje litera
     grid.querySelectorAll(".install-logo img").forEach((img) => {
-      const ok = () => img.parentElement.classList.add("loaded");
-      const bad = () => img.remove();
+      const next = (img.dataset.alt || "").split(" ").filter(Boolean);
+      const ok = () => img.parentElement && img.parentElement.classList.add("loaded");
+      const bad = () => {
+        const src = next.shift();
+        if (src) img.src = src; else img.remove();   // kolejne zrodlo albo litera
+      };
+      img.addEventListener("load", ok);
+      img.addEventListener("error", bad);
       if (img.complete) (img.naturalWidth ? ok() : bad());
-      else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", bad, { once: true }); }
     });
   }
 

@@ -1,0 +1,4 @@
+Browser logos from the @browser-logos/* npm packages (https://github.com/alrra/browser-logos):
+chrome 2.0.0, edge 2.0.7, brave 3.0.13, firefox 3.0.10, opera 1.1.11.
+The logos are trademarks of their owners (Google, Microsoft, Brave Software, Mozilla, Opera)
+and are used only to show which browsers the Hermes Finder extension supports.
