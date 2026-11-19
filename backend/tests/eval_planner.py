@@ -1,4 +1,5 @@
-"""Test regresji planera: dla kazdej tezy aplikacja ma zwrocic DOKLADNIE oczekiwane karty.
+"""Test regresji planera: dla kazdej tezy aplikacja ma zwrocic WSZYSTKIE oczekiwane karty
+(dodatkowe karty od modelu sa tylko ostrzezeniem - model ma swobode doboru wykresow).
 
 Uzycie (z dzialajacym backendem):
     python tests/eval_planner.py http://127.0.0.1:8000            # z modelem jezykowym
@@ -25,12 +26,12 @@ def check(item, data):
     cards = [c for c in data["cards"]]
     errs = [c for c in cards if c.get("error")]
     good = [c for c in cards if not c.get("error")]
-    problems = []
+    problems, warnings = [], []
     for c in errs: problems.append(f"karta z błędem: {c['title']} — {c['error'][:80]}")
     allowed = {r["topic"] for r in item["require"]} | {o["topic"] for o in item.get("optional", [])}
     for c in good:
         if card_topic(c) not in allowed:
-            problems.append(f"NADMIAROWA: {card_topic(c)} ({c['title']})")
+            warnings.append(f"dodatkowa karta: {card_topic(c)} ({c['title']})")
     for req in item["require"]:
         cand = [c for c in good if card_topic(c) == req["topic"]]
         if "months" in req:
@@ -45,8 +46,8 @@ def check(item, data):
             if req["regions"] == [] and have: problems.append(f"ZBĘDNY REGION w {req['topic']}: {sorted(have)}")
             if miss: problems.append(f"ZŁY REGION w {req['topic']}: brak {sorted(miss)}, jest {sorted(have)}")
     mx = item.get("max_cards", len(item["require"]) + len(item.get("optional", [])))
-    if len(good) > mx: problems.append(f"ZA DUŻO KART: {len(good)} > {mx}")
-    return problems
+    if len(good) > mx: warnings.append(f"więcej kart niż minimum: {len(good)} > {mx}")
+    return problems, warnings
 
 ok = 0
 with cf.ThreadPoolExecutor(2) as ex:
@@ -56,11 +57,12 @@ with cf.ThreadPoolExecutor(2) as ex:
         results[futs[f]["id"]] = f.result()
 for it in exp:
     data, dt = results[it["id"]]
-    p = check(it, data)
+    p, w = check(it, data)
     ok += not p
     pl = data["planner"]
     print(f"{'OK  ' if not p else 'FAIL'} {it['id']:15} {dt:5.1f}s LLM={pl.get('used')} {pl.get('model') or ''} {pl.get('llm_error') or ''}")
     for c in data["cards"]:
         print(f"       · {card_topic(c):24} reg={c.get('region_ids')} mies={c.get('months')} {'[BŁĄD]' if c.get('error') else ''} {c['title'][:60]}")
     for x in p: print("       !", x)
+    for x in w: print("       ~", x)
 print(f"\nWYNIK: {ok}/{len(exp)} tez z dokładnie oczekiwanymi danymi")

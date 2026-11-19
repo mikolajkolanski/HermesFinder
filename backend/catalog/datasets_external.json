@@ -2389,6 +2389,2579 @@
   "data_type": "inventory",
   "is_model": false
  },
+ "owid_elec_total": {
+  "title": "Produkcja energii elektrycznej (łącznie) (TWh)",
+  "title_en": "Electricity generation (total) (TWh)",
+  "description": "Produkcja energii elektrycznej (łącznie) (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity generation (total) (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "produkcja prądu"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "total electricity"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_total",
+    "unit": "TWh",
+    "desc": "Produkcja energii elektrycznej (łącznie) (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "electricity_generation"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_total",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_coal": {
+  "title": "Prąd z elektrowni węglowych (TWh)",
+  "title_en": "Electricity from coal (TWh)",
+  "description": "Prąd z elektrowni węglowych (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from coal (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "węgiel",
+   "węgla",
+   "węglowe",
+   "węglowych",
+   "elektrownie węglowe"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "coal",
+   "coal power"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_coal",
+    "unit": "TWh",
+    "desc": "Prąd z elektrowni węglowych (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "coal_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_coal",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_gas": {
+  "title": "Prąd z elektrowni gazowych (TWh)",
+  "title_en": "Electricity from gas (TWh)",
+  "description": "Prąd z elektrowni gazowych (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from gas (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "gaz",
+   "gazu",
+   "gazowe"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "gas",
+   "natural gas"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_gas",
+    "unit": "TWh",
+    "desc": "Prąd z elektrowni gazowych (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "gas_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_gas",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_oil": {
+  "title": "Prąd z ropy naftowej (TWh)",
+  "title_en": "Electricity from oil (TWh)",
+  "description": "Prąd z ropy naftowej (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from oil (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "ropa",
+   "ropy"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "oil"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_oil",
+    "unit": "TWh",
+    "desc": "Prąd z ropy naftowej (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "oil_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_oil",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_nuclear": {
+  "title": "Prąd z elektrowni jądrowych (TWh)",
+  "title_en": "Electricity from nuclear (TWh)",
+  "description": "Prąd z elektrowni jądrowych (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from nuclear (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "atom",
+   "jądrowa",
+   "jądrowe",
+   "atomowe"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "nuclear"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_nuclear",
+    "unit": "TWh",
+    "desc": "Prąd z elektrowni jądrowych (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "nuclear_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_nuclear",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_renewables": {
+  "title": "Prąd z OZE (odnawialnych źródeł) (TWh)",
+  "title_en": "Electricity from renewables (TWh)",
+  "description": "Prąd z OZE (odnawialnych źródeł) (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from renewables (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "oze",
+   "odnawialne",
+   "odnawialnych"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "renewables",
+   "renewable"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_renewables",
+    "unit": "TWh",
+    "desc": "Prąd z OZE (odnawialnych źródeł) (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "renewables_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_renewables",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_solar": {
+  "title": "Prąd z fotowoltaiki (TWh)",
+  "title_en": "Electricity from solar (TWh)",
+  "description": "Prąd z fotowoltaiki (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from solar (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "fotowoltaika",
+   "słoneczne",
+   "panele"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "solar",
+   "photovoltaic"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_solar",
+    "unit": "TWh",
+    "desc": "Prąd z fotowoltaiki (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "solar_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_solar",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_wind": {
+  "title": "Prąd z wiatru (TWh)",
+  "title_en": "Electricity from wind (TWh)",
+  "description": "Prąd z wiatru (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from wind (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "wiatr",
+   "wiatraki",
+   "wiatrowe"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "wind",
+   "wind power"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_wind",
+    "unit": "TWh",
+    "desc": "Prąd z wiatru (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "wind_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_wind",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_hydro": {
+  "title": "Prąd z elektrowni wodnych (TWh)",
+  "title_en": "Electricity from hydropower (TWh)",
+  "description": "Prąd z elektrowni wodnych (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from hydropower (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "woda",
+   "wodne",
+   "hydro"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "hydro",
+   "hydropower"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_hydro",
+    "unit": "TWh",
+    "desc": "Prąd z elektrowni wodnych (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "hydro_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_hydro",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_fossil": {
+  "title": "Prąd z paliw kopalnych (TWh)",
+  "title_en": "Electricity from fossil fuels (TWh)",
+  "description": "Prąd z paliw kopalnych (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity from fossil fuels (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "kopalne",
+   "paliwa kopalne"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "fossil",
+   "fossil fuels"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_fossil",
+    "unit": "TWh",
+    "desc": "Prąd z paliw kopalnych (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "fossil_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_fossil",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_elec_low_carbon": {
+  "title": "Prąd niskoemisyjny (OZE + atom) (TWh)",
+  "title_en": "Low-carbon electricity (renewables + nuclear) (TWh)",
+  "description": "Prąd niskoemisyjny (OZE + atom) (TWh) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Low-carbon electricity (renewables + nuclear) (TWh): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "niskoemisyjne"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "low-carbon"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_elec_low_carbon",
+    "unit": "TWh",
+    "desc": "Prąd niskoemisyjny (OZE + atom) (TWh)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "low_carbon_electricity"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_low_carbon",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_share_elec_coal": {
+  "title": "Udział węgla w produkcji prądu (%)",
+  "title_en": "Coal share of electricity (%)",
+  "description": "Udział węgla w produkcji prądu (%) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Coal share of electricity (%): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "udział",
+   "procent",
+   "węgiel",
+   "węgla"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "share",
+   "percent",
+   "coal"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_share_elec_coal",
+    "unit": "%",
+    "desc": "Udział węgla w produkcji prądu (%)"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "coal_share_elec"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "share_elec_coal",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_share_elec_gas": {
+  "title": "Udział gazu w produkcji prądu (%)",
+  "title_en": "Gas share of electricity (%)",
+  "description": "Udział gazu w produkcji prądu (%) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Gas share of electricity (%): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "udział",
+   "procent",
+   "gaz"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "share",
+   "percent",
+   "gas"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_share_elec_gas",
+    "unit": "%",
+    "desc": "Udział gazu w produkcji prądu (%)"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "gas_share_elec"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "share_elec_gas",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_share_elec_nuclear": {
+  "title": "Udział atomu w produkcji prądu (%)",
+  "title_en": "Nuclear share of electricity (%)",
+  "description": "Udział atomu w produkcji prądu (%) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Nuclear share of electricity (%): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "udział",
+   "procent",
+   "atom",
+   "jądrowa"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "share",
+   "percent",
+   "nuclear"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_share_elec_nuclear",
+    "unit": "%",
+    "desc": "Udział atomu w produkcji prądu (%)"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "nuclear_share_elec"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "share_elec_nuclear",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_share_elec_solar": {
+  "title": "Udział fotowoltaiki w produkcji prądu (%)",
+  "title_en": "Solar share of electricity (%)",
+  "description": "Udział fotowoltaiki w produkcji prądu (%) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Solar share of electricity (%): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "udział",
+   "procent",
+   "fotowoltaika"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "share",
+   "percent",
+   "solar"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_share_elec_solar",
+    "unit": "%",
+    "desc": "Udział fotowoltaiki w produkcji prądu (%)"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "solar_share_elec"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "share_elec_solar",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_share_elec_wind": {
+  "title": "Udział wiatru w produkcji prądu (%)",
+  "title_en": "Wind share of electricity (%)",
+  "description": "Udział wiatru w produkcji prądu (%) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Wind share of electricity (%): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "udział",
+   "procent",
+   "wiatr"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "share",
+   "percent",
+   "wind"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_share_elec_wind",
+    "unit": "%",
+    "desc": "Udział wiatru w produkcji prądu (%)"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "wind_share_elec"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "share_elec_wind",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_share_elec_fossil": {
+  "title": "Udział paliw kopalnych w produkcji prądu (%)",
+  "title_en": "Fossil fuel share of electricity (%)",
+  "description": "Udział paliw kopalnych w produkcji prądu (%) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Fossil fuel share of electricity (%): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "udział",
+   "procent",
+   "kopalne"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "share",
+   "percent",
+   "fossil"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_share_elec_fossil",
+    "unit": "%",
+    "desc": "Udział paliw kopalnych w produkcji prądu (%)"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "fossil_share_elec"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "share_elec_fossil",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_share_elec_low_carbon": {
+  "title": "Udział źródeł niskoemisyjnych w produkcji prądu (%)",
+  "title_en": "Low-carbon share of electricity (%)",
+  "description": "Udział źródeł niskoemisyjnych w produkcji prądu (%) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Low-carbon share of electricity (%): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "prąd",
+   "prądu",
+   "energia elektryczna",
+   "energii elektrycznej",
+   "elektrownie",
+   "elektrowni",
+   "produkcja energii",
+   "wytwarzanie energii",
+   "miks energetyczny",
+   "energetyka",
+   "udział",
+   "procent",
+   "niskoemisyjne"
+  ],
+  "keywords_en": [
+   "electricity",
+   "power generation",
+   "electricity generation",
+   "power plants",
+   "energy mix",
+   "share",
+   "percent",
+   "low-carbon"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_share_elec_low_carbon",
+    "unit": "%",
+    "desc": "Udział źródeł niskoemisyjnych w produkcji prądu (%)"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "low_carbon_share_elec"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1985,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "share_elec_low_carbon",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_primary_energy": {
+  "title": "Zużycie energii pierwotnej",
+  "title_en": "Primary energy consumption",
+  "description": "Zużycie energii pierwotnej — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Primary energy consumption: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "energia",
+   "energii",
+   "zużycie energii",
+   "energia pierwotna"
+  ],
+  "keywords_en": [
+   "energy",
+   "energy consumption",
+   "primary energy"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_primary_energy",
+    "unit": "TWh",
+    "desc": "Zużycie energii pierwotnej"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "primary_energy_consumption"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1965,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "primary_energy",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_energy_per_capita": {
+  "title": "Zużycie energii na mieszkańca",
+  "title_en": "Primary energy consumption per capita",
+  "description": "Zużycie energii na mieszkańca — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Primary energy consumption per capita: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "energia",
+   "energii",
+   "na mieszkańca",
+   "na osobę"
+  ],
+  "keywords_en": [
+   "energy",
+   "per capita",
+   "per person"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_energy_per_capita",
+    "unit": "kWh per person",
+    "desc": "Zużycie energii na mieszkańca"
+   }
+  ],
+  "unit": "kWh per person",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "energy_per_capita"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1965,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "energy_per_capita",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_renewables_share_energy": {
+  "title": "Udział OZE w zużyciu energii pierwotnej",
+  "title_en": "Renewables share of primary energy",
+  "description": "Udział OZE w zużyciu energii pierwotnej — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Renewables share of primary energy: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "energia",
+   "energii",
+   "oze",
+   "odnawialne"
+  ],
+  "keywords_en": [
+   "energy",
+   "renewables"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_renewables_share_energy",
+    "unit": "%",
+    "desc": "Udział OZE w zużyciu energii pierwotnej"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "renewables_share_energy"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1965,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "renewables_share_energy",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_coal_consumption": {
+  "title": "Zużycie węgla (energia pierwotna)",
+  "title_en": "Coal consumption (primary energy)",
+  "description": "Zużycie węgla (energia pierwotna) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Coal consumption (primary energy): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "energia",
+   "energii",
+   "węgiel",
+   "węgla",
+   "zużycie węgla"
+  ],
+  "keywords_en": [
+   "energy",
+   "coal consumption"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_coal_consumption",
+    "unit": "TWh",
+    "desc": "Zużycie węgla (energia pierwotna)"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "coal_consumption"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1965,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "coal_consumption",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_electricity_demand": {
+  "title": "Zapotrzebowanie na energię elektryczną",
+  "title_en": "Electricity demand",
+  "description": "Zapotrzebowanie na energię elektryczną — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Electricity demand: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "energia",
+   "energii",
+   "zapotrzebowanie",
+   "zużycie prądu"
+  ],
+  "keywords_en": [
+   "energy",
+   "electricity demand",
+   "power demand"
+  ],
+  "hint_terms": [
+   "energy"
+  ],
+  "variables": [
+   {
+    "id": "owid_electricity_demand",
+    "unit": "TWh",
+    "desc": "Zapotrzebowanie na energię elektryczną"
+   }
+  ],
+  "unit": "TWh",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "energy",
+   "column": "electricity_demand"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1965,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "energy",
+  "source": {
+   "name": "Our World in Data — energy dataset (Ember, Energy Institute)",
+   "url": "https://ourworldindata.org/energy",
+   "dataset_url": "https://github.com/owid/energy-data"
+  },
+  "provider": {
+   "org": "Ember / Energy Institute (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "electricity_demand",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Ember / Energy Institute (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_coal": {
+  "title": "Emisje CO₂ ze spalania węgla",
+  "title_en": "CO₂ emissions from coal",
+  "description": "Emisje CO₂ ze spalania węgla — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "CO₂ emissions from coal: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "węgiel",
+   "węgla"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "coal"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_coal",
+    "unit": "Mt CO₂",
+    "desc": "Emisje CO₂ ze spalania węgla"
+   }
+  ],
+  "unit": "Mt CO₂",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "coal_co2"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_coal",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_oil": {
+  "title": "Emisje CO₂ z ropy naftowej",
+  "title_en": "CO₂ emissions from oil",
+  "description": "Emisje CO₂ z ropy naftowej — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "CO₂ emissions from oil: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "ropa",
+   "ropy",
+   "paliwa"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "oil"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_oil",
+    "unit": "Mt CO₂",
+    "desc": "Emisje CO₂ z ropy naftowej"
+   }
+  ],
+  "unit": "Mt CO₂",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "oil_co2"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_oil",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_gas": {
+  "title": "Emisje CO₂ z gazu ziemnego",
+  "title_en": "CO₂ emissions from gas",
+  "description": "Emisje CO₂ z gazu ziemnego — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "CO₂ emissions from gas: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "gaz",
+   "gazu"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "gas"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_gas",
+    "unit": "Mt CO₂",
+    "desc": "Emisje CO₂ z gazu ziemnego"
+   }
+  ],
+  "unit": "Mt CO₂",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "gas_co2"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_gas",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_cement": {
+  "title": "Emisje CO₂ z produkcji cementu",
+  "title_en": "CO₂ emissions from cement",
+  "description": "Emisje CO₂ z produkcji cementu — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "CO₂ emissions from cement: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "cement"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "cement"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_cement",
+    "unit": "Mt CO₂",
+    "desc": "Emisje CO₂ z produkcji cementu"
+   }
+  ],
+  "unit": "Mt CO₂",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "cement_co2"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_cement",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_land_use": {
+  "title": "Emisje CO₂ ze zmian użytkowania gruntów",
+  "title_en": "CO₂ emissions from land-use change",
+  "description": "Emisje CO₂ ze zmian użytkowania gruntów — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "CO₂ emissions from land-use change: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "wylesianie",
+   "grunty",
+   "lasy"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "deforestation",
+   "land use"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_land_use",
+    "unit": "Mt CO₂",
+    "desc": "Emisje CO₂ ze zmian użytkowania gruntów"
+   }
+  ],
+  "unit": "Mt CO₂",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "land_use_change_co2"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_land_use",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_methane": {
+  "title": "Emisje metanu (CH₄)",
+  "title_en": "Methane emissions (CH₄)",
+  "description": "Emisje metanu (CH₄) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Methane emissions (CH₄): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "metan",
+   "metanu"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "methane"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_methane",
+    "unit": "Mt CO₂e",
+    "desc": "Emisje metanu (CH₄)"
+   }
+  ],
+  "unit": "Mt CO₂e",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "methane"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_methane",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_n2o": {
+  "title": "Emisje podtlenku azotu (N₂O)",
+  "title_en": "Nitrous oxide emissions (N₂O)",
+  "description": "Emisje podtlenku azotu (N₂O) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Nitrous oxide emissions (N₂O): annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "podtlenek azotu"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "nitrous oxide"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_n2o",
+    "unit": "Mt CO₂e",
+    "desc": "Emisje podtlenku azotu (N₂O)"
+   }
+  ],
+  "unit": "Mt CO₂e",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "nitrous_oxide"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_n2o",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_consumption": {
+  "title": "Emisje CO₂ wg konsumpcji (z handlem)",
+  "title_en": "Consumption-based CO₂ emissions",
+  "description": "Emisje CO₂ wg konsumpcji (z handlem) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Consumption-based CO₂ emissions: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "konsumpcja",
+   "import"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "consumption-based",
+   "trade"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_consumption",
+    "unit": "Mt CO₂",
+    "desc": "Emisje CO₂ wg konsumpcji (z handlem)"
+   }
+  ],
+  "unit": "Mt CO₂",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "consumption_co2"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_consumption",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_cumulative": {
+  "title": "Skumulowane emisje CO₂ (historyczne)",
+  "title_en": "Cumulative CO₂ emissions",
+  "description": "Skumulowane emisje CO₂ (historyczne) — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Cumulative CO₂ emissions: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "skumulowane",
+   "historyczne",
+   "łącznie od"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "cumulative",
+   "historical"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_cumulative",
+    "unit": "Mt CO₂",
+    "desc": "Skumulowane emisje CO₂ (historyczne)"
+   }
+  ],
+  "unit": "Mt CO₂",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "cumulative_co2"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_cumulative",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_share_global": {
+  "title": "Udział w światowych emisjach CO₂",
+  "title_en": "Share of global CO₂ emissions",
+  "description": "Udział w światowych emisjach CO₂ — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Share of global CO₂ emissions: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "udział",
+   "procent światowych"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "share of global"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_share_global",
+    "unit": "%",
+    "desc": "Udział w światowych emisjach CO₂"
+   }
+  ],
+  "unit": "%",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "share_global_co2"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_share_global",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "max": 100,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_emissions_per_gdp": {
+  "title": "Emisje CO₂ na jednostkę PKB",
+  "title_en": "CO₂ emissions per unit of GDP",
+  "description": "Emisje CO₂ na jednostkę PKB — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "CO₂ emissions per unit of GDP: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "pkb",
+   "gospodarka"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "per gdp",
+   "carbon intensity"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_emissions_per_gdp",
+    "unit": "kg CO₂ per $",
+    "desc": "Emisje CO₂ na jednostkę PKB"
+   }
+  ],
+  "unit": "kg CO₂ per $",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "co2_per_gdp"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "emissions_per_gdp",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_ghg_per_capita": {
+  "title": "Emisje gazów cieplarnianych na mieszkańca",
+  "title_en": "Greenhouse gas emissions per capita",
+  "description": "Emisje gazów cieplarnianych na mieszkańca — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Greenhouse gas emissions per capita: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "emisje",
+   "emisji",
+   "co2",
+   "na mieszkańca",
+   "na osobę"
+  ],
+  "keywords_en": [
+   "emissions",
+   "co2",
+   "per capita"
+  ],
+  "hint_terms": [
+   "co2",
+   "emissions"
+  ],
+  "variables": [
+   {
+    "id": "owid_ghg_per_capita",
+    "unit": "t CO₂e per person",
+    "desc": "Emisje gazów cieplarnianych na mieszkańca"
+   }
+  ],
+  "unit": "t CO₂e per person",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "ghg_per_capita"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "greenhouse",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Global Carbon Project / Jones et al. (via OWID)",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "ghg_per_capita",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "Global Carbon Project (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
+ "owid_population": {
+  "title": "Liczba ludności",
+  "title_en": "Population",
+  "description": "Liczba ludności — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+  "description_en": "Population: annual values for a country, continent, the EU or the world (Our World in Data).",
+  "keywords_pl": [
+   "ludność",
+   "mieszkańcy",
+   "populacja"
+  ],
+  "keywords_en": [
+   "population"
+  ],
+  "hint_terms": [
+   "population"
+  ],
+  "variables": [
+   {
+    "id": "owid_population",
+    "unit": "people",
+    "desc": "Liczba ludności"
+   }
+  ],
+  "unit": "people",
+  "connector": "owid_csv",
+  "connector_params": {
+   "file": "co2",
+   "column": "population"
+  },
+  "supports_regions": true,
+  "coverage": {
+   "start": 1950,
+   "end": null,
+   "resolution": "roczna"
+  },
+  "category": "society",
+  "source": {
+   "name": "Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+   "url": "https://ourworldindata.org/co2-and-greenhouse-gas-emissions",
+   "dataset_url": "https://github.com/owid/co2-data"
+  },
+  "provider": {
+   "org": "Our World in Data",
+   "country": "UK",
+   "type": "nonprofit"
+  },
+  "topic": "population",
+  "body": "earth",
+  "kind": "absolute",
+  "baseline": null,
+  "series_kind": "annual",
+  "region_scope": "country_or_world",
+  "sanity": {
+   "min": 0,
+   "min_points": 10
+  },
+  "notes": null,
+  "short": "UN WPP (OWID)",
+  "data_type": "inventory",
+  "is_model": false
+ },
  "mars_rems_max_temp": {
   "title": "Mars: dzienne maksimum temperatury powietrza — Curiosity REMS (NASA)",
   "title_en": "Mars: daily maximum air temperature — Curiosity REMS (NASA/CAB)",

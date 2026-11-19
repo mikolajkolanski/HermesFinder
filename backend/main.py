@@ -36,7 +36,7 @@ app = FastAPI(
                 "JMA, universities, non-profits, companies) for a claim about the climate "
                 "of Earth or other planets and returns charts and statistics. "
                 "It does not judge whether the claim is true.",
-    version="2.0.0",
+    version="2.2.0",
 )
 
 app.add_middleware(
@@ -58,6 +58,8 @@ class AnalyzeOptions(BaseModel):
     # kontekst zrodla tezy (np. tytul artykulu) - tylko do uzupelnienia
     # brakujacego miejsca/okresu, nigdy jako osobna teza
     context: Optional[str] = Field(default=None, max_length=300)
+    # jezyk interfejsu (pl, en, de...) - w nim model pisze komunikaty o brakujacych danych
+    language: Optional[str] = Field(default=None, max_length=10)
 
     @model_validator(mode="after")
     def _check_years(self) -> "AnalyzeOptions":
@@ -115,6 +117,7 @@ def health() -> dict[str, Any]:
         "llm": {"available": info["available"],
                 "provider": info["provider"], "model": info["model"]},
         "datasets": len(load_catalog()),
+        "max_cards": config.MAX_CARDS,
         "cache_ttl_days": config.CACHE_TTL_DAYS,
     }
 

@@ -59,6 +59,8 @@ def _series_for(ds: dict[str, Any], region: dict[str, Any] | None,
                 window: tuple[int, int], months: list[int] | None,
                 force: bool) -> dict[str, Any]:
     """Srednie roczne dla zbioru (+regionu) w oknie; zwraca punkty i notke."""
+    if region and region.get("type") == "world":
+        region = None  # "swiat" jako porownywany region = seria globalna zbioru
     conn = ds["connector"]
     params = ds.get("connector_params", {})
     months_ignored = False
@@ -393,18 +395,25 @@ def execute_query(q: dict[str, Any], force: bool) -> list[dict[str, Any]]:
             cards.append(card)
             return cards
 
-    if chart == "multi_line" and len(regions) < 2:
+    if chart == "multi_series" and len(q.get("series") or []) >= 2:
+        return [_multi_series_card(q, window, months, force)]
+
+    if chart in ("multi_line", "region_bars") and len(regions) < 2:
         chart = "line"
 
-    if chart == "heatmap" and (not regions
-                               or regions[0].get("type") != "bbox"):
+    if chart == "heatmap" and (not regions or not any(
+            r.get("type") in ("bbox", "point") for r in regions)):
         chart = "line"
 
     if chart == "multi_line" and regions:
         return [_multi_line_card(ds, regions, window, months, q, force)]
 
+    if chart == "region_bars":
+        return [_region_bars_card(ds, regions, window, months, q, force)]
+
     if chart == "heatmap":
-        return _heatmap_cards(ds, regions[0], window, months, q, force)
+        return _heatmap_cards(ds, [r for r in regions if r.get("type") in ("bbox", "point")],
+                              window, months, q, force)
 
     # zwykły line (1 region lub global)
     region = regions[0] if regions else None
@@ -515,26 +524,91 @@ def _error_card(ds: dict[str, Any], ds_id: str, regions: list[dict[str, Any]],
     }
 
 
+def _region_series(ds: dict[str, Any], regions: list[dict[str, Any]],
+                   window: tuple[int, int], months: list[int] | None,
+                   force: bool) -> list[tuple[dict[str, Any], dict[str, Any] | None, str | None]]:
+    """Serie dla wielu regionow naraz (rownolegle). -> [(region, seria|None, powod)]"""
+    import concurrent.futures as cf
+
+    def one(reg: dict[str, Any]):
+        try:
+            return reg, _series_for(ds, reg, window, months, force), None
+        except registry.Unsupported as exc:
+            return reg, None, str(exc)
+        except Exception as exc:  # noqa: BLE001 - jeden region nie zabija karty
+            return reg, None, f"source unavailable ({type(exc).__name__}: {str(exc)[:90]})"
+
+    with cf.ThreadPoolExecutor(min(6, max(1, len(regions)))) as ex:
+        return list(ex.map(one, regions))
+
+
+def _fmt_val(v: float, unit: str) -> str:
+    return f"{st._fmt(v)} {unit}".strip()
+
+
+def compare_facts(series: list[dict[str, Any]], unit: str) -> list[str]:
+    """Liczby do porownania miejsc/serii: ostatni wspolny rok (ranking, iloraz),
+    srednia z wspolnych lat, w ilu latach seria A byla wyzej niz B. Bez werdyktu."""
+    if len(series) < 2:
+        return []
+    maps = {s["label"]: {p["year"]: p["value"] for p in s["points"]} for s in series}
+    common = sorted(set.intersection(*(set(m) for m in maps.values())))
+    facts: list[str] = []
+    if common:
+        y = common[-1]
+        ranked = sorted(maps, key=lambda lab: maps[lab][y], reverse=True)
+        facts.append(f"in {y} (last year with data for all): " +
+                     ", ".join(f"{lab} {_fmt_val(maps[lab][y], unit)}" for lab in ranked))
+        if len(ranked) >= 2:
+            a, b = ranked[0], ranked[-1]
+            va, vb = maps[a][y], maps[b][y]
+            gap = f"{a} − {b} = {'+' if va - vb >= 0 else ''}{_fmt_val(va - vb, unit)}"
+            if va > 0 and vb > 0 and not unit.startswith("°C"):
+                gap += f" ({a} = {st._fmt(va / vb)}× {b})"
+            facts.append(f"gap between the highest and the lowest in {y}: {gap}")
+        if len(common) >= 3:
+            means = {lab: sum(m[yy] for yy in common) / len(common) for lab, m in maps.items()}
+            facts.append(f"mean {common[0]}–{common[-1]}: " + ", ".join(
+                f"{lab} {_fmt_val(means[lab], unit)}"
+                for lab in sorted(means, key=means.get, reverse=True)))
+        if len(maps) == 2 and len(common) >= 3:
+            a, b = list(maps)
+            n_a = sum(1 for yy in common if maps[a][yy] > maps[b][yy])
+            facts.append(f"{a} was higher than {b} in {n_a} of {len(common)} common years "
+                         f"({common[0]}–{common[-1]})")
+    return facts
+
+
 def _multi_line_card(ds: dict[str, Any], regions: list[dict[str, Any]],
                      window: tuple[int, int], months: list[int] | None,
                      q: dict[str, Any], force: bool) -> dict[str, Any]:
-    series, stats, trends, facts, notes = [], [], [], [], []
+    series, stats, trends, facts = [], [], [], []
+    skipped: list[dict[str, str]] = []
     method_note = None
-    for reg in regions:
-        try:
-            s = _series_for(ds, reg, window, months, force)
-        except registry.Unsupported:
+    for reg, s, reason in _region_series(ds, regions, window, months, force):
+        if s is None:
+            skipped.append({"label": reg["name"], "reason": reason or "no data"})
             continue
         method_note = method_note or s["method_note"]
         if len(s["points"]) < MIN_POINTS:
+            skipped.append({"label": reg["name"],
+                            "reason": f"too little data in {window[0]}–{window[1]}"})
             continue
         series.append({"label": reg["name"], "points": s["points"]})
         trends.append({"label": f"trend ({reg['name']})",
                        "points": _trend_points(s["points"])})
         stats.append(_stat_entry(reg["name"], s["points"], ds["unit"]))
-        facts.extend(_series_facts(reg["name"], s["points"], ds["unit"]))
+        if len(regions) <= 3:
+            ols = _ols_fact(reg["name"], s["points"], ds["unit"])
+            if ols:
+                facts.append(ols)
     if not series:
-        return _error_card(ds, q["dataset_id"], regions, window, "no data for the selected regions")
+        return _error_card(ds, q["dataset_id"], regions, window,
+                           "no data for the selected regions: " +
+                           "; ".join(f"{x['label']} — {x['reason']}" for x in skipped))
+    facts = compare_facts(series, ds["unit"]) + facts
+    notes = _notes_for(ds, method_note or "", regions)
+    notes += [f"skipped {x['label']}: {x['reason']}" for x in skipped]
     return {
         "id": _card_id("multi"), "type": "multi_line",
         "title": q.get("title") or _fallback_title(ds, regions, months, True),
@@ -542,99 +616,274 @@ def _multi_line_card(ds: dict[str, Any], regions: list[dict[str, Any]],
         "caption": _caption(ds, regions, window, [], months, method_note),
         "note": q.get("note"),
         "series": series,
-        "trends": [t for t in trends if t["points"]],
-        "stats": stats, "facts": facts,
-        "notes": _notes_for(ds, method_note or "", regions),
+        # >4 linii trendu zaciemnia wykres (trend jest w tabeli statystyk)
+        "trends": [t for t in trends if t["points"]] if len(series) <= 4 else [],
+        "stats": stats, "facts": facts, "notes": notes, "skipped": skipped,
     }
 
 
-def _heatmap_cards(ds: dict[str, Any], region: dict[str, Any],
+def _bar_value(ds: dict[str, Any], points: list[dict[str, Any]],
+               periods: list[dict[str, int]]) -> tuple[float, str] | None:
+    """Wartosc slupka: srednia z okresu planu, inaczej ostatni rok (inwentaryzacje,
+    energia) albo srednia z ostatnich 5 lat (pogoda - pojedynczy rok jest szumem)."""
+    if not points:
+        return None
+    if periods:
+        p = periods[0]
+        pts = [x for x in points if p["start"] <= x["year"] <= p["end"]]
+        if pts:
+            return sum(x["value"] for x in pts) / len(pts), f"mean {p['start']}–{p['end']}"
+    if ds.get("connector") in ("power", "open_meteo") or ds.get("kind") == "anomaly":
+        pts = points[-5:]
+        return (sum(x["value"] for x in pts) / len(pts),
+                f"mean {pts[0]['year']}–{pts[-1]['year']}")
+    return points[-1]["value"], str(points[-1]["year"])
+
+
+def _region_bars_card(ds: dict[str, Any], regions: list[dict[str, Any]],
+                      window: tuple[int, int], months: list[int] | None,
+                      q: dict[str, Any], force: bool) -> dict[str, Any]:
+    """Slupki: jedna wartosc na region (ranking), z rokiem/okresem w etykiecie."""
+    values, skipped, series = [], [], []
+    method_note = None
+    periods = q.get("periods") or []
+    for reg, s, reason in _region_series(ds, regions, window, months, force):
+        if s is None or not s["points"]:
+            skipped.append({"label": reg["name"], "reason": reason or "no data"})
+            continue
+        method_note = method_note or s["method_note"]
+        bv = _bar_value(ds, s["points"], periods)
+        if bv is None:
+            continue
+        values.append({"label": reg["name"], "value": round(bv[0], 4), "when": bv[1]})
+        series.append({"label": reg["name"], "points": s["points"]})
+    if not values:
+        return _error_card(ds, q["dataset_id"], regions, window,
+                           "no data for the selected regions: " +
+                           "; ".join(f"{x['label']} — {x['reason']}" for x in skipped))
+    values.sort(key=lambda v: v["value"], reverse=True)
+    whens = sorted({v["when"] for v in values})
+    unit = ds["unit"]
+    facts = ["ranking (" + ", ".join(whens) + "): " +
+             ", ".join(f"{i + 1}. {v['label']} {_fmt_val(v['value'], unit)}"
+                       for i, v in enumerate(values))]
+    if len(values) >= 2 and values[-1]["value"] > 0 and not unit.startswith("°C"):
+        facts.append(f"{values[0]['label']} = {st._fmt(values[0]['value'] / values[-1]['value'])}× "
+                     f"{values[-1]['label']}")
+    notes = _notes_for(ds, method_note or "", regions)
+    notes += [f"skipped {x['label']}: {x['reason']}" for x in skipped]
+    return {
+        "id": _card_id("rbar"), "type": "bars", "region_bars": True,
+        "title": q.get("title") or f"{ds['title']}: " + ", ".join(v["label"] for v in values[:6]) +
+                 ("…" if len(values) > 6 else ""),
+        "unit": unit, "dataset_id": q["dataset_id"], "source": ds["source"],
+        "caption": _caption(ds, regions, None, [], months, method_note) +
+                   f"; values: {', '.join(whens)}",
+        "note": q.get("note"),
+        "values": [{"label": v["label"] + (f" ({v['when']})" if len(whens) > 1 else ""),
+                    "value": v["value"]} for v in values],
+        "value_label": whens[0] if len(whens) == 1 else None,
+        "zero_based": all(v["value"] >= 0 for v in values) or all(v["value"] <= 0 for v in values),
+        "stats": [], "facts": facts, "notes": notes, "skipped": skipped,
+    }
+
+
+def _multi_series_card(q: dict[str, Any], window: tuple[int, int],
+                       months: list[int] | None, force: bool) -> dict[str, Any]:
+    """Rozne wielkosci (zbior x region) na jednym wykresie, np. prad z wegla
+    i z OZE w Polsce. Serie o innej jednostce niz pierwsza sa pomijane z powodem."""
+    import concurrent.futures as cf
+    items = []
+    for it in q.get("series") or []:
+        d = get_dataset(it["dataset_id"])
+        if d:
+            items.append((it, d))
+    first_ds = items[0][1]
+    unit = first_ds["unit"]
+    skipped: list[dict[str, str]] = []
+
+    def label_of(it: dict[str, Any], d: dict[str, Any]) -> str:
+        if it.get("label"):
+            return it["label"]
+        base = d["title"].split(" (")[0]
+        return f"{base} — {it['region']['name']}" if it.get("region") else base
+
+    def one(pair):
+        it, d = pair
+        w = _clamp_window(d, window[0], window[1], bool(q.get("user_window")))
+        try:
+            return pair, _series_for(d, it.get("region"), w, months, force), None
+        except registry.Unsupported as exc:
+            return pair, None, str(exc)
+        except Exception as exc:  # noqa: BLE001
+            return pair, None, f"source unavailable ({type(exc).__name__})"
+
+    with cf.ThreadPoolExecutor(min(6, len(items))) as ex:
+        loaded = list(ex.map(one, items))
+    series, stats, trends, regions, sources = [], [], [], [], []
+    for (it, d), s, reason in loaded:
+        lab = label_of(it, d)
+        if d["unit"] != unit:
+            skipped.append({"label": lab, "reason": f"different unit ({d['unit']} vs {unit})"})
+            continue
+        if s is None or len(s["points"]) < MIN_POINTS:
+            skipped.append({"label": lab, "reason": reason or "too little data"})
+            continue
+        series.append({"label": lab, "points": s["points"], "dataset_id": it["dataset_id"]})
+        tp = _trend_points(s["points"])
+        if tp:
+            trends.append({"label": f"trend ({lab})", "points": tp})
+        stats.append(_stat_entry(lab, s["points"], unit))
+        if it.get("region") and it["region"] not in regions:
+            regions.append(it["region"])
+        if d["source"]["name"] not in sources:
+            sources.append(d["source"]["name"])
+    if not series:
+        return _error_card(first_ds, items[0][0]["dataset_id"], regions, window,
+                           "none of the series returned data: " +
+                           "; ".join(f"{x['label']} — {x['reason']}" for x in skipped))
+    return {
+        "id": _card_id("mser"), "type": "multi_line",
+        "title": q.get("title") or " vs ".join(x["label"] for x in series[:4]),
+        "unit": unit, "dataset_id": series[0]["dataset_id"], "source": first_ds["source"],
+        "caption": "; ".join(filter(None, [" + ".join(r["name"] for r in regions) or None,
+                                           f"{window[0]}–{window[1]}", _months_label(months),
+                                           ", ".join(sources)])),
+        "note": q.get("note"),
+        "series": series, "trends": trends if len(series) <= 4 else [],
+        "stats": stats, "facts": compare_facts(series, unit),
+        "notes": [f"skipped {x['label']}: {x['reason']}" for x in skipped],
+        "skipped": skipped,
+    }
+
+
+def _union_bbox(regions: list[dict[str, Any]]) -> list[float]:
+    """Obwiednia kilku regionow (punkt = +-1.5°); bez obslugi antymerydianu
+    przy laczeniu (pojedynczy region przez antymerydian zostaje bez zmian)."""
+    boxes = []
+    for r in regions:
+        if r.get("type") == "bbox":
+            boxes.append(list(r["bbox"]))
+        elif r.get("type") == "point":
+            la, lo = r["point"]
+            boxes.append([la - 1.5, la + 1.5, lo - 1.5, lo + 1.5])
+    if len(boxes) == 1:
+        return boxes[0]
+    boxes = [b for b in boxes if b[3] >= b[2]] or boxes[:1]
+    return [min(b[0] for b in boxes), max(b[1] for b in boxes),
+            min(b[2] for b in boxes), max(b[3] for b in boxes)]
+
+
+def _heatmap_cards(ds: dict[str, Any], regions: list[dict[str, Any]],
                    window: tuple[int, int], months: list[int] | None,
                    q: dict[str, Any], force: bool) -> list[dict[str, Any]]:
     cards: list[dict[str, Any]] = []
+    area_name = " + ".join(r["name"] for r in regions)
+    area = {"id": "+".join(r["id"] for r in regions), "name": area_name, "type": "bbox",
+            "bbox": _union_bbox(regions)}
+    heat_err = None
     try:
         grid = nasa_power.fetch_regional_grid(
             ds["connector_params"]["parameters"][0],
-            window[0], window[1], region["bbox"], months, force=force)
+            window[0], window[1], area["bbox"], months, force=force)
     except Exception as exc:  # noqa: BLE001 - heatmapa nie zabija karty line
         grid = None
         heat_err = str(exc)
-    if grid and grid["years"] and len(grid["years"]) >= 3:
-        # karta line ze sredniej obszarowej z tej samej siatki (pomijana, gdy plan
-        # ma juz osobna karte tego tematu i regionu - "nie wiecej")
+    if grid and grid["years"] and len(grid["years"]) >= 2:
         pts = [{"year": r["year"], "value": r["value"]} for r in grid["annual"]
                if window[0] <= r["year"] <= window[1]]
         if len(pts) >= MIN_POINTS and not q.get("heatmap_only"):
             trend = _trend_points(pts)
             cards.append({
                 "id": _card_id("line"), "type": "line",
-                "title": q.get("title") or _fallback_title(ds, [region], months, False),
+                "title": q.get("title") or _fallback_title(ds, [area], months, False),
                 "unit": ds["unit"], "dataset_id": q["dataset_id"],
                 "source": ds["source"],
-                "caption": _caption(ds, [region], window, [], months,
+                "caption": _caption(ds, [area], window, [], months,
                                     f"area mean of the POWER grid "
                                     f"({grid['n_points']} points)"),
                 "note": q.get("note"),
-                "series": [{"label": region["name"], "points": pts}],
-                "trends": ([{"label": f"trend ({region['name']})",
+                "series": [{"label": area_name, "points": pts}],
+                "trends": ([{"label": f"trend ({area_name})",
                              "points": trend}] if trend else []),
-                "stats": [_stat_entry(region["name"], pts, ds["unit"])],
-                "facts": _series_facts(region["name"], pts, ds["unit"]),
-                "notes": _notes_for(ds, grid["method"], [region]),
+                "stats": [_stat_entry(area_name, pts, ds["unit"])],
+                "facts": _series_facts(area_name, pts, ds["unit"]),
+                "notes": _notes_for(ds, grid["method"], [area]),
             })
         cards.append({
             "id": _card_id("heat"), "type": "heatmap",
-            "title": f"Heat map: {region['name']}",
+            "title": (q.get("title") if q.get("heatmap_only") and q.get("title") else None)
+                     or f"Heat map: {area_name}" + (f", {_months_label(months)}" if months else ""),
             "unit": ds["unit"], "dataset_id": q["dataset_id"],
             "source": ds["source"],
-            "caption": _caption(ds, [region], window, [], months,
-                                f"POWER grid of {grid['n_points']} points, "
-                                f"pick the year with the slider"),
-            "note": "move the slider to see the spatial pattern in a given year",
+            "caption": _caption(ds, [area], window, [], months,
+                                f"NASA POWER grid of {grid['n_points']} points "
+                                f"({grid['step'][0]}° × {grid['step'][1]}°)"),
+            "note": q.get("note") if q.get("heatmap_only") else None,
             "grid": {"lats": grid["lats"], "lons": grid["lons"],
-                     "years": grid["years"], "values": grid["values"]},
+                     "years": grid["years"], "frames": grid["frames"],
+                     "step": grid["step"]},
+            "annual": grid["annual"],
             "bbox": grid.get("bbox_used"),
+            "regions": [{"id": r["id"], "name": r["name"], "bbox": r.get("bbox"),
+                         "point": r.get("point"), "iso_n": r.get("iso_n")} for r in regions],
             "stats": [], "facts": _heatmap_facts(grid, ds["unit"]), "notes": [],
         })
         return cards
-    # heatmapa niedostepna -> zwykla karta line
-    s = _series_for(ds, region, window, months, force)
-    if len(s["points"]) < MIN_POINTS:
-        err = _error_card(ds, q["dataset_id"], [region], window,
-                          f"heat map unavailable: {heat_err if not grid else 'too few years'}")
-        return [err]
-    trend = _trend_points(s["points"])
-    return [{
-        "id": _card_id("line"), "type": "line",
-        "title": q.get("title") or _fallback_title(ds, [region], months, False),
-        "unit": ds["unit"], "dataset_id": q["dataset_id"], "source": ds["source"],
-        "caption": _caption(ds, [region], window, [], months, s["method_note"]),
-        "note": q.get("note"),
-        "series": [{"label": region["name"], "points": s["points"]}],
-        "trends": ([{"label": f"trend ({region['name']})",
-                     "points": trend}] if trend else []),
-        "stats": [_stat_entry(region["name"], s["points"], ds["unit"])],
-        "facts": _series_facts(region["name"], s["points"], ds["unit"]),
-        "notes": _notes_for(ds, s["method_note"], [region]),
-    }]
+    # heatmapa niedostepna -> karta(y) liniowa z komunikatem
+    reason = heat_err or "too few years"
+    if len(regions) > 1:
+        card = _multi_line_card(ds, regions, window, months, q, force)
+    else:
+        try:
+            s = _series_for(ds, regions[0], window, months, force)
+        except Exception as exc:  # noqa: BLE001
+            return [_error_card(ds, q["dataset_id"], regions, window,
+                                f"heat map unavailable: {reason}; series: {exc}")]
+        if len(s["points"]) < MIN_POINTS:
+            return [_error_card(ds, q["dataset_id"], regions, window,
+                                f"heat map unavailable: {reason}")]
+        region = regions[0]
+        trend = _trend_points(s["points"])
+        card = {
+            "id": _card_id("line"), "type": "line",
+            "title": q.get("title") or _fallback_title(ds, [region], months, False),
+            "unit": ds["unit"], "dataset_id": q["dataset_id"], "source": ds["source"],
+            "caption": _caption(ds, [region], window, [], months, s["method_note"]),
+            "note": q.get("note"),
+            "series": [{"label": region["name"], "points": s["points"]}],
+            "trends": ([{"label": f"trend ({region['name']})",
+                         "points": trend}] if trend else []),
+            "stats": [_stat_entry(region["name"], s["points"], ds["unit"])],
+            "facts": _series_facts(region["name"], s["points"], ds["unit"]),
+            "notes": _notes_for(ds, s["method_note"], [region]),
+        }
+    card.setdefault("notes", []).insert(0, f"heat map unavailable: {reason}")
+    return [card]
 
 
 def _heatmap_facts(grid: dict[str, Any], unit: str) -> list[str]:
-    last_year = str(grid["years"][-1])
-    cells = [(float(k.split("|")[0]), float(k.split("|")[1]), v[last_year])
-             for k, v in grid["values"].items() if last_year in v]
+    if not grid["years"]:
+        return []
+    lats, lons = grid["lats"], grid["lons"]
+    first, last = grid["frames"][0], grid["frames"][-1]
+    y0, y1 = grid["years"][0], grid["years"][-1]
+    cells = [(lats[i // len(lons)], lons[i % len(lons)], v) for i, v in enumerate(last) if v is not None]
     if not cells:
         return []
     vmin = min(cells, key=lambda c: c[2])
     vmax = max(cells, key=lambda c: c[2])
-    return [
-        f"pattern in {last_year}: warmest grid cell "
-        f"{vmax[0]:.1f}°N {vmax[1]:.1f}°E ({st._fmt(vmax[2])} {unit}), "
-        f"coldest {vmin[0]:.1f}°N {vmin[1]:.1f}°E "
-        f"({st._fmt(vmin[2])} {unit})",
-        f"difference between grid cells in {last_year}: "
-        f"{st._fmt(vmax[2] - vmin[2])} {unit}",
+    facts = [
+        f"pattern in {y1}: highest value {vmax[0]:.1f}°N {vmax[1]:.1f}°E ({_fmt_val(vmax[2], unit)}), "
+        f"lowest {vmin[0]:.1f}°N {vmin[1]:.1f}°E ({_fmt_val(vmin[2], unit)})",
+        f"difference between grid cells in {y1}: {_fmt_val(vmax[2] - vmin[2], unit)}",
     ]
+    diffs = [b - a for a, b in zip(first, last) if a is not None and b is not None]
+    if diffs and y1 > y0:
+        facts.append(f"change {y0} → {y1} across grid cells: from {'+' if min(diffs) >= 0 else ''}"
+                     f"{_fmt_val(min(diffs), unit)} to {'+' if max(diffs) >= 0 else ''}"
+                     f"{_fmt_val(max(diffs), unit)} (single years, so weather noise included)")
+    return facts
 
 
 # ------------------------------------------------- fallback -> queries -------
@@ -734,9 +983,18 @@ def _fallback_queries(thesis: str, fallback: dict[str, Any],
         return []
     folded = llm_mod._fold(thesis)
     cat_ = load_catalog()
+    # tylko tematy, o ktorych teza WPROST mowi; zadnego -> brak danych (teza bez
+    # sensu albo spoza katalogu) zamiast przypadkowego wykresu
     supported = [p for p in picks
-                 if llm_mod._topic_supported(cat_[p["id"]].get("topic") or "", folded)]
+                 if llm_mod.topic_mentioned(cat_[p["id"]].get("topic") or "", folded)]
+    if not supported and not fallback.get("bodies"):
+        return []
     picks = supported or picks[:1]
+    # "produkuje wiecej pradu z OZE" = TWh; udzial (%) tylko przy slowach o udziale
+    if not re.search(llm_mod._SHARE, folded):
+        is_share = lambda p: (cat_[p["id"]].get("topic") or "").startswith("share_") \
+            or cat_[p["id"]].get("topic") == "renewables"  # noqa: E731
+        picks = [p for p in picks if not is_share(p)] + [p for p in picks if is_share(p)]
     regions = fallback["regions"]
     months_raw = fallback.get("months")
     months = months_raw["months"] if months_raw else None
@@ -764,16 +1022,9 @@ def _fallback_queries(thesis: str, fallback: dict[str, Any],
             "title": None, "note": None,
         }
 
-    if chart_hint in ("multi_line", "difference") and len(regions) >= 2 \
-            and ds.get("supports_regions"):
-        queries.append(base_query(ds, primary, chart_hint, regions, window))
-        extra = [p for p in picks[1:2] if p["id"] != primary]
-        for pick in extra:
-            d2 = get_dataset(pick["id"])
-            if d2 and d2.get("supports_regions"):
-                queries.append(base_query(d2, pick["id"], "multi_line", regions, window))
-            else:
-                queries.append(base_query(d2, pick["id"], "line", regions, window))
+    if chart_hint == "difference" and len(regions) >= 2 and ds.get("supports_regions"):
+        queries.append(base_query(ds, primary, "difference", regions[:2], window))
+        queries.append(base_query(ds, primary, "multi_line", regions, window))
     elif chart_hint in ("period_compare", "period_bands", "bars") and len(periods) >= 2:
         # karta okresow obsluguje 1..N regionow; bez regionu bierzemy pierwszy
         # zbior globalny z rankingu (np. Berkeley regionalny nie ma serii "swiat")
@@ -791,14 +1042,18 @@ def _fallback_queries(thesis: str, fallback: dict[str, Any],
                                   regions if p_ds.get("supports_regions") else [],
                                   window))
     else:
-        # porownanie ZRODEL: ten sam temat od roznych organizacji; potem kolejne
-        # tematy z rankingu (max 2 karty porownawcze) + opcjonalnie heatmapa
-        regs = regions if ds.get("supports_regions") else []
+        # kazda wielkosc z tezy = osobna karta (maks. 5 tematow):
+        # * 2+ miejsca -> jeden wykres z wszystkimi miejscami (+ slupki przy 3+
+        #   miejscach albo przy porownaniu "wiecej/mniej niz"),
+        # * 1 miejsce / swiat -> porownanie ZRODEL (ten sam temat, rozne organizacje)
         seen_topics: set[str] = set()
         seen_families: set[str] = set()
-        for pick in picks[:6]:
+        n_topics = 0
+        ranking = re.search(r"wiecej|mniej|wyzsz|nizsz|najwi|najmn|ranking|more|less|higher|lower|"
+                            r"most|least|mehr|weniger|plus|moins|mas|menos|piu|meno", folded)
+        for pick in picks[:10]:
             d2 = get_dataset(pick["id"])
-            if not d2 or len(queries) >= 2:
+            if not d2 or n_topics >= 5:
                 break
             topic = d2.get("topic") or pick["id"]
             family = TOPIC_FAMILY.get(topic, topic)
@@ -808,8 +1063,16 @@ def _fallback_queries(thesis: str, fallback: dict[str, Any],
                 continue
             seen_topics.add(topic)
             seen_families.add(family)
+            n_topics += 1
             regs2 = regions if d2.get("supports_regions") or \
                 d2.get("topic", "").startswith("regional") else []
+            if len(regs2) >= 2:
+                cover = llm_mod._covering_dataset(pick["id"], [], load_catalog())
+                d3 = get_dataset(cover) or d2
+                queries.append(base_query(d3, cover, "multi_line", regs2, window))
+                if len(regs2) >= 3 or ranking:
+                    queries.append(base_query(d3, cover, "region_bars", regs2, window))
+                continue
             ids = _compare_ids(d2, regs2)
             if len(ids) >= 2:
                 q = base_query(d2, ids[0], "compare_sources", regs2, window)
@@ -820,7 +1083,7 @@ def _fallback_queries(thesis: str, fallback: dict[str, Any],
                 queries.append(base_query(d2, pick["id"], "line",
                                           regs2 if d2.get("supports_regions") else [],
                                           window))
-        bbox_regs = [r for r in regs if r.get("type") == "bbox"]
+        bbox_regs = [r for r in regions if r.get("type") == "bbox"]
         if fallback.get("heatmap_extra") and bbox_regs:
             hm_ds = next((p["id"] for p in picks
                           if get_dataset(p["id"]).get("connector") == "power"), None)
@@ -887,28 +1150,59 @@ def _trim_card_years(card: dict[str, Any], window: tuple[int, int]) -> None:
 
 
 # -------------------------------------------------------------- glowny flow ---
+def _run_query(q: dict[str, Any], force: bool) -> list[dict[str, Any]]:
+    try:
+        new_cards = execute_query(q, force)
+        ds_q = get_dataset(q.get("dataset_id", "")) or {}
+        for c in new_cards:
+            # metadane karty: temat danych, regiony, miesiace (dla klientow i testow)
+            c.setdefault("topic", ds_q.get("topic"))
+            c.setdefault("region_ids", [r["id"] for r in (q.get("regions") or [])]
+                         or [(x.get("region") or {}).get("id") for x in q.get("series") or []
+                             if x.get("region")])
+            c.setdefault("months", q.get("months"))
+            c.setdefault("body_ids", q.get("body_ids") or [])
+            c.setdefault("chart", q.get("chart_type"))
+        return new_cards
+    except Exception as exc:  # noqa: BLE001 - blad jednej karty nie zabija reszty
+        return [{
+            "id": _card_id("err"), "type": "line", "title": "Card error",
+            "unit": "", "dataset_id": str(q.get("dataset_id", "")),
+            "source": (get_dataset(str(q.get("dataset_id", ""))) or {}).get("source", {}),
+            "caption": "", "error": f"could not prepare this card: {exc}",
+            "series": [], "trends": [], "stats": [], "facts": [], "notes": [],
+        }]
+
+
 def analyze(thesis: str, options: dict[str, Any] | None = None) -> dict[str, Any]:
+    import concurrent.futures as cf
     options = options or {}
     force = bool(options.get("force_refresh"))
 
     fallback = build_fallback_plan(thesis, options)
     queries: list[dict[str, Any]] = []
     summary: str | None = None
+    missing: list[dict[str, str]] = []
+    llm_no_data = False
     planner_info: dict[str, Any] = {"used": False, "provider": None,
                                     "model": None}
 
     info = llm_mod.llm_info()
+    plan = None
     if info["available"] and not options.get("disable_llm"):
-        plan = llm_mod.plan_with_llm(thesis, fallback, options.get("context"))
-        if plan and plan.get("queries"):
+        plan = llm_mod.plan_with_llm(thesis, fallback, options.get("context"),
+                                     options.get("language"))
+        if plan:
             queries = plan["queries"]
             summary = plan.get("summary")
+            missing = plan.get("missing") or []
+            llm_no_data = bool(plan.get("no_data")) and not queries
             planner_info = {"used": True, "provider": info["provider"],
                             "model": llm_mod.last_model_used() or info["model"],
                             "summary": summary,
                             "non_english_dropped": len(llm_mod.NON_ENGLISH_DROPPED)}
 
-    if not queries:
+    if not plan:
         queries = _fallback_queries(thesis, fallback, options)
         queries = llm_mod.normalize_queries(queries, thesis, load_catalog(),
                                             fallback.get("regions") or [])
@@ -922,29 +1216,14 @@ def analyze(thesis: str, options: dict[str, Any] | None = None) -> dict[str, Any
         queries = [_apply_user_window(q, uw) for q in queries]
         planner_info["user_window"] = list(uw)
 
+    # karty licza sie rownolegle (pobieranie danych), kolejnosc jak w planie
+    queries = queries[:config.MAX_CARDS]
     cards: list[dict[str, Any]] = []
-    for q in queries:
-        if len(cards) >= config.MAX_CARDS:
-            break
-        try:
-            new_cards = execute_query(q, force)
-            ds_q = get_dataset(q.get("dataset_id", "")) or {}
-            for c in new_cards:
-                # metadane karty: temat danych, regiony, miesiace (dla klientow i testow)
-                c.setdefault("topic", ds_q.get("topic"))
-                c.setdefault("region_ids", [r["id"] for r in (q.get("regions") or [])])
-                c.setdefault("months", q.get("months"))
-                c.setdefault("body_ids", q.get("body_ids") or [])
-            cards.extend(new_cards)
-        except Exception as exc:  # noqa: BLE001 - blad jednej karty nie zabija reszty
-            cards.append({
-                "id": _card_id("err"), "type": "line", "title": "Card error",
-                "unit": "", "dataset_id": str(q.get("dataset_id", "")),
-                "source": (get_dataset(str(q.get("dataset_id", ""))) or {}).get("source", {}),
-                "caption": "", "error": f"could not prepare this card: {exc}",
-                "series": [], "trends": [], "stats": [], "facts": [], "notes": [],
-            })
-        cards = cards[:config.MAX_CARDS]
+    if queries:
+        with cf.ThreadPoolExecutor(max(1, min(config.CARD_WORKERS, len(queries)))) as ex:
+            for new_cards in ex.map(lambda q: _run_query(q, force), queries):
+                cards.extend(new_cards)
+    cards = cards[:config.MAX_CARDS + 2]
 
     if uw:
         shown: list[int] = []
@@ -965,6 +1244,8 @@ def analyze(thesis: str, options: dict[str, Any] | None = None) -> dict[str, Any
         "thesis": thesis,
         "summary": summary,
         "cards": cards,
+        "missing": missing,
+        "no_data": not cards or llm_no_data,
         "sources": _sources_summary(cards),
         "planner": planner_info,
         "disclaimer": config.DISCLAIMER,

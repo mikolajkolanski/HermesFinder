@@ -3,7 +3,7 @@
 The browser extension of Hermes Finder, Manifest V3: Firefox 128+, Chromium/Chrome/Brave/Edge 121+ and Opera 109+. The code is shared; only the manifests differ, and `build.sh` generates them.
 
 - **On an article page** it highlights sentences that are climate claims you can check against data (e.g. "temperature in Poland has risen by 2°C since 1990").
-- **Clicking a highlight** opens a summary in the corner of the page: 1–3 key charts with one key number under each. Hover over a chart (or use the arrow keys) to read the value for any year; **Expand** shows one chart on most of the screen with full axes and a table of values. A new claim replaces the old one.
+- **Clicking a highlight** opens a summary in the corner of the page: 1–6 key charts (3 by default) with one key number under each. Hover over a chart (or use the arrow keys) to read the value for any year; **Expand** shows one chart on most of the screen with full axes and a table of values. A new claim replaces the old one.
 - **Legends are filters:** click a series name to hide or show it (the axis rescales to the visible series). Trend lines are dashed on the chart and in the legend, and can be hidden too.
 - **More** (left of the × in the panel header) opens the full analysis in a new tab: the Hermes Finder page with the claim already searched (`/?q=…`, in the extension’s language). The article tab stays as it was. "All charts in the full analysis" under the summary does the same.
 - **The toolbar icon** (or **Alt+Shift+T**) opens a popup with a field for your own claim, the summary, and the list of claims found on the current page. Clicking a claim from the list closes the popup and opens the corner panel on the page (one view at a time). **More** opens the full analysis in a new tab. The popup only mentions the server when it does not respond. The icon shows the number of claims.
@@ -11,11 +11,11 @@ The browser extension of Hermes Finder, Manifest V3: Firefox 128+, Chromium/Chro
 - **13 languages:** English, Polish, German, French, Spanish, Italian, Portuguese, Dutch, Czech, Swedish, Ukrainian, Japanese and Chinese. "Automatic" picks the browser language if it is one of them, otherwise the language of your country (from the system time zone or the browser region), otherwise English. Content from the server (card titles, series names) stays in English.
 - **Settings** (about:addons → Hermes Finder → Options): language, server address, language model, automatic scanning, sensitivity, highlight limit and style, excluded sites, number of charts in the summary and panel position.
 
-The extension computes nothing itself. It sends the claim to your Hermes Finder server (`POST /api/analyze`), which returns data from NASA, Copernicus, NOAA and other institutions. Claim detection runs locally and page text is never sent anywhere.
+The extension computes nothing itself. It sends the claim to the Hermes Finder server (`POST /api/analyze`), by default **https://hermesfinder.us**, which returns data from NASA, Copernicus, NOAA and other institutions. Only the claim (and the article title as context) is sent; claim detection runs locally and the rest of the page text is never sent anywhere. Parts of a claim without data are listed under the charts ("No data for this part of the claim"), and a claim with no data at all shows "No data available".
 
 ## Installation
 
-First start the server: `./start.sh` in the project directory (default `http://127.0.0.1:8000`).
+The extension works out of the box with the public server `https://hermesfinder.us`. To use your own server instead, start it (`./start.sh` in the project directory, `http://127.0.0.1:8000`) and enter its address in the extension settings. Installations that still had the old local default (`http://127.0.0.1:8000`) are switched to `https://hermesfinder.us` once, on the first start of version 2.2.
 
 Build the packages:
 

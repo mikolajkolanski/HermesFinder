@@ -361,6 +361,93 @@ add("owid_renewables_share", title="Udział OZE w produkcji energii elektrycznej
        "kw_en": ["renewables", "renewable energy", "electricity mix", "wind", "solar"], "hints": ["renewables", "energy"],
        "category": "energy"})
 
+# ============================================================ energia i emisje (pelne pliki OWID)
+# owid-energy-data.csv (Ember + Energy Institute) i owid-co2-data.csv (Global Carbon
+# Project, Jones et al.) - jedna kolumna = jeden zbior; kraje, kontynenty, UE i swiat.
+EMBER_EI = {"org": "Ember / Energy Institute (via OWID)", "country": "UK", "type": "nonprofit"}
+OWID_ENERGY_SRC = src("Our World in Data — energy dataset (Ember, Energy Institute)",
+                      "https://ourworldindata.org/energy", "https://github.com/owid/energy-data")
+OWID_CO2_SRC = src("Our World in Data — CO₂ and GHG dataset (Global Carbon Project, Jones et al.)",
+                   "https://ourworldindata.org/co2-and-greenhouse-gas-emissions", "https://github.com/owid/co2-data")
+ELEC_KW_PL = ["prąd", "prądu", "energia elektryczna", "energii elektrycznej", "elektrownie", "elektrowni",
+              "produkcja energii", "wytwarzanie energii", "miks energetyczny", "energetyka"]
+ELEC_KW_EN = ["electricity", "power generation", "electricity generation", "power plants", "energy mix"]
+
+
+def owid_full(id_, *, file, column, topic, title, title_en, unit, kw_pl, kw_en, start, category="energy",
+              provider=None, sanity_max=None, desc_en=None, hints=("energy",)):
+    add(id_, title=title, title_en=title_en,
+        desc=f"{title} — dane roczne dla kraju, kontynentu, UE lub świata (Our World in Data).",
+        desc_en=desc_en or f"{title_en}: annual values for a country, continent, the EU or the world (Our World in Data).",
+        kw_pl=kw_pl, kw_en=kw_en, hints=list(hints), unit=unit, connector="owid_csv",
+        params={"file": file, "column": column}, regions=True, start=start, category=category,
+        source=OWID_ENERGY_SRC if file == "energy" else OWID_CO2_SRC,
+        provider=provider or (EMBER_EI if file == "energy" else P["gcp"]), topic=topic,
+        region_scope="country_or_world", kind="absolute",
+        sanity={"min": 0, **({"max": sanity_max} if sanity_max else {}), "min_points": 10})
+
+
+for col, key, pl, en_, extra_pl, extra_en in [
+    ("electricity_generation", "total", "Produkcja energii elektrycznej (łącznie)", "Electricity generation (total)", ["produkcja prądu"], ["total electricity"]),
+    ("coal_electricity", "coal", "Prąd z elektrowni węglowych", "Electricity from coal", ["węgiel", "węgla", "węglowe", "węglowych", "elektrownie węglowe"], ["coal", "coal power"]),
+    ("gas_electricity", "gas", "Prąd z elektrowni gazowych", "Electricity from gas", ["gaz", "gazu", "gazowe"], ["gas", "natural gas"]),
+    ("oil_electricity", "oil", "Prąd z ropy naftowej", "Electricity from oil", ["ropa", "ropy"], ["oil"]),
+    ("nuclear_electricity", "nuclear", "Prąd z elektrowni jądrowych", "Electricity from nuclear", ["atom", "jądrowa", "jądrowe", "atomowe"], ["nuclear"]),
+    ("renewables_electricity", "renewables", "Prąd z OZE (odnawialnych źródeł)", "Electricity from renewables", ["oze", "odnawialne", "odnawialnych"], ["renewables", "renewable"]),
+    ("solar_electricity", "solar", "Prąd z fotowoltaiki", "Electricity from solar", ["fotowoltaika", "słoneczne", "panele"], ["solar", "photovoltaic"]),
+    ("wind_electricity", "wind", "Prąd z wiatru", "Electricity from wind", ["wiatr", "wiatraki", "wiatrowe"], ["wind", "wind power"]),
+    ("hydro_electricity", "hydro", "Prąd z elektrowni wodnych", "Electricity from hydropower", ["woda", "wodne", "hydro"], ["hydro", "hydropower"]),
+    ("fossil_electricity", "fossil", "Prąd z paliw kopalnych", "Electricity from fossil fuels", ["kopalne", "paliwa kopalne"], ["fossil", "fossil fuels"]),
+    ("low_carbon_electricity", "low_carbon", "Prąd niskoemisyjny (OZE + atom)", "Low-carbon electricity (renewables + nuclear)", ["niskoemisyjne"], ["low-carbon"]),
+]:
+    owid_full(f"owid_elec_{key}", file="energy", column=col, topic=f"electricity_{key}",
+              title=f"{pl} (TWh)", title_en=f"{en_} (TWh)", unit="TWh",
+              kw_pl=ELEC_KW_PL + extra_pl, kw_en=ELEC_KW_EN + extra_en, start=1985)
+for col, key, pl, en_, extra_pl, extra_en in [
+    ("coal_share_elec", "coal", "Udział węgla w produkcji prądu", "Coal share of electricity", ["węgiel", "węgla"], ["coal"]),
+    ("gas_share_elec", "gas", "Udział gazu w produkcji prądu", "Gas share of electricity", ["gaz"], ["gas"]),
+    ("nuclear_share_elec", "nuclear", "Udział atomu w produkcji prądu", "Nuclear share of electricity", ["atom", "jądrowa"], ["nuclear"]),
+    ("solar_share_elec", "solar", "Udział fotowoltaiki w produkcji prądu", "Solar share of electricity", ["fotowoltaika"], ["solar"]),
+    ("wind_share_elec", "wind", "Udział wiatru w produkcji prądu", "Wind share of electricity", ["wiatr"], ["wind"]),
+    ("fossil_share_elec", "fossil", "Udział paliw kopalnych w produkcji prądu", "Fossil fuel share of electricity", ["kopalne"], ["fossil"]),
+    ("low_carbon_share_elec", "low_carbon", "Udział źródeł niskoemisyjnych w produkcji prądu", "Low-carbon share of electricity", ["niskoemisyjne"], ["low-carbon"]),
+]:
+    owid_full(f"owid_share_elec_{key}", file="energy", column=col, topic=f"share_elec_{key}",
+              title=f"{pl} (%)", title_en=f"{en_} (%)", unit="%", sanity_max=100,
+              kw_pl=ELEC_KW_PL + ["udział", "procent"] + extra_pl, kw_en=ELEC_KW_EN + ["share", "percent"] + extra_en, start=1985)
+for col, key, pl, en_, unit, extra_pl, extra_en in [
+    ("primary_energy_consumption", "primary_energy", "Zużycie energii pierwotnej", "Primary energy consumption", "TWh", ["zużycie energii", "energia pierwotna"], ["energy consumption", "primary energy"]),
+    ("energy_per_capita", "energy_per_capita", "Zużycie energii na mieszkańca", "Primary energy consumption per capita", "kWh per person", ["na mieszkańca", "na osobę"], ["per capita", "per person"]),
+    ("renewables_share_energy", "renewables_share_energy", "Udział OZE w zużyciu energii pierwotnej", "Renewables share of primary energy", "%", ["oze", "odnawialne"], ["renewables"]),
+    ("coal_consumption", "coal_consumption", "Zużycie węgla (energia pierwotna)", "Coal consumption (primary energy)", "TWh", ["węgiel", "węgla", "zużycie węgla"], ["coal consumption"]),
+    ("electricity_demand", "electricity_demand", "Zapotrzebowanie na energię elektryczną", "Electricity demand", "TWh", ["zapotrzebowanie", "zużycie prądu"], ["electricity demand", "power demand"]),
+]:
+    owid_full(f"owid_{key}", file="energy", column=col, topic=key, title=f"{pl}", title_en=en_, unit=unit,
+              kw_pl=["energia", "energii"] + extra_pl, kw_en=["energy"] + extra_en, start=1965,
+              sanity_max=100 if unit == "%" else None)
+for col, key, pl, en_, unit, extra_pl, extra_en in [
+    ("coal_co2", "emissions_coal", "Emisje CO₂ ze spalania węgla", "CO₂ emissions from coal", "Mt CO₂", ["węgiel", "węgla"], ["coal"]),
+    ("oil_co2", "emissions_oil", "Emisje CO₂ z ropy naftowej", "CO₂ emissions from oil", "Mt CO₂", ["ropa", "ropy", "paliwa"], ["oil"]),
+    ("gas_co2", "emissions_gas", "Emisje CO₂ z gazu ziemnego", "CO₂ emissions from gas", "Mt CO₂", ["gaz", "gazu"], ["gas"]),
+    ("cement_co2", "emissions_cement", "Emisje CO₂ z produkcji cementu", "CO₂ emissions from cement", "Mt CO₂", ["cement"], ["cement"]),
+    ("land_use_change_co2", "emissions_land_use", "Emisje CO₂ ze zmian użytkowania gruntów", "CO₂ emissions from land-use change", "Mt CO₂", ["wylesianie", "grunty", "lasy"], ["deforestation", "land use"]),
+    ("methane", "emissions_methane", "Emisje metanu (CH₄)", "Methane emissions (CH₄)", "Mt CO₂e", ["metan", "metanu"], ["methane"]),
+    ("nitrous_oxide", "emissions_n2o", "Emisje podtlenku azotu (N₂O)", "Nitrous oxide emissions (N₂O)", "Mt CO₂e", ["podtlenek azotu"], ["nitrous oxide"]),
+    ("consumption_co2", "emissions_consumption", "Emisje CO₂ wg konsumpcji (z handlem)", "Consumption-based CO₂ emissions", "Mt CO₂", ["konsumpcja", "import"], ["consumption-based", "trade"]),
+    ("cumulative_co2", "emissions_cumulative", "Skumulowane emisje CO₂ (historyczne)", "Cumulative CO₂ emissions", "Mt CO₂", ["skumulowane", "historyczne", "łącznie od"], ["cumulative", "historical"]),
+    ("share_global_co2", "emissions_share_global", "Udział w światowych emisjach CO₂", "Share of global CO₂ emissions", "%", ["udział", "procent światowych"], ["share of global"]),
+    ("co2_per_gdp", "emissions_per_gdp", "Emisje CO₂ na jednostkę PKB", "CO₂ emissions per unit of GDP", "kg CO₂ per $", ["pkb", "gospodarka"], ["per gdp", "carbon intensity"]),
+    ("ghg_per_capita", "ghg_per_capita", "Emisje gazów cieplarnianych na mieszkańca", "Greenhouse gas emissions per capita", "t CO₂e per person", ["na mieszkańca", "na osobę"], ["per capita"]),
+    ("population", "population", "Liczba ludności", "Population", "people", ["ludność", "mieszkańcy", "populacja"], ["population"]),
+]:
+    owid_full(f"owid_{key}", file="co2", column=col, topic=key, title=pl, title_en=en_, unit=unit,
+              kw_pl=["emisje", "emisji", "co2"] + extra_pl if key != "population" else extra_pl,
+              kw_en=["emissions", "co2"] + extra_en if key != "population" else extra_en,
+              start=1950, category="greenhouse" if key != "population" else "society",
+              provider={**P["owid"], "org": "Global Carbon Project / Jones et al. (via OWID)"} if key != "population" else P["owid"],
+              hints=("co2", "emissions") if key != "population" else ("population",),
+              sanity_max=100 if unit == "%" else None)
+
 # ============================================================ MARS
 MARS_KW_PL = ["mars", "marsa", "marsie", "marsem", "marsjański", "marsjańska", "marsjańskie", "czerwona planeta",
               "pogoda na marsie", "klimat marsa", "curiosity", "łazik", "krater gale"]
@@ -468,6 +555,12 @@ for k, v in SHORT.items():
     ds[k]["short"] = v
 for sid, name, _ in GAUGES:
     ds[f"psmsl_{sid}"]["short"] = f"PSMSL · {name}"
+for k in ds:
+    if ds[k]["connector"] == "owid_csv":
+        ds[k]["short"] = ("Ember / Energy Institute (OWID)" if ds[k]["connector_params"]["file"] == "energy"
+                          else "Global Carbon Project (OWID)")
+ds["owid_population"]["short"] = "UN WPP (OWID)"
+ds["owid_emissions_land_use"]["sanity"].pop("min", None)
 def dtype(k):
     if k.startswith("mars_mcd"):
         return "model"
@@ -475,7 +568,8 @@ def dtype(k):
         return "reanalysis"
     if k.startswith("planet_"):
         return "reference"
-    if k in ("owid_co2_emissions", "owid_ghg_total", "eurostat_ghg", "owid_co2_per_capita", "owid_renewables_share"):
+    if k in ("owid_co2_emissions", "owid_ghg_total", "eurostat_ghg", "owid_co2_per_capita", "owid_renewables_share") \
+            or ds.get(k, {}).get("connector") == "owid_csv":
         return "inventory"
     if k in ("berkeley_global", "berkeley_region_temp", "hadcrut5", "noaa_global_temp", "jma_global", "noaa_ocean_temp", "gistemp_global", "gistemp_nh"):
         return "analysis"

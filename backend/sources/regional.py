@@ -62,14 +62,52 @@ REGION_CODES: dict[str, dict[str, str | None]] = {
     "south_america": {"iso3": None, "eu": None, "berkeley": "south-america"},
     "antarctica": {"iso3": None, "eu": None, "berkeley": "antarctica"},
     "oceania": {"iso3": None, "eu": None, "berkeley": "oceania"},
+    "eu": {"iso3": None, "eu": "EU27_2020", "berkeley": None},
+    "switzerland": {"iso3": "CHE", "eu": None, "berkeley": "switzerland"},
+    "portugal": {"iso3": "PRT", "eu": "PT", "berkeley": "portugal"},
+    "ireland": {"iso3": "IRL", "eu": "IE", "berkeley": "ireland"},
+    "croatia": {"iso3": "HRV", "eu": "HR", "berkeley": "croatia"},
+    "serbia": {"iso3": "SRB", "eu": None, "berkeley": "serbia"},
+    "slovenia": {"iso3": "SVN", "eu": "SI", "berkeley": "slovenia"},
+    "moldova": {"iso3": "MDA", "eu": None, "berkeley": "moldova"},
+    "mexico": {"iso3": "MEX", "eu": None, "berkeley": "mexico"},
+    "argentina": {"iso3": "ARG", "eu": None, "berkeley": "argentina"},
+    "chile": {"iso3": "CHL", "eu": None, "berkeley": "chile"},
+    "colombia": {"iso3": "COL", "eu": None, "berkeley": "colombia"},
+    "peru": {"iso3": "PER", "eu": None, "berkeley": "peru"},
+    "south_africa": {"iso3": "ZAF", "eu": None, "berkeley": "south-africa"},
+    "nigeria": {"iso3": "NGA", "eu": None, "berkeley": "nigeria"},
+    "kenya": {"iso3": "KEN", "eu": None, "berkeley": "kenya"},
+    "ethiopia": {"iso3": "ETH", "eu": None, "berkeley": "ethiopia"},
+    "morocco": {"iso3": "MAR", "eu": None, "berkeley": "morocco"},
+    "algeria": {"iso3": "DZA", "eu": None, "berkeley": "algeria"},
+    "saudi_arabia": {"iso3": "SAU", "eu": None, "berkeley": "saudi-arabia"},
+    "iran": {"iso3": "IRN", "eu": None, "berkeley": "iran"},
+    "israel": {"iso3": "ISR", "eu": None, "berkeley": "israel"},
+    "uae": {"iso3": "ARE", "eu": None, "berkeley": "united-arab-emirates"},
+    "pakistan": {"iso3": "PAK", "eu": None, "berkeley": "pakistan"},
+    "bangladesh": {"iso3": "BGD", "eu": None, "berkeley": "bangladesh"},
+    "south_korea": {"iso3": "KOR", "eu": None, "berkeley": "south-korea"},
+    "vietnam": {"iso3": "VNM", "eu": None, "berkeley": "vietnam"},
+    "thailand": {"iso3": "THA", "eu": None, "berkeley": "thailand"},
+    "philippines": {"iso3": "PHL", "eu": None, "berkeley": "philippines"},
+    "kazakhstan": {"iso3": "KAZ", "eu": None, "berkeley": "kazakhstan"},
+    "new_zealand": {"iso3": "NZL", "eu": None, "berkeley": "new-zealand"},
+}
+
+# nazwy agregatow w plikach Our World in Data (wiersze bez kodu ISO)
+OWID_NAMES: dict[str, str] = {
+    "europe": "Europe", "eu": "European Union (27)", "asia": "Asia", "africa": "Africa",
+    "north_america": "North America", "south_america": "South America", "oceania": "Oceania",
 }
 
 
 def codes(region: dict[str, Any] | None) -> dict[str, str | None]:
+    """Kody regionu w zrodlach; "owid" = nazwa wiersza OWID (agregaty bez ISO)."""
     if region is None:
-        return {"iso3": "OWID_WRL", "eu": None, "berkeley": None}
-    return REGION_CODES.get(region["id"],
-                            {"iso3": None, "eu": None, "berkeley": None})
+        return {"iso3": "OWID_WRL", "eu": None, "berkeley": None, "owid": "World"}
+    base = REGION_CODES.get(region["id"], {"iso3": None, "eu": None, "berkeley": None})
+    return {**base, "owid": OWID_NAMES.get(region["id"])}
 
 
 def _last_full_year() -> int:
@@ -164,25 +202,30 @@ def open_meteo(variable: str, model: str, region: dict[str, Any],
 
 
 # ------------------------------------------------------------------ OWID -----
-def owid_series(slug: str, iso3: str, column: int = 3, scale: float = 1.0,
-                force: bool = False) -> dict[str, Any]:
-    """Our World in Data (grapher CSV): szereg roczny dla kodu ISO3/OWID_WRL."""
+def owid_series(slug: str, iso3: str | None, column: int = 3, scale: float = 1.0,
+                force: bool = False, entity: str | None = None) -> dict[str, Any]:
+    """Our World in Data (grapher CSV): szereg roczny dla kodu ISO3/OWID_WRL
+    albo - dla agregatow bez kodu (Europa, UE, kontynenty) - nazwy wiersza."""
     url = f"https://ourworldindata.org/grapher/{slug}.csv?csvType=full"
+    who = iso3 or entity
+    if not who:
+        raise Unsupported(f"OWID '{slug}': no series for this region")
 
     def fetch() -> dict[str, Any]:
         annual = []
         reader = csv.reader(io.StringIO(get_text(url, timeout=180)))
         next(reader, None)
         for row in reader:
-            if len(row) > column and row[1] == iso3:
+            if len(row) > column and ((iso3 and row[1] == iso3) or
+                                      (not iso3 and entity and row[0] == entity and not row[1])):
                 v = to_float(row[column])
                 if v is not None and row[2].isdigit():
                     annual.append({"year": int(row[2]), "value": v * scale})
         if not annual:
-            raise Unsupported(f"OWID '{slug}': no data for {iso3}")
+            raise Unsupported(f"OWID '{slug}': no data for {who}")
         return {"annual": annual, "source_url": url}
 
-    return get_or_fetch(f"owid:{slug}:{iso3}:{column}", fetch, ttl_days=14,
+    return get_or_fetch(f"owid:{slug}:{who}:{column}", fetch, ttl_days=14,
                         force=force)
 
 

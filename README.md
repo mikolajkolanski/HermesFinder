@@ -27,12 +27,14 @@ copied from an article), and the backend:
 | Type | When | Result |
 | --- | --- | --- |
 | `line` | one series (a region or global) | line chart + OLS trend |
-| `multi_line` | 2–4 regions compared | all series on one chart |
+| `multi_line` | 2–12 places compared (countries, continents, the EU, the world) | all series on one chart + comparison facts (latest values, gap, ratio, how many years A > B) |
 | `difference` | a claim about the **difference** between areas | one A − B series + trend |
 | `period_compare` | periods compared (e.g. 1980–1990 vs 2000–2010), also for 1–4 regions | small charts side by side, shared Y axis |
 | `period_bands` | periods within one window | one chart with highlighted bands |
 | `bars` | means per period | bar chart |
-| `heatmap` | spatial pattern (POWER + bbox) | **Esri satellite imagery** + interpolated temperature + year slider |
+| `region_bars` | who has more/less, rankings, 3+ places | one bar per place (latest year, or the mean of the last 5 years for weather) |
+| `multi_series` | different quantities for one place (e.g. electricity from coal vs renewables) | all series on one chart, same unit |
+| `heatmap` | spatial pattern (POWER grid, one or many regions, up to ~40° × 60°) | **interactive map** (Leaflet, CARTO map or Esri satellite), smoothly interpolated grid, fractional-year slider with animation, values / anomaly / change modes, mask to the selected countries' borders |
 | `compare_sources` | one topic from many organisations (the default) | all series on one chart, common baseline for anomalies, table of organisations, spread between sources |
 | `planet_bars` | planets compared (temperature, gravity, day length…) | bars from the NASA Planetary Fact Sheet |
 | (Mars) | weather on Mars | X axis = Martian season (Ls), Curiosity observations vs the ESA/CNES model |
@@ -188,6 +190,8 @@ Catalog: `backend/catalog/datasets.json` (NASA) + `datasets_external.json` (the 
 | tide gauges | PSMSL: Gdańsk, Świnoujście, Stockholm, Brest, Newlyn, New York, Honolulu, Sydney |
 | CO₂ | NOAA/NASA Mauna Loa · NOAA GML (global mean); CH₄ and N₂O separately (NOAA GML) |
 | country/world emissions | Global Carbon Project (CO₂) · Climate Watch/WRI (all GHG) · Eurostat (EU); also CO₂ per capita and renewables share (Ember) |
+| electricity and energy (countries, continents, EU, world) | Ember / Energy Institute via OWID: electricity from coal, gas, oil, nuclear, renewables, solar, wind, hydro, fossil, low-carbon (TWh) and their shares (%), total generation and demand, primary energy, energy per capita |
+| detailed emissions | Global Carbon Project / Jones et al. via OWID: CO₂ from coal, oil, gas, cement and land use, methane, N₂O, consumption-based, cumulative, share of global, per GDP, GHG per capita, population |
 | sea ice | NSIDC: Arctic (September) and Antarctic (September) |
 | Sun | SILSO (Royal Observatory of Belgium): sunspots |
 | Mars | NASA Curiosity REMS (CAB-INTA/JPL, observations 2012–now): max/min air temperature, ground temperature, pressure · Mars Climate Database (LMD/CNES/ESA, **model**) |
@@ -200,11 +204,21 @@ common run of years). That is the only transformation: a constant shift, which c
 the shape nor the trend. A source that does not support the region or the month filter is left
 out, with the reason shown.
 
-### Picking data: "no more, no less"
+### Picking data: every part of the claim
 
-The language model picks datasets, and deterministic validation (`rag/llm.py: normalize_queries`)
-makes sure the cards match the claim exactly. The same rules apply to plans from the model and
-from the rules-only planner:
+The language model has full freedom over **how many cards and which chart types** a claim needs
+(up to `CV_MAX_CARDS`, default 12): each sub-claim gets its own card ("Germany produces more
+electricity from renewables than Poland, but less from coal" = two comparison cards), compared places
+go on one chart, and a heat map can cover several countries or a whole continent. Validation still
+checks every dataset, region and year against the catalog; the model never supplies numbers.
+
+**Missing data is said out loud.** If part of a claim has no dataset (e.g. "CO₂ from cows"), the
+model plans cards for the rest and returns `missing[]` with a message written for that claim, in the
+UI language (`options.language`). If nothing fits (nonsense, an off-topic sentence), the response has
+no cards and `no_data: true`, and the page shows "No data available" ("Brak dostępnych danych").
+The rules-only planner does the same when no topic of the catalog is named in the claim.
+
+The rules-only planner (no API key) is stricter (`normalize_queries(strict=True)`):
 - **Cards only for quantities named in the claim:** the topic guard works in 6 languages. No
   "for context" cards.
 - **One card per quantity, place and season:** duplicates and variants of the same quantity
@@ -220,7 +234,13 @@ from the rules-only planner:
 - **`options.context` (e.g. the article title):** only fills in a missing place. A claim about
   the world stays global.
 
-Regression test (26 claims from articles in 5 languages):
+Unit tests without network (mocked NASA POWER, data and model answers):
+
+```bash
+cd backend && python -m pytest tests -q
+```
+
+Regression test (26 claims from articles in 5 languages; extra cards from the model are warnings):
 
 ```bash
 cd backend && python tests/eval_planner.py http://127.0.0.1:8000          # with the LLM
@@ -249,9 +269,10 @@ Scripps CO₂ (changed addresses), JAXA, OSI SAF, World Bank CCKP (502), Solar S
 `extension/` holds the Hermes Finder extension for Firefox, Chromium and Opera (packages:
 `extension/build.sh`). On article pages it highlights checkable climate claims; a click (or
 "Analyze with Hermes Finder" in the right-click menu on selected text) shows a summary in the
-corner of the page: 1–3 key charts with values on hover, legends that hide and show series, and
+corner of the page: 1–6 key charts with values on hover, legends that hide and show series, and
 a **More** button that opens the full analysis (the normal search on this page) in a new tab.
-Installation and details: `extension/README.md`.
+By default the extension talks to the public server **https://hermesfinder.us** (a local server
+can be set in its options). Installation and details: `extension/README.md`.
 
 ## API
 
@@ -264,10 +285,12 @@ POST /api/analyze                      # {"thesis": "...", "options": {...}}
 
 Response: `summary`, `cards[]` (type, title, series + trends, statistics, facts, a caption with
 regions/periods/source; comparison cards also have `providers[]`, `skipped[]`, `baseline`),
-`sources[]` (organisations used in the answer), `planner` (which planner decided, the model,
-any LLM error, `years_shown` when a year range was set). Options: `start_year`/`end_year`
-(1850 to the current year, start ≤ end; anything else returns 422; the range applies to every
-card, including plans from the language model), `force_refresh`, `disable_llm`, `context`.
+`sources[]` (organisations used in the answer), `missing[]` (`{subject, message}`: parts of the
+claim with no data), `no_data` (true when there is nothing to show), `planner` (which planner
+decided, the model, any LLM error, `years_shown` when a year range was set). Options:
+`start_year`/`end_year` (1850 to the current year, start ≤ end; anything else returns 422; the
+range applies to every card, including plans from the language model), `force_refresh`,
+`disable_llm`, `context`, `language` (UI language for the missing-data messages).
 
 ## Limitations
 
@@ -279,9 +302,11 @@ card, including plans from the language model), `force_refresh`, `disable_llm`, 
 - The MCD model (Mars) takes ~8 s per request; the backend fetches it in the background at
   startup (`CV_WARM_CACHE=0` turns that off) and caches it for a year.
 - Mars data is for Gale crater (where the rover works), not the whole planet.
-- Heat maps are available for a bbox of up to 600 POWER grid points (Poland = 192); the data
-  area is the bbox rectangle, not the country border.
-- Map imagery: Esri World Imagery tiles (attribution: Esri, Maxar, Earthstar Geographics);
-  without internet the card falls back to a plain grid.
+- NASA POWER's regional endpoint accepts 2–10° per axis: smaller areas are widened to 2°, larger
+  ones are split into tiles and merged (a heat map can use up to 40 tiles, e.g. Europe = 20,
+  China = 28). The data covers the bounding box; the map can mask it to the country borders
+  (Natural Earth via world-atlas, bundled in `frontend/vendor/`).
+- Base maps: CARTO (© OpenStreetMap contributors) or Esri World Imagery; without internet the map
+  shows the data layer and borders on a plain background.
 - Periods shorter than ~10 years give weak regression power.
-- Chart.js comes from a CDN (offline: text data instead of charts).
+- Chart.js, Leaflet, topojson-client and the country borders are bundled in `frontend/vendor/`.

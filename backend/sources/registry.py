@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from sources import climate, mars, planets, regional
+from sources import climate, mars, owid_full, planets, regional
 from sources.regional import Unsupported
 
 __all__ = ["Unsupported", "full_series", "seasonal_series", "planet_values", "rebase_offset"]
@@ -17,7 +17,7 @@ __all__ = ["Unsupported", "full_series", "seasonal_series", "planet_values", "re
 EXTERNAL_CONNECTORS = {
     "noaa_cag", "hadcrut5", "berkeley_global", "berkeley_region", "jma_global",
     "era5_pulse", "oisst", "gml", "noaa_star", "csiro", "owid_sea_level",
-    "psmsl", "silso", "open_meteo", "owid", "owid_temp", "eurostat_ghg",
+    "psmsl", "silso", "open_meteo", "owid", "owid_temp", "eurostat_ghg", "owid_csv",
 }
 SEASONAL_CONNECTORS = {"mars_rems", "mars_mcd"}
 PLANET_CONNECTORS = {"planet_metric"}
@@ -109,18 +109,21 @@ def full_series(ds: dict[str, Any], region: dict[str, Any] | None,
         return _pick(climate.berkeley_region(slug, force), months,
                      "anomalies vs 1951–1980 (Berkeley Earth, land)")
     if conn == "owid_temp":
-        iso = regional.codes(region)["iso3"]
-        if not iso:
+        c = regional.codes(region)
+        if not (c["iso3"] or c.get("owid")):
             raise Unsupported(f"no national ERA5 (OWID) series for {rname}")
-        d = regional.owid_series(p["slug"], iso, force=force)
+        d = regional.owid_series(p["slug"], c["iso3"], force=force, entity=c.get("owid"))
         return _pick(d, months, "anomalies vs 1991–2020 (ERA5 via OWID)")
     if conn == "owid":
-        iso = regional.codes(region)["iso3"]
-        if not iso:
+        c = regional.codes(region)
+        if not (c["iso3"] or c.get("owid")):
             raise Unsupported(f"OWID has no series for {rname}")
-        d = regional.owid_series(p["slug"], iso, p.get("column", 3),
-                                 p.get("scale", 1.0), force)
+        d = regional.owid_series(p["slug"], c["iso3"], p.get("column", 3),
+                                 p.get("scale", 1.0), force, entity=c.get("owid"))
         return _pick(d, months, "national/world data (Our World in Data)")
+    if conn == "owid_csv":
+        d = owid_full.series(p["file"], p["column"], region, force)
+        return _pick(d, months, f"annual values for {rname or 'the world'} (Our World in Data)")
     if conn == "eurostat_ghg":
         geo = regional.codes(region)["eu"]
         if not geo:

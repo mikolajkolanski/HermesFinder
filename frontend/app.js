@@ -146,6 +146,7 @@ async function analyze() {
   if (years.end !== null) options.end_year = years.end;
   reqYears = years.start !== null || years.end !== null ? { start: years.start, end: years.end } : null;
   if (el.disableLlm.checked) options.disable_llm = true;
+  options.language = LANG; // komunikaty o brakujacych danych w jezyku interfejsu
 
   try {
     const resp = await fetch(`${API_BASE}/api/analyze`, {
@@ -190,6 +191,8 @@ function clearResults() {
   el.results.classList.add("hidden");
   charts.forEach((c) => c.destroy());
   charts.length = 0;
+  heatmaps.forEach((h) => h.destroy());
+  heatmaps.length = 0;
   el.results.innerHTML = "";
 }
 
@@ -206,10 +209,13 @@ function render(data) {
     ${yearsLine(planner) ? `<p class="report-planner">${escapeHtml(yearsLine(planner))}</p>` : ""}`;
   el.summaryLine.classList.remove("hidden");
 
+  const missing = data.missing || [];
   if (!cards.length) {
+    const msgs = missing.map((m) => m.message || t("noDataFor", { x: m.subject })).filter(Boolean);
     el.results.innerHTML = `
-      <article class="card">
+      <article class="card card-nodata span-3" role="status">
         <h2 class="card-title">${escapeHtml(t("noData"))}</h2>
+        ${msgs.map((m) => `<p class="nodata-msg">${escapeHtml(m)}</p>`).join("")}
         <p class="card-note">${escapeHtml(t("noDataHint"))}</p>
       </article>`;
     show(el.results);
@@ -218,6 +224,7 @@ function render(data) {
 
   let html = "";
   for (const card of cards) html += cardHtml(card);
+  html += missingHtml(missing);
   html += sourcesOverviewHtml(sources);
   html += `<p class="disclaimer">${escapeHtml(t("disclaimer"))}</p>`;
   el.results.innerHTML = html;
@@ -268,6 +275,16 @@ function yearsLine(planner) {
 }
 
 /* ============================ HTML kart ============================ */
+
+/** Czesci tezy, dla ktorych w katalogu nie ma danych (komunikat od modelu). */
+function missingHtml(missing) {
+  if (!missing || !missing.length) return "";
+  return missing.map((m) => `
+    <article class="card card-missing span-3" role="note">
+      <h2 class="card-title"><span class="missing-icon" aria-hidden="true">∅</span>${escapeHtml(m.message || !m.subject ? t("missingTitle") : t("noDataFor", { x: m.subject }))}</h2>
+      ${m.message ? `<p class="nodata-msg">${escapeHtml(m.message)}</p>` : ""}
+    </article>`).join("");
+}
 
 function spanClass(card) {
   if (card.compare) return "";
@@ -699,9 +716,26 @@ function drawBars(card) {
   const canvas = document.getElementById(`cv-${card.idx}`);
   if (!canvas || typeof Chart === "undefined") return;
   const values = card.values || [];
-  const vMin = Math.min(...values.map((v) => v.value));
-  const vMax = Math.max(...values.map((v) => v.value));
-  const pad = (vMax - vMin) * 0.1 || 0.5;
+  let vMin = Math.min(...values.map((v) => v.value));
+  let vMax = Math.max(...values.map((v) => v.value));
+  // slupki porownania miejsc zaczynaja sie od zera (dlugosc = wartosc)
+  if (card.zero_based) { vMin = Math.min(0, vMin); vMax = Math.max(0, vMax); }
+  const pad = card.zero_based ? (vMax - vMin) * 0.06 : (vMax - vMin) * 0.1 || 0.5;
+  const lo = card.zero_based && vMin === 0 ? 0 : vMin - pad;
+  const hi = card.zero_based && vMax === 0 ? 0 : vMax + pad;
+  const horizontal = card.region_bars && values.length > 5;
+  const colors = card.region_bars
+    ? values.map((_, i) => SERIES_COLORS[i % SERIES_COLORS.length])
+    : "rgba(29,78,137,0.78)";
+  const valueAxis = {
+    ...yTickOpts(lo, hi),
+    suggestedMin: lo, suggestedMax: hi,
+    ...(card.zero_based && vMin === 0 ? { min: 0 } : {}),
+    title: card.unit ? { display: true, text: card.unit, color: AXIS.tick, font: { size: 12 } } : undefined,
+  };
+  const catAxis = { grid: { display: false }, ticks: { color: AXIS.tick, font: { size: 12 }, autoSkip: false } };
+  const box = canvas.parentElement;
+  if (horizontal && box) box.style.height = `${Math.max(240, values.length * 34 + 60)}px`;
   charts.push(
     new Chart(canvas.getContext("2d"), {
       type: "bar",
@@ -709,32 +743,26 @@ function drawBars(card) {
         labels: values.map((v) => v.label),
         datasets: [
           {
-            label: t("barMean", { unit: card.unit }),
+            label: card.region_bars ? (card.value_label || card.unit) : t("barMean", { unit: card.unit }),
             data: values.map((v) => v.value),
-            backgroundColor: "rgba(29,78,137,0.78)",
-            borderColor: SERIES_COLORS[0],
-            borderWidth: 1.5,
+            backgroundColor: colors,
+            borderColor: card.region_bars ? colors : SERIES_COLORS[0],
+            borderWidth: card.region_bars ? 0 : 1.5,
             borderRadius: 4,
             maxBarThickness: 64,
           },
         ],
       },
       options: {
+        indexAxis: horizontal ? "y" : "x",
         responsive: true,
         maintainAspectRatio: false,
-        scales: {
-          x: { grid: { display: false }, ticks: { color: AXIS.tick, font: { size: 12 } } },
-          y: {
-            ...yTickOpts(vMin - pad, vMax + pad),
-            suggestedMin: vMin - pad, suggestedMax: vMax + pad,
-            title: card.unit ? { display: true, text: card.unit, color: AXIS.tick, font: { size: 12 } } : undefined,
-          },
-        },
+        scales: horizontal ? { y: catAxis, x: valueAxis } : { x: catAxis, y: valueAxis },
         plugins: {
           legend: { display: false },
           tooltip: {
             backgroundColor: "#17212B",
-            callbacks: { label: (item) => `${nf().format(item.parsed.y)} ${card.unit}` },
+            callbacks: { label: (item) => `${nf().format(horizontal ? item.parsed.x : item.parsed.y)} ${card.unit}` },
           },
         },
       },
@@ -742,256 +770,17 @@ function drawBars(card) {
   );
 }
 
-/* ============================ heatmapa v2: satelita + interpolacja ============================ */
+/* ============================ heatmapa v3 (heatmap.js) ============================ */
 
-const TILE_IMAGERY = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
-const TILE_LABELS = "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}";
-
-function heatColor(t) {
-  t = Math.max(0, Math.min(1, t));
-  const lerp = (a, b, u) => Math.round(a + (b - a) * u);
-  if (t < 0.5) {
-    const u = t / 0.5;
-    return `rgb(${lerp(37, 226, u)},${lerp(99, 232, u)},${lerp(200, 238, u)})`;
-  }
-  const u = (t - 0.5) / 0.5;
-  return `rgb(${lerp(226, 224, u)},${lerp(232, 66, u)},${lerp(238, 54, u)})`;
-}
+const heatmaps = [];
 
 function heatmapHtml(card) {
-  const years = (card.grid && card.grid.years) || [];
-  return `
-    <div class="heat-wrap">
-      <canvas id="cv-${card.idx}" class="heat-canvas"></canvas>
-      <div class="heat-ctrl">
-        <input id="sl-${card.idx}" class="heat-slider" type="range"
-               min="0" max="${Math.max(0, years.length - 1)}" value="${Math.max(0, years.length - 1)}" />
-        <span id="yr-${card.idx}" class="heat-year">${years[years.length - 1] ?? "—"}</span>
-      </div>
-      <div class="heat-legend">
-        <span id="lmin-${card.idx}"></span>
-        <div id="lg-${card.idx}" class="heat-legend-bar"></div>
-        <span id="lmax-${card.idx}"></span>
-      </div>
-      <div id="tip-${card.idx}" class="heat-tip"></div>
-      <p class="map-note">${escapeHtml(t("mapNote"))}</p>
-    </div>`;
-}
-
-function loadTile(url) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    const t = setTimeout(() => reject(new Error("tile timeout")), 8000);
-    img.onload = () => { clearTimeout(t); resolve(img); };
-    img.onerror = () => { clearTimeout(t); reject(new Error("tile error")); };
-    img.src = url;
-  });
+  return HFHeatmap.html(card, t, escapeHtml);
 }
 
 function drawHeatmap(card) {
-  const canvas = document.getElementById(`cv-${card.idx}`);
-  const slider = document.getElementById(`sl-${card.idx}`);
-  const yearLabel = document.getElementById(`yr-${card.idx}`);
-  const tip = document.getElementById(`tip-${card.idx}`);
-  const g = card.grid;
-  if (!canvas || !g) return;
-
-  const lats = g.lats, lons = g.lons, years = g.years;
-  if (!lats.length || !lons.length || !years.length) return;
-
-  // skala kolorow z wszystkich komorek
-  let vmin = Infinity, vmax = -Infinity;
-  for (const cell of Object.values(g.values)) {
-    for (const v of Object.values(cell)) {
-      vmin = Math.min(vmin, v);
-      vmax = Math.max(vmax, v);
-    }
-  }
-  if (!isFinite(vmin)) return;
-  const vspan = vmax - vmin || 1;
-
-  const legend = document.getElementById(`lg-${card.idx}`);
-  if (legend) {
-    legend.style.background = `linear-gradient(90deg, ${
-      Array.from({ length: 9 }, (_, i) => heatColor(i / 8)).join(",")})`;
-    const lminEl = document.getElementById(`lmin-${card.idx}`);
-    const lmaxEl = document.getElementById(`lmax-${card.idx}`);
-    if (lminEl) lminEl.textContent = `${fmtN(vmin, 1)} ${card.unit}`;
-    if (lmaxEl) lmaxEl.textContent = `${fmtN(vmax, 1)} ${card.unit}`;
-  }
-
-  // macierz [yearIdx][latIdx][lonIdx]
-  const rowOf = new Map(lats.map((lat, i) => [lat.toFixed(2), i]));
-  const colOf = new Map(lons.map((lon, i) => [lon.toFixed(2), i]));
-  const matrix = years.map((y) => {
-    const m = lats.map(() => lons.map(() => null));
-    for (const [key, cell] of Object.entries(g.values)) {
-      const [latS, lonS] = key.split("|");
-      const ri = rowOf.get(Number(latS).toFixed(2));
-      const ci = colOf.get(Number(lonS).toFixed(2));
-      if (ri === undefined || ci === undefined) continue;
-      if (cell[y] !== undefined) m[ri][ci] = cell[y];
-    }
-    return m;
-  });
-
-  // bbox regionu (od backendu albo z siatki)
-  let [latMin, latMax, lonMin, lonMax] = card.bbox ||
-    [Math.min(...lats), Math.max(...lats), Math.min(...lons), Math.max(...lons)];
-  const wraps = lonMax < lonMin;
-  if (wraps) lonMax += 360; // antymerydian: praca w 0..360
-
-  // ==== Web Mercator ====
-  const worldPx = (z) => 256 * Math.pow(2, z);
-  const lonToX = (lon, z) => ((lon + 180) / 360) * worldPx(z);
-  const latToY = (lat, z) => {
-    const s = Math.sin((Math.max(-85, Math.min(85, lat)) * Math.PI) / 180);
-    return (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * worldPx(z);
-  };
-
-  // zoom: bbox ma wypelnic canvas
-  const W = canvas.clientWidth || 600;
-  const H = canvas.clientHeight || 300;
-  const lonSpan = lonMax - lonMin;
-  const latSpan = latMax - latMin;
-  const zW = Math.log2((W * 360) / (lonSpan * 256));
-  const y0z0 = latToY(latMin, 0), y1z0 = latToY(latMax, 0);
-  const zH = Math.log2(H / Math.max(1e-6, y0z0 - y1z0));
-  const zoom = Math.max(2, Math.min(9, Math.floor(Math.min(zW, zH))));
-
-  const wp = worldPx(zoom);
-  const x0 = lonToX(lonMin, zoom);
-  const x1 = lonToX(lonMax, zoom);
-  const y0 = latToY(latMax, zoom); // gora (max lat)
-  const y1 = latToY(latMin, zoom);
-  const bboxW = x1 - x0, bboxH = y1 - y0;
-  const offX = Math.max(0, (W - bboxW) / 2);
-  const offY = Math.max(0, (H - bboxH) / 2);
-
-  // ladowanie kafli (imagery + labels)
-  let tileImgs = null;
-  const tx0 = Math.floor((x0 - offX) / 256), tx1 = Math.floor((x1 + offX) / 256);
-  const ty0 = Math.floor((y0 - offY) / 256), ty1 = Math.floor((y1 + offY) / 256);
-  const nT = Math.pow(2, zoom);
-  const tileList = [];
-  for (let tx = tx0; tx <= tx1; tx++) {
-    for (let ty = ty0; ty <= ty1; ty++) {
-      if (ty < 0 || ty >= nT) continue;
-      const wrapped = ((tx % nT) + nT) % nT;
-      tileList.push({
-        dx: tx * 256 - (x0 - offX),
-        dy: ty * 256 - (y0 - offY),
-        url: TILE_IMAGERY.replace("{z}", zoom).replace("{y}", ty).replace("{x}", wrapped),
-        urlLabels: TILE_LABELS.replace("{z}", zoom).replace("{y}", ty).replace("{x}", wrapped),
-      });
-    }
-  }
-  if (tileList.length && tileList.length <= 40) {
-    Promise.all(tileList.map((t) =>
-      Promise.all([loadTile(t.url), loadTile(t.urlLabels).catch(() => null)])
-        .then(([img, lab]) => ({ ...t, img, lab }))
-        .catch(() => null)
-    )).then((loaded) => {
-      const ok = loaded.filter(Boolean);
-      if (ok.length >= Math.ceil(tileList.length * 0.6)) {
-        tileImgs = ok;
-        redraw();
-      }
-    });
-  }
-
-  // overlay danych: mini-canvas lat x lon -> bilinear przy skalowaniu
-  const overlayFor = (yearIdx) => {
-    const mini = document.createElement("canvas");
-    mini.width = lons.length;
-    mini.height = lats.length;
-    const mctx = mini.getContext("2d");
-    const m = matrix[yearIdx];
-    for (let ri = 0; ri < lats.length; ri++) {
-      for (let ci = 0; ci < lons.length; ci++) {
-        const v = m[ri][ci];
-        if (v === null) continue; // przezroczysty piksel -> luka
-        mctx.fillStyle = heatColor((v - vmin) / vspan);
-        mctx.fillRect(ci, ri, 1, 1);
-      }
-    }
-    return mini;
-  };
-
-  // fallback: surowe kwadraty siatki (gdy kafle niedostepne, np. offline)
-  const drawFallback = (yearIdx) => {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    const ctx = canvas.getContext("2d");
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, W, H);
-    const cw = W / lons.length, ch = H / lats.length;
-    for (let ri = 0; ri < lats.length; ri++) {
-      for (let ci = 0; ci < lons.length; ci++) {
-        const v = matrix[yearIdx][ri][ci];
-        ctx.fillStyle = v === null ? "rgba(94,106,113,0.12)" : heatColor((v - vmin) / vspan);
-        ctx.fillRect(ci * cw, ri * ch, Math.ceil(cw), Math.ceil(ch));
-      }
-    }
-  };
-
-  const drawMap = (yearIdx) => {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    const ctx = canvas.getContext("2d");
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.fillStyle = "#dfe5e7";
-    ctx.fillRect(0, 0, W, H);
-    // kafle satelitarne
-    for (const t of tileImgs) ctx.drawImage(t.img, t.dx, t.dy, 256, 256);
-    // overlay interpolowanych wartosci
-    const ov = overlayFor(yearIdx);
-    ctx.save();
-    ctx.globalAlpha = 0.62;
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
-    ctx.drawImage(ov, offX, offY, bboxW, bboxH);
-    ctx.restore();
-    // cienka ramka obszaru + etykiety miejsc
-    ctx.strokeStyle = "rgba(226,232,240,0.55)";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(offX + 0.5, offY + 0.5, bboxW - 1, bboxH - 1);
-    for (const t of tileImgs) {
-      if (t.lab) ctx.drawImage(t.lab, t.dx, t.dy, 256, 256);
-    }
-  };
-
-  let lastIdx = years.length - 1;
-  const redraw = () => (tileImgs ? drawMap(lastIdx) : drawFallback(lastIdx));
-  redraw();
-
-  if (slider) {
-    slider.addEventListener("input", () => {
-      lastIdx = parseInt(slider.value, 10);
-      redraw();
-      if (yearLabel) yearLabel.textContent = years[lastIdx];
-    });
-  }
-
-  // tooltip: najblizszy punkt siatki
-  canvas.addEventListener("mousemove", (ev) => {
-    const rect = canvas.getBoundingClientRect();
-    const mx = ev.clientX - rect.left, my = ev.clientY - rect.top;
-    const lon = lonMin + ((mx - offX) / bboxW) * lonSpan;
-    const lat = latMax - ((my - offY) / bboxH) * latSpan;
-    const latStep = latSpan / Math.max(1, lats.length - 1);
-    const lonStep = lonSpan / Math.max(1, lons.length - 1);
-    const ri = Math.round((latMax - lat) / latStep);
-    const ci = Math.round((lon - lonMin) / lonStep);
-    if (ri < 0 || ri >= lats.length || ci < 0 || ci >= lons.length) return;
-    const v = matrix[lastIdx][ri][ci];
-    tip.textContent = v === null
-      ? `${lats[ri].toFixed(1)}°N, ${lons[ci].toFixed(1)}°E — ${t("noDataCell")}`
-      : `${lats[ri].toFixed(1)}°N, ${lons[ci].toFixed(1)}°E · ${t("tipYear", { y: years[lastIdx] })}: ${nf().format(v)} ${card.unit}`;
-  });
-  canvas.addEventListener("mouseleave", () => { if (tip) tip.textContent = ""; });
+  const h = HFHeatmap.draw(card, { t, nf, fmtN });
+  if (h) heatmaps.push(h);
 }
 
 /* ============================ helpery ============================ */

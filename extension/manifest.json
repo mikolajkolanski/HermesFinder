@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Hermes Finder",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "__MSG_extDesc__",
   "author": "Jakub Krawiec, Mikołaj Kolański",
   "icons": {
@@ -93,5 +93,6 @@
       ]
     }
   ],
-  "default_locale": "en"
+  "default_locale": "en",
+  "homepage_url": "https://hermesfinder.us"
 }

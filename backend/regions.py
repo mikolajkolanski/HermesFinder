@@ -233,6 +233,74 @@ REGIONS: list[dict[str, Any]] = [
     {"id": "california", "name": "Kalifornia", "type": "bbox",
      "bbox": [32.5, 42.0, -124.5, -114.0],
      "aliases": ["kalifornia", "kalifornii", "kalifornii", "california"]},
+    # ---- Unia Europejska i kolejne kraje ----
+    {"id": "eu", "name": "Unia Europejska", "type": "bbox", "bbox": [34.5, 70.1, -10.5, 34.6],
+     "aliases": ["unia europejska", "unii europejskiej", "ue", "eu", "eu-27", "eu27", "european union",
+                 "europaische union", "union europeenne", "union europea", "unione europea"]},
+    {"id": "switzerland", "name": "Szwajcaria", "type": "bbox", "bbox": [45.8, 47.8, 5.9, 10.5],
+     "aliases": ["szwajcaria", "szwajcarii", "switzerland", "schweiz", "suisse", "suiza", "svizzera"]},
+    {"id": "portugal", "name": "Portugalia", "type": "bbox", "bbox": [36.9, 42.2, -9.6, -6.2],
+     "aliases": ["portugalia", "portugalii", "portugal", "portogallo"]},
+    {"id": "ireland", "name": "Irlandia", "type": "bbox", "bbox": [51.4, 55.4, -10.5, -6.0],
+     "aliases": ["irlandia", "irlandii", "ireland", "irland", "irlande", "irlanda"]},
+    {"id": "croatia", "name": "Chorwacja", "type": "bbox", "bbox": [42.4, 46.6, 13.5, 19.5],
+     "aliases": ["chorwacja", "chorwacji", "croatia", "kroatien", "croatie", "croacia", "croazia"]},
+    {"id": "serbia", "name": "Serbia", "type": "bbox", "bbox": [42.2, 46.2, 18.8, 23.0],
+     "aliases": ["serbia", "serbii", "serbien", "serbie"]},
+    {"id": "slovenia", "name": "Słowenia", "type": "bbox", "bbox": [45.4, 46.9, 13.4, 16.6],
+     "aliases": ["slowenia", "słowenia", "slowenii", "słowenii", "slovenia", "slowenien", "slovenie", "eslovenia"]},
+    {"id": "moldova", "name": "Mołdawia", "type": "bbox", "bbox": [45.5, 48.5, 26.6, 30.2],
+     "aliases": ["moldawia", "mołdawia", "moldawii", "mołdawii", "moldova", "moldawien", "moldavie"]},
+    {"id": "mexico", "name": "Meksyk", "type": "bbox", "bbox": [14.5, 32.7, -117.1, -86.7],
+     "aliases": ["meksyk", "meksyku", "mexico", "mexiko", "mexique", "messico"]},
+    {"id": "argentina", "name": "Argentyna", "type": "bbox", "bbox": [-55.1, -21.8, -73.6, -53.6],
+     "aliases": ["argentyna", "argentynie", "argentyny", "argentina", "argentinien", "argentine"]},
+    {"id": "chile", "name": "Chile", "type": "bbox", "bbox": [-56.0, -17.5, -75.7, -66.4],
+     "aliases": ["chile"]},
+    {"id": "colombia", "name": "Kolumbia", "type": "bbox", "bbox": [-4.2, 12.5, -79.0, -66.9],
+     "aliases": ["kolumbia", "kolumbii", "colombia", "kolumbien", "colombie"]},
+    {"id": "peru", "name": "Peru", "type": "bbox", "bbox": [-18.4, -0.1, -81.3, -68.7],
+     "aliases": ["peru"]},
+    {"id": "south_africa", "name": "RPA", "type": "bbox", "bbox": [-34.8, -22.1, 16.5, 32.9],
+     "aliases": ["rpa", "republika poludniowej afryki", "republice poludniowej afryki", "south africa",
+                 "sudafrika", "afrique du sud", "sudafrica"]},
+    {"id": "nigeria", "name": "Nigeria", "type": "bbox", "bbox": [4.3, 13.9, 2.7, 14.7],
+     "aliases": ["nigeria", "nigerii"]},
+    {"id": "kenya", "name": "Kenia", "type": "bbox", "bbox": [-4.7, 5.0, 33.9, 41.9],
+     "aliases": ["kenia", "kenii", "kenya"]},
+    {"id": "ethiopia", "name": "Etiopia", "type": "bbox", "bbox": [3.4, 14.9, 33.0, 48.0],
+     "aliases": ["etiopia", "etiopii", "ethiopia", "athiopien", "ethiopie"]},
+    {"id": "morocco", "name": "Maroko", "type": "bbox", "bbox": [27.7, 35.9, -13.2, -1.0],
+     "aliases": ["maroko", "maroku", "morocco", "marokko", "maroc", "marruecos", "marocco"]},
+    {"id": "algeria", "name": "Algieria", "type": "bbox", "bbox": [19.0, 37.1, -8.7, 12.0],
+     "aliases": ["algieria", "algierii", "algeria", "algerien", "algerie", "argelia"]},
+    {"id": "saudi_arabia", "name": "Arabia Saudyjska", "type": "bbox", "bbox": [16.4, 32.2, 34.5, 55.7],
+     "aliases": ["arabia saudyjska", "arabii saudyjskiej", "saudi arabia", "saudi-arabien", "arabie saoudite",
+                 "arabia saudita"]},
+    {"id": "iran", "name": "Iran", "type": "bbox", "bbox": [25.1, 39.8, 44.0, 63.3],
+     "aliases": ["iran", "iranie", "iranu"]},
+    {"id": "israel", "name": "Izrael", "type": "bbox", "bbox": [29.5, 33.3, 34.3, 35.9],
+     "aliases": ["izrael", "izraelu", "israel", "israele"]},
+    {"id": "uae", "name": "Zjednoczone Emiraty Arabskie", "type": "bbox", "bbox": [22.6, 26.1, 51.6, 56.4],
+     "aliases": ["zjednoczone emiraty arabskie", "emiratach", "emiraty", "zea", "united arab emirates", "uae"]},
+    {"id": "pakistan", "name": "Pakistan", "type": "bbox", "bbox": [23.7, 37.1, 60.9, 77.8],
+     "aliases": ["pakistan", "pakistanie", "pakistanu"]},
+    {"id": "bangladesh", "name": "Bangladesz", "type": "bbox", "bbox": [20.7, 26.6, 88.0, 92.7],
+     "aliases": ["bangladesz", "bangladeszu", "bangladesh"]},
+    {"id": "south_korea", "name": "Korea Południowa", "type": "bbox", "bbox": [33.1, 38.6, 125.1, 129.6],
+     "aliases": ["korea poludniowa", "korei poludniowej", "korea płd", "south korea", "sudkorea",
+                 "coree du sud", "corea del sur", "corea del sud"]},
+    {"id": "vietnam", "name": "Wietnam", "type": "bbox", "bbox": [8.6, 23.4, 102.1, 109.5],
+     "aliases": ["wietnam", "wietnamie", "wietnamu", "vietnam", "viet nam"]},
+    {"id": "thailand", "name": "Tajlandia", "type": "bbox", "bbox": [5.6, 20.5, 97.3, 105.6],
+     "aliases": ["tajlandia", "tajlandii", "thailand", "thailande", "tailandia"]},
+    {"id": "philippines", "name": "Filipiny", "type": "bbox", "bbox": [4.6, 21.1, 116.9, 126.6],
+     "aliases": ["filipiny", "filipinach", "filipin", "philippines", "philippinen", "filipinas", "filippine"]},
+    {"id": "kazakhstan", "name": "Kazachstan", "type": "bbox", "bbox": [40.6, 55.4, 46.5, 87.3],
+     "aliases": ["kazachstan", "kazachstanie", "kazachstanu", "kazakhstan", "kasachstan"]},
+    {"id": "new_zealand", "name": "Nowa Zelandia", "type": "bbox", "bbox": [-47.3, -34.4, 166.4, 178.6],
+     "aliases": ["nowa zelandia", "nowej zelandii", "new zealand", "neuseeland", "nouvelle-zelande",
+                 "nueva zelanda", "nuova zelanda"]},
 ]
 
 # Nazwy wyswietlane uzytkownikowi (po angielsku). Polska nazwa zostaje w name_pl
@@ -261,6 +329,67 @@ NAMES_EN: dict[str, str] = {
     "pacific": "Pacific Ocean", "indian_ocean": "Indian Ocean", "arctic_ocean": "Arctic Ocean",
     "mediterranean": "Mediterranean Sea", "baltic": "Baltic Sea", "greenland": "Greenland",
     "alps": "Alps", "himalaya": "Himalayas", "siberia": "Siberia", "california": "California",
+    "eu": "European Union", "switzerland": "Switzerland", "portugal": "Portugal", "ireland": "Ireland",
+    "croatia": "Croatia", "serbia": "Serbia", "slovenia": "Slovenia", "moldova": "Moldova",
+    "mexico": "Mexico", "argentina": "Argentina", "colombia": "Colombia", "south_africa": "South Africa",
+    "kenya": "Kenya", "ethiopia": "Ethiopia", "morocco": "Morocco", "algeria": "Algeria",
+    "saudi_arabia": "Saudi Arabia", "israel": "Israel", "uae": "United Arab Emirates",
+    "bangladesh": "Bangladesh", "south_korea": "South Korea", "vietnam": "Vietnam",
+    "thailand": "Thailand", "philippines": "Philippines", "kazakhstan": "Kazakhstan",
+    "new_zealand": "New Zealand", "estonia": "Estonia", "austria": "Austria", "australia": "Australia",
+}
+
+# ISO 3166-1 numeric (id w world-atlas / Natural Earth) - maska mapy cieplnej
+# po granicach kraju; grupy (UE, Europa) = lista krajow
+ISO_N: dict[str, str] = {
+    "poland": "616", "germany": "276", "france": "250", "spain": "724", "italy": "380", "uk": "826",
+    "ukraine": "804", "belarus": "112", "czechia": "203", "slovakia": "703", "lithuania": "440",
+    "latvia": "428", "estonia": "233", "russia": "643", "china": "156", "india": "356", "usa": "840",
+    "brazil": "076", "australia": "036", "egypt": "818", "turkey": "792", "greece": "300",
+    "sweden": "752", "norway": "578", "finland": "246", "iceland": "352", "denmark": "208",
+    "netherlands": "528", "belgium": "056", "austria": "040", "hungary": "348", "romania": "642",
+    "bulgaria": "100", "canada": "124", "japan": "392", "indonesia": "360", "greenland": "304",
+    "switzerland": "756", "portugal": "620", "ireland": "372", "croatia": "191", "serbia": "688",
+    "slovenia": "705", "moldova": "498", "mexico": "484", "argentina": "032", "chile": "152",
+    "colombia": "170", "peru": "604", "south_africa": "710", "nigeria": "566", "kenya": "404",
+    "ethiopia": "231", "morocco": "504", "algeria": "012", "saudi_arabia": "682", "iran": "364",
+    "israel": "376", "uae": "784", "pakistan": "586", "bangladesh": "050", "south_korea": "410",
+    "vietnam": "704", "thailand": "764", "philippines": "608", "kazakhstan": "398",
+    "new_zealand": "554",
+}
+EU_MEMBERS = ["040", "056", "100", "191", "196", "203", "208", "233", "246", "250", "276", "300",
+              "348", "372", "380", "428", "440", "442", "470", "528", "616", "620", "642", "703",
+              "705", "724", "752"]
+GROUP_ISO_N: dict[str, list[str]] = {
+    "eu": EU_MEMBERS,
+    "europe": EU_MEMBERS + ["826", "578", "756", "352", "804", "112", "498", "688", "070", "008",
+                            "807", "499", "643"],
+}
+
+# sasiedzi (kolejnosc: najdluzsza granica najpierw) - "Polska i jej sasiedzi"
+NEIGHBORS: dict[str, list[str]] = {
+    "poland": ["czechia", "slovakia", "ukraine", "germany", "belarus", "russia", "lithuania"],
+    "germany": ["austria", "czechia", "netherlands", "poland", "france", "switzerland", "belgium", "denmark"],
+    "france": ["spain", "belgium", "switzerland", "italy", "germany"],
+    "czechia": ["germany", "poland", "austria", "slovakia"],
+    "slovakia": ["hungary", "poland", "czechia", "austria", "ukraine"],
+    "ukraine": ["russia", "belarus", "moldova", "romania", "poland", "hungary", "slovakia"],
+    "belarus": ["russia", "ukraine", "poland", "lithuania", "latvia"],
+    "lithuania": ["belarus", "latvia", "poland", "russia"],
+    "italy": ["switzerland", "france", "austria", "slovenia"],
+    "spain": ["portugal", "france"],
+    "austria": ["germany", "czechia", "italy", "hungary", "slovenia", "switzerland", "slovakia"],
+    "hungary": ["slovakia", "romania", "austria", "serbia", "croatia", "ukraine", "slovenia"],
+    "romania": ["ukraine", "moldova", "bulgaria", "serbia", "hungary"],
+    "sweden": ["norway", "finland"],
+    "norway": ["sweden", "finland", "russia"],
+    "finland": ["russia", "sweden", "norway"],
+    "netherlands": ["germany", "belgium"],
+    "belgium": ["france", "netherlands", "germany"],
+    "usa": ["canada", "mexico"],
+    "china": ["russia", "india", "kazakhstan", "vietnam", "pakistan"],
+    "india": ["pakistan", "china", "bangladesh"],
+    "russia": ["kazakhstan", "china", "ukraine", "finland", "belarus"],
 }
 for _reg in REGIONS:
     _reg.setdefault("name_pl", _reg["name"])
@@ -331,8 +460,15 @@ def _find_alias(n: str, a: str) -> int | None:
     return idx
 
 
+# Swiat jako jeden z porownywanych "regionow" (karta multi_line / region_bars dla
+# danych krajowych z wierszem "World"); nie jest rozpoznawany w tekscie tezy.
+WORLD_REGION: dict[str, Any] = {"id": "world", "name": "World", "type": "world", "aliases": []}
+
+
 def region_by_id(region_id: str) -> dict[str, Any] | None:
     """Zwraca region o podanym id (lub None)."""
+    if region_id == "world":
+        return WORLD_REGION
     for reg in REGIONS:
         if reg["id"] == region_id:
             return reg
@@ -344,12 +480,20 @@ def region_dict(reg: dict[str, Any]) -> dict[str, Any]:
     out: dict[str, Any] = {"id": reg["id"], "name": reg["name"], "type": reg["type"]}
     if reg["type"] == "bbox":
         out["bbox"] = reg["bbox"]
-    else:
+    elif reg["type"] == "point":
         out["point"] = reg["point"]
+    iso = GROUP_ISO_N.get(reg["id"]) or ([ISO_N[reg["id"]]] if reg["id"] in ISO_N else None)
+    if iso:
+        out["iso_n"] = iso
     return out
 
 
-def extract_regions_all(text: str, limit: int = 4) -> list[dict[str, Any]]:
+def neighbors_of(region_id: str) -> list[dict[str, Any]]:
+    """Sasiedzi regionu (region_dict), w kolejnosci dlugosci granicy."""
+    return [region_dict(r) for r in (region_by_id(i) for i in NEIGHBORS.get(region_id, [])) if r]
+
+
+def extract_regions_all(text: str, limit: int = 12) -> list[dict[str, Any]]:
     """Wszystkie rozne regiony wystepujace w tekscie, w kolejnosci wystapien
     (dluzszy alias wygrywa w ramach jednego regionu; bez duplikatow)."""
     n = _norm(text)
@@ -384,6 +528,8 @@ def regions_for_llm() -> list[dict[str, Any]]:
             "id": reg["id"], "name": reg["name"], "type": reg["type"],
             **({"bbox": reg["bbox"]} if reg["type"] == "bbox"
                else {"point": reg["point"]}),
+            **({"neighbors": NEIGHBORS[reg["id"]]} if reg["id"] in NEIGHBORS else {}),
         }
         for reg in REGIONS
-    ]
+    ] + [{"id": "world", "name": "World", "type": "world",
+          "note": "only for datasets with region_scope country_or_world (as one of compared places)"}]

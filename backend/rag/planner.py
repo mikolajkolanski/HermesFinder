@@ -75,10 +75,36 @@ def _to_int(word: str) -> int | None:
 # ------------------------------------------------------------------ regiony ---
 def extract_regions(text: str) -> list[dict[str, Any]]:
     """Wszystkie regiony z tezy (fallback: tez wieloregionalnych)."""
-    regions = extract_regions_all(text, limit=4)
+    regions = extract_regions_all(text, limit=config.MAX_REGIONS)
     if regions:
         return regions
     return []
+
+
+NEIGHBOR_RE = re.compile(r"sasiad|sasiedn|sasiedz|neighbo|nachbar|voisin|vecin|vicin")
+COUNT_WORDS = {"dwoch": 2, "dwa": 2, "dwie": 2, "trzech": 3, "trzy": 3, "czterech": 4, "cztery": 4,
+               "pieciu": 5, "piec": 5, "szesciu": 6, "szesc": 6, "siedmiu": 7, "two": 2, "three": 3,
+               "four": 4, "five": 5, "six": 6, "seven": 7, "drei": 3, "vier": 4, "funf": 5}
+
+
+def add_neighbors(text: str, regions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """"Polska i jej (5) sasiedzi" -> Polska + sasiedzi (najdluzsze granice najpierw)."""
+    from regions import _norm, neighbors_of
+    n = _norm(text.lower())
+    if not regions or not NEIGHBOR_RE.search(n):
+        return regions
+    count = None
+    m = NEIGHBOR_RE.search(n)
+    for w in reversed(re.findall(r"[a-z0-9]+", n[:m.start()])[-4:]):
+        if w.isdigit() and 1 <= int(w) <= 12:
+            count = int(w)
+            break
+        if w in COUNT_WORDS:
+            count = COUNT_WORDS[w]
+            break
+    have = {r["id"] for r in regions}
+    extra = [r for r in neighbors_of(regions[0]["id"]) if r["id"] not in have]
+    return (regions + extra[:count] if count else regions + extra)[:config.MAX_REGIONS]
 
 
 # -------------------------------------------------------------------- czas ----
@@ -224,6 +250,7 @@ def extract_metric_hints(text: str) -> list[str]:
         (r"plam.*slonecz|aktywnosc slonc|cykl slonecz|sunspot|solar activit|solar cycle",
          ["sunspots", "solar activity"]),
         (r"oze|odnawialn", ["renewables", "energy"]),
+        (r"prad|elektr|energi|wegl|atom|jadrow|gazow|electric|coal|nuclear", ["energy", "electricity"]),
         (r"antarkty|antarktyd", ["sea ice", "antarctic"]),
     ]
     for pattern, cats in rules:
@@ -271,7 +298,7 @@ def infer_chart_hint(text: str, regions: list[dict[str, Any]],
     if multi_periods:
         # okresy przebijaja: karta okresow obsluguje 1..N regionow
         return "period_compare", False
-    if multi and DIFF_RE.search(n):
+    if len(regions) == 2 and DIFF_RE.search(n) and not re.search(r"\bvs\.?\b|versus", n):
         return "difference", False
     if multi and COMPARE_RE.search(n):
         return "multi_line", False
@@ -332,6 +359,7 @@ def build_fallback_plan(thesis: str,
         # "hierzulande", "w naszym kraju", "en la peninsula" - miejsce z tytulu artykulu
         # (teza o swiecie/globie zostaje globalna mimo kraju w tytule)
         regions = extract_regions(context)[:1]
+    regions = add_neighbors(thesis, regions)
     time = extract_time(thesis)
     periods = extract_periods(thesis)
     months = extract_months(thesis)

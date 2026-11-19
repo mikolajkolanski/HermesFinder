@@ -39,7 +39,7 @@
       const el = $(k);
       if (!el) continue;
       if (el.type === "checkbox") out[k] = el.checked;
-      else if (el.type === "number" || k === "maxCharts") out[k] = Math.max(1, Math.min(k === "maxCharts" ? 3 : 30, parseInt(el.value, 10) || CV.DEFAULTS[k]));
+      else if (el.type === "number" || k === "maxCharts") out[k] = Math.max(1, Math.min(k === "maxCharts" ? 6 : 30, parseInt(el.value, 10) || CV.DEFAULTS[k]));
       else out[k] = el.value.trim();
     }
     out.backendUrl = (out.backendUrl || CV.DEFAULTS.backendUrl).replace(/\/+$/, "");

@@ -66,7 +66,7 @@
   } else {
     $("body").innerHTML = `${head}<div id="summary"></div>`;
     CV.render.mountSummary($("summary"), res.data, {
-      maxCharts: Number(settings.maxCharts) || 2,
+      maxCharts: Number(settings.maxCharts) || 3,
       // powiekszony wykres: karta strony rozciaga ramke na wieksza czesc ekranu
       onZoom: (on) => post({ type: "expand", on }),
       onMaximize: openFull,

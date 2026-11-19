@@ -11,7 +11,7 @@ var CV = globalThis.CV || (globalThis.CV = {});
 
 (function () {
   const CACHE_MS = 30 * 60 * 1000;
-  const TIMEOUT_MS = 150 * 1000;
+  const TIMEOUT_MS = 180 * 1000;
 
   function base(url) {
     return String(url || CV.DEFAULTS.backendUrl).replace(/\/+$/, "");
@@ -43,7 +43,7 @@ var CV = globalThis.CV || (globalThis.CV = {});
     const settings = await CV.loadSettings();
     thesis = String(thesis || "").slice(0, 600);
     context = String(context || "").slice(0, 300);
-    const key = await cacheKey([base(settings.backendUrl), String(settings.useLlm), thesis, context]);
+    const key = await cacheKey([base(settings.backendUrl), String(settings.useLlm), CV.lang || "", thesis, context]);
     const cached = await cacheGet(key);
     if (cached) return { ok: true, data: cached, cached: true };
 
@@ -53,7 +53,8 @@ var CV = globalThis.CV || (globalThis.CV = {});
       const resp = await fetch(`${base(settings.backendUrl)}/api/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ thesis, options: { disable_llm: !settings.useLlm, context: context || null } }),
+        body: JSON.stringify({ thesis, options: { disable_llm: !settings.useLlm, context: context || null,
+                                                 language: CV.lang || null } }),
         signal: ctrl.signal,
       });
       if (!resp.ok) {

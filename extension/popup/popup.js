@@ -63,7 +63,7 @@
       return;
     }
     CV.render.mountSummary($("result"), res.data, {
-      maxCharts: Number(settings.maxCharts) || 2,
+      maxCharts: Number(settings.maxCharts) || 3,
       // okno rozszerzenia mozna poszerzyc do ~800 px (limit przegladarki)
       onZoom: (on) => document.body.classList.toggle("cv-wide", on),
       onMaximize: () => openFull(thesis),

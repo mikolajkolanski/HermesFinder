@@ -5,14 +5,19 @@ var CV = globalThis.CV || (globalThis.CV = {});
 // Firefox: `browser`; Chromium: `chrome` (w MV3 tez zwraca Promise)
 CV.api = globalThis.browser ?? globalThis.chrome;
 
+// publiczny serwer Hermes Finder; wlasny serwer (./start.sh) mozna ustawic w opcjach
+CV.PUBLIC_URL = "https://hermesfinder.us";
+// dawne domyslne adresy lokalne - zapisane automatycznie, nie wybrane przez uzytkownika
+CV.OLD_DEFAULTS = ["http://127.0.0.1:8000", "http://localhost:8000"];
+
 CV.DEFAULTS = {
-  backendUrl: "http://127.0.0.1:8000",
+  backendUrl: CV.PUBLIC_URL,
   autoScan: true,           // skanuj artykuly automatycznie po wejsciu na strone
   articlesOnly: true,       // tylko strony, ktore wygladaja na artykul
   sensitivity: "medium",    // low | medium | high
   maxHighlights: 6,         // ile tez zaznaczyc na jednej stronie (najlepsze wg punktacji)
   highlightStyle: "underline", // underline | background | none
-  maxCharts: 2,             // ile wykresow w skrocie (1-3)
+  maxCharts: 3,             // ile wykresow w skrocie (1-6)
   useLlm: true,             // dobor danych przez model jezykowy w backendzie
   panelPosition: "bottom-right", // bottom-right | bottom-left | top-right
   excludedSites: "",        // hosty, jeden w linii
@@ -24,7 +29,15 @@ CV.THRESHOLDS = { low: 8, medium: 6, high: 4.5 };
 
 CV.loadSettings = async function loadSettings() {
   try {
-    const got = await CV.api.storage.sync.get(CV.DEFAULTS);
+    const got = await CV.api.storage.sync.get({ ...CV.DEFAULTS, serverMigrated: false });
+    // jednorazowa migracja: dawny domyslny serwer lokalny -> hermesfinder.us
+    if (!got.serverMigrated) {
+      const upd = { serverMigrated: true };
+      if (CV.OLD_DEFAULTS.includes(String(got.backendUrl).replace(/\/+$/, ""))) upd.backendUrl = CV.PUBLIC_URL;
+      Object.assign(got, upd);
+      CV.api.storage.sync.set(upd).catch(() => {});
+    }
+    delete got.serverMigrated;
     const s = { ...CV.DEFAULTS, ...got };
     if (CV.initI18n) CV.initI18n(s.language);
     return s;

@@ -78,7 +78,7 @@ POWER_START_YEAR = 1981  # POWER od 1981-01-01
 # Limit punktow siatki POWER: powyzej tego progu bbox-a probkujemy
 # punktami, aby odpowiedz API nie byla gigantyczna
 POWER_REGIONAL_MAX_POINTS = 600
-POWER_SAMPLE_POINTS = 9
+POWER_SAMPLE_POINTS = 16
 
 # Timeouty sieci
 HTTP_TIMEOUT = 120.0
@@ -111,8 +111,13 @@ OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "google/gemini-2.5-flash")
 # Rozgrzewanie cache wolnych zrodel (Mars MCD, REMS) w tle przy starcie
 WARM_CACHE = os.environ.get("CV_WARM_CACHE", "1") != "0"
 
-# Maksymalna liczba kart wykresow w jednej analizie
-MAX_CARDS = 4
+# Maksymalna liczba kart wykresow w jednej analizie (model sam decyduje, ile
+# kart potrzebuje teza; limit chroni tylko przed patologicznym planem)
+MAX_CARDS = int(os.environ.get("CV_MAX_CARDS", "12"))
+# ile kart liczymy rownolegle (pobieranie danych)
+CARD_WORKERS = int(os.environ.get("CV_CARD_WORKERS", "4"))
+# maksymalna liczba regionow na jednej karcie (porownania wielu krajow)
+MAX_REGIONS = int(os.environ.get("CV_MAX_REGIONS", "12"))
 
 # Cache HTTP (user-agent wymagany przez niektore hosty)
 USER_AGENT = "climate-verifier/1.0 (educational research tool)"

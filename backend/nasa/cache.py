@@ -7,6 +7,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import threading
 import time
 from typing import Any, Callable
 
@@ -34,9 +36,13 @@ def get_or_fetch(key: str, fetch_fn: Callable[[], Any],
         except Exception:  # noqa: BLE001 - uszkodzony cache = pobierz ponownie
             pass
     payload = fetch_fn()
-    with open(path, "w", encoding="utf-8") as fh:
+    # zapis atomowy: karty licza sie rownolegle, czytelnik nie moze trafic na
+    # w polowie zapisany plik
+    tmp = path.with_suffix(f".{os.getpid()}.{threading.get_ident()}.tmp")
+    with open(tmp, "w", encoding="utf-8") as fh:
         json.dump({"cached_at": time.time(), "payload": payload}, fh,
                   ensure_ascii=False)
+    os.replace(tmp, path)
     return payload
 
 

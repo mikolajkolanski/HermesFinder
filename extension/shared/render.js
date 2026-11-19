@@ -544,7 +544,10 @@ var CV = globalThis.CV || (globalThis.CV = {});
     const all = drawableCards(data);
     const picked = pickCards(data, maxCharts);
     let html = "";
-    if (!picked.length) html += `<p class="cv-empty">${esc(t("empty"))}</p>`;
+    const missing = data.missing || [];
+    if (!picked.length && !(data.cards || []).length) html += `<p class="cv-empty"><strong>${esc(t("empty"))}</strong></p>`;
+    else if (!picked.length && (data.cards || []).some((c) => c.type === "heatmap" && !c.error)) html += `<p class="cv-empty">${esc(t("mapInFull"))}</p>`;
+    else if (!picked.length) html += `<p class="cv-empty">${esc(t("empty"))}</p>`;
     picked.forEach((c, i) => {
       const fact = keyFact(c);
       html += `
@@ -557,6 +560,9 @@ var CV = globalThis.CV || (globalThis.CV = {});
           ${fact ? `<p class="cv-key">${esc(fact)}</p>` : ""}
         </section>`;
     });
+    for (const m of missing) {
+      html += `<p class="cv-missing"><strong>${esc(m.message || !m.subject ? t("missingTitle") : t("noDataFor", { x: m.subject }))}</strong>${m.message ? `<br>${esc(m.message)}` : ""}</p>`;
+    }
     const rest = all.length - picked.length;
     if (rest > 0 && CV.canMaximize) html += `<p class="cv-more"><button type="button" class="cv-linkbtn" data-maximize>${esc(t("moreCharts", { n: rest }))}</button></p>`;
     html += `<p class="cv-disc">${esc(t("disclaimer"))}</p>`;
@@ -640,6 +646,8 @@ var CV = globalThis.CV || (globalThis.CV = {});
   .cv-open:focus-visible, .cv-x:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .cv-disc { margin: 8px 0 0; font-size: 11.5px; color: var(--muted); }
   .cv-empty, .cv-error { margin: 8px 0; }
+  .cv-missing { margin: 10px 0 4px; padding: 8px 10px; border-left: 3px solid var(--muted); background: #f5f7f7; font-size: 13px; color: var(--ink-2); }
+  .cv-missing strong { color: var(--ink); font-weight: 600; }
   .cv-error { color: #7a4b00; background: #fbf3e6; border-left: 3px solid #c98a1a; padding: 8px 10px; }
   .cv-loading { margin: 6px 0 4px; color: var(--ink-2); }
   .cv-bar { height: 4px; background: var(--rule-soft); position: relative; overflow: hidden; margin: 8px 0; }

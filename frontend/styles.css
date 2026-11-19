@@ -278,15 +278,64 @@ details.extra[open] summary { margin-bottom: 6px; }
 .mini-title { font-weight: 600; }
 .mini-caption { font-size: var(--fs-small); color: var(--muted); margin-top: 6px; }
 
-/* heatmapa */
-.heat-wrap { min-width: 0; }
-.heat-canvas { width: 100%; height: 380px; display: block; border-radius: 4px; background: #dfe5e7; }
-.heat-ctrl { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
-.heat-slider { flex: 1; accent-color: var(--accent); }
-.heat-year { font-size: 20px; font-weight: 600; min-width: 56px; text-align: right; }
-.heat-legend { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: var(--fs-small); color: var(--muted); }
-.heat-legend-bar { height: 10px; flex: 1; border-radius: 2px; }
-.heat-tip { font-size: var(--fs-small); color: var(--ink-2); margin-top: 6px; min-height: 18px; }
+/* heatmapa v3 (Leaflet + warstwa danych) */
+.hm { min-width: 0; }
+.hm-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
+.hm-seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--panel); }
+.hm-seg button { font: inherit; font-size: var(--fs-small); border: 0; background: none; color: var(--ink-2);
+  padding: 5px 10px; cursor: pointer; }
+.hm-seg button + button { border-left: 1px solid var(--rule); }
+.hm-seg button:hover { background: var(--rule-soft); }
+.hm-seg button.on { background: var(--accent); color: var(--accent-ink); }
+.hm-seg button:disabled { opacity: .45; cursor: default; }
+.hm-check { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-small); color: var(--ink-2); cursor: pointer; }
+.hm-check input { accent-color: var(--accent); }
+.hm-icon { margin-left: auto; font: inherit; font-size: var(--fs-small); color: var(--accent); background: none;
+  border: 1px solid var(--rule); border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+.hm-icon:hover { border-color: var(--accent); }
+.hm-map { position: relative; height: 440px; border-radius: 6px; overflow: hidden; background: #dfe5e7;
+  border: 1px solid var(--rule-soft); transition: height .25s ease; }
+.hm-big .hm-map { height: min(78vh, 820px); }
+.hm-map .leaflet-container, .hm-map.leaflet-container { font-family: var(--font); background: #dfe5e7; }
+.hm-sat .hm-map { background: #1c2630; }
+.hm-data { image-rendering: auto; }
+.hm-flat { width: 100%; height: 100%; display: block; }
+.hm-map .leaflet-control-attribution { font-size: 10.5px; background: rgba(255,255,255,.78); }
+.hm-legend { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: var(--fs-small); color: var(--ink-2);
+  font-variant-numeric: tabular-nums; }
+.hm-lbar { position: relative; height: 12px; flex: 1; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(23,33,43,.08); }
+.hm-lmark { position: absolute; top: -4px; width: 2px; height: 20px; margin-left: -1px; background: var(--ink);
+  box-shadow: 0 0 0 1.5px #fff; border-radius: 1px; }
+.hm-lmark[hidden] { display: none; }
+.hm-player { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 12px; margin-top: 12px; }
+.hm-play { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--accent); color: #fff;
+  display: grid; place-items: center; cursor: pointer; box-shadow: 0 2px 6px rgba(29,78,137,.3); }
+.hm-play:hover { filter: brightness(1.1); }
+.hm-play svg { width: 16px; height: 16px; fill: currentColor; }
+.hm-play .i-pause { display: none; }
+.hm-play.playing .i-play { display: none; }
+.hm-play.playing .i-pause { display: inline; }
+.hm-track { position: relative; min-width: 0; }
+.hm-spark { display: block; width: 100%; height: 34px; }
+.hm-slider { width: 100%; margin: 2px 0 0; accent-color: var(--accent); cursor: pointer; }
+.hm-ticks { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.hm-year { font-size: 22px; font-weight: 600; min-width: 92px; text-align: right; font-variant-numeric: tabular-nums; }
+.hm-speed { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-small); color: var(--muted); }
+.hm-speed select { font: inherit; font-size: var(--fs-small); border: 1px solid var(--rule); border-radius: 4px; padding: 2px 4px; background: var(--panel); }
+.hm-tip { font-size: var(--fs-small); color: var(--ink-2); margin: 6px 0 0; min-height: 20px; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .hm-map { height: 340px; }
+  .hm-player { grid-template-columns: auto 1fr auto; }
+  .hm-speed { grid-column: 1 / -1; }
+  .hm-icon { margin-left: 0; }
+}
+
+/* brak danych / czesc tezy bez danych */
+.card-nodata, .card-missing { border-left: 3px solid var(--muted); padding-left: 18px; padding-right: 18px; }
+.card-missing { background: #f7f8f8; }
+.card-missing .card-title { display: flex; align-items: baseline; gap: 8px; font-size: var(--fs-h3); }
+.missing-icon { color: var(--muted); font-weight: 400; }
+.nodata-msg { margin: 6px 0 0; color: var(--ink-2); max-width: var(--measure); }
 .map-note { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
 
 /* skad pochodza dane */
