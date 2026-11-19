@@ -17,11 +17,29 @@
     return null;
   }
 
+  // logotypy przegladarek (SVG z pakietow @browser-logos na CDN jsDelivr, wersje
+  // przypiete); bez sieci zostaje kolorowe kolko z litera
+  const LOGO = (name, ver) => `https://cdn.jsdelivr.net/npm/@browser-logos/${name}@${ver}/${name}.svg`;
+  const LOGOS = {
+    firefox: { name: "Firefox", src: LOGO("firefox", "3.0.10"), mark: "F", color: "#e66000" },
+    chrome: { name: "Chrome", src: LOGO("chrome", "2.0.0"), mark: "C", color: "#1a73e8" },
+    edge: { name: "Edge", src: LOGO("edge", "2.0.7"), mark: "E", color: "#0c8484" },
+    brave: { name: "Brave", src: LOGO("brave", "3.0.13"), mark: "B", color: "#fb542b" },
+    opera: { name: "Opera", src: LOGO("opera", "1.1.11"), mark: "O", color: "#ff1b2d" },
+  };
   const CARDS = [
-    { id: "firefox", name: "Firefox", mark: "F", color: "#e66000" },
-    { id: "chromium", name: "Chrome · Edge · Brave", mark: "C", color: "#1a73e8" },
-    { id: "opera", name: "Opera", mark: "O", color: "#ff1b2d" },
+    { id: "firefox", name: "Firefox", logos: ["firefox"] },
+    { id: "chromium", name: "Chrome · Edge · Brave", logos: ["chrome", "edge", "brave"] },
+    { id: "opera", name: "Opera", logos: ["opera"] },
   ];
+
+  function logosHtml(ids) {
+    return `<span class="install-logos${ids.length > 1 ? " stack" : ""}" aria-hidden="true">${ids.map((id, i) => {
+      const l = LOGOS[id];
+      return `<span class="install-logo" style="--c:${l.color};z-index:${ids.length - i}" title="${escapeAttr(l.name)}">
+          <span class="install-mark">${l.mark}</span><img src="${escapeAttr(l.src)}" alt="" width="32" height="32" loading="lazy" decoding="async" referrerpolicy="no-referrer" /></span>`;
+    }).join("")}</span>`;
+  }
 
   function steps(key, vars) {
     // kroki w slowniku sa rozdzielone znakiem nowej linii; `kod` -> <code>
@@ -44,13 +62,20 @@
       return `
         <article class="install-card${mine === c.id ? " mine" : ""}">
           ${mine === c.id ? `<span class="install-badge">${escapeHtml(t("installYour"))}</span>` : ""}
-          <h3><span class="install-mark" style="background:${c.color}" aria-hidden="true">${c.mark}</span>${escapeHtml(c.name)}</h3>
+          <h3>${logosHtml(c.logos)}${escapeHtml(c.name)}</h3>
           ${meta ? `<p class="install-meta">${escapeHtml(meta)}</p>` : ""}
           <a class="install-dl" href="${escapeAttr(href)}" ${p ? `download="${escapeAttr(p.filename)}"` : 'aria-disabled="true"'}>${escapeHtml(t(dlKey))}</a>
           <ol>${steps(stepKey)}</ol>
           ${c.id === "firefox" && p && !signed ? `<p class="install-note">${escapeHtml(t("installUnsigned"))}</p>` : ""}
         </article>`;
     }).join("") + (failed ? `<p class="install-note" style="grid-column:1/-1">${escapeHtml(t("installUnavailable"))}</p>` : "");
+    // logo zaladowane -> chowamy litere; blad (offline, CDN zablokowany) -> zostaje litera
+    grid.querySelectorAll(".install-logo img").forEach((img) => {
+      const ok = () => img.parentElement.classList.add("loaded");
+      const bad = () => img.remove();
+      if (img.complete) (img.naturalWidth ? ok() : bad());
+      else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", bad, { once: true }); }
+    });
   }
 
   render();

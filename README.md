@@ -286,7 +286,8 @@ GET /api/extension/firefox|chromium|opera
 
 A Firefox package signed by Mozilla (`extension/sign-firefox.sh` → `dist/signed/*.xpi`, or the path
 in `CV_FIREFOX_XPI`) is served instead of the unsigned one when it matches the current version; it
-installs permanently with one click.
+installs permanently with one click. Browser logos come from the `@browser-logos/*` packages on jsDelivr
+(pinned versions); without access to the CDN the cards show coloured letter badges instead.
 
 ## API
 
