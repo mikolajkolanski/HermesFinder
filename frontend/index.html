@@ -28,9 +28,12 @@
     <header class="intro">
       <div class="brand-row">
         <p class="brand"><img src="icon.svg" alt="" width="32" height="32" />Hermes Finder</p>
-        <label class="lang-pick"><span data-i18n="language">Language</span>
-          <select id="langSelect"></select>
-        </label>
+        <div class="brand-tools">
+          <a class="ext-link" href="#install" data-i18n="installNav">Browser extension</a>
+          <label class="lang-pick"><span data-i18n="language">Language</span>
+            <select id="langSelect"></select>
+          </label>
+        </div>
       </div>
       <h1 data-i18n="h1">Check a climate claim against data from several institutions at once</h1>
       <p class="lead" data-i18n="lead">
@@ -103,6 +106,13 @@
       <div id="results" class="report-body"></div>
     </section>
 
+    <section class="install" id="install" aria-labelledby="installH">
+      <h2 id="installH" data-i18n="installH">Install the browser extension</h2>
+      <p class="install-lead" data-i18n="installLead">The extension highlights climate claims in the articles you read and shows the data in the corner of the page.</p>
+      <div class="install-grid" id="installGrid"></div>
+      <p class="install-after" data-i18n="installAfter">After installing, click the Hermes Finder icon in the toolbar (or press Alt+Shift+T) to check any claim.</p>
+    </section>
+
     <footer class="footer">
       <p>
         <span data-i18n="footData">Data from:</span>
@@ -137,5 +147,6 @@
   <script src="i18n.js"></script>
   <script src="heatmap.js"></script>
   <script src="app.js"></script>
+  <script src="install.js"></script>
 </body>
 </html>

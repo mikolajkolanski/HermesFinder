@@ -17,7 +17,7 @@ from typing import Any, Literal, Optional
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 import datetime as dt
 
@@ -171,6 +171,27 @@ def verification() -> dict[str, Any]:
         raise HTTPException(status_code=404,
                             detail="no report yet; run: python -m sources.verify")
     return rep
+
+
+@app.get("/api/extension")
+def extension_info() -> dict[str, Any]:
+    """Wersja rozszerzenia i linki do paczek (sekcja instalacji na stronie)."""
+    import extension_pkg
+    return extension_pkg.info()
+
+
+@app.get("/api/extension/{browser}")
+def extension_download(browser: Literal["firefox", "chromium", "opera"]) -> Response:
+    """Paczka rozszerzenia: .xpi (Firefox) albo .zip (Chromium, Opera)."""
+    import extension_pkg
+    if not extension_pkg.available():
+        raise HTTPException(status_code=404, detail="extension sources not found on this server")
+    data = extension_pkg.build(browser)
+    mime = "application/x-xpinstall" if browser == "firefox" else "application/zip"
+    return Response(content=data, media_type=mime, headers={
+        "Content-Disposition": f'attachment; filename="{extension_pkg.filename(browser)}"',
+        "Cache-Control": "no-cache",
+    })
 
 
 @app.post("/api/analyze")

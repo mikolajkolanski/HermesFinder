@@ -72,6 +72,11 @@ a:hover { text-decoration-thickness: 2px; }
 /* wybor jezyka obok nazwy */
 .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 0 0 14px; }
 .brand-row .brand { margin: 0; }
+.brand-tools { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.ext-link { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-small); font-weight: 500;
+  color: var(--accent); text-decoration: none; border: 1px solid var(--rule); border-radius: 6px; padding: 5px 10px; background: var(--panel); }
+.ext-link::before { content: "↓"; font-weight: 700; }
+.ext-link:hover { border-color: var(--accent); }
 .lang-pick { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-small); color: var(--muted); }
 .lang-pick select {
   font: inherit; font-size: 14px; color: var(--ink); background: var(--panel);
@@ -379,3 +384,29 @@ details.extra[open] summary { margin-bottom: 6px; }
   .stripes-band.reveal { animation: none; }
   .loader-bar::after { animation: none; width: 100%; }
 }
+
+/* instalacja rozszerzenia */
+.install { margin: 56px 0 0; padding: 32px 0 8px; border-top: 2px solid var(--ink); scroll-margin-top: 16px; }
+.install h2 { margin: 0 0 6px; font-size: var(--fs-h2); line-height: 1.2; letter-spacing: -0.015em; }
+.install-lead, .install-after { margin: 0 0 18px; color: var(--ink-2); max-width: var(--measure); }
+.install-after { margin: 18px 0 0; font-size: var(--fs-small); color: var(--muted); }
+.install-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.install-card { position: relative; display: flex; flex-direction: column; gap: 10px; background: var(--panel);
+  border: 1px solid var(--rule); border-radius: 8px; padding: 18px 18px 16px; min-width: 0; }
+.install-card.mine { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.install-card h3 { margin: 0; font-size: var(--fs-h3); display: flex; align-items: center; gap: 10px; }
+.install-mark { width: 28px; height: 28px; border-radius: 50%; display: inline-grid; place-items: center;
+  color: #fff; font-size: 13px; font-weight: 700; flex: 0 0 auto; }
+.install-badge { position: absolute; top: -10px; right: 14px; background: var(--accent); color: var(--accent-ink);
+  font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+.install-meta { margin: 0; font-size: var(--fs-small); color: var(--muted); }
+.install-dl { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent);
+  color: var(--accent-ink); text-decoration: none; font-weight: 600; border-radius: 6px; padding: 10px 14px; }
+.install-dl:hover { filter: brightness(1.1); }
+.install-dl::before { content: "↓"; }
+.install-dl[aria-disabled="true"] { background: var(--rule); color: var(--muted); pointer-events: none; }
+.install-card ol { margin: 4px 0 0; padding-left: 20px; font-size: var(--fs-small); color: var(--ink-2); }
+.install-card li { margin: 0 0 4px; }
+.install-card code { font-size: 12.5px; background: var(--rule-soft); padding: 1px 5px; border-radius: 3px; word-break: break-all; }
+.install-note { margin: 0; font-size: 12.5px; color: var(--warn-ink); background: var(--warn-bg); padding: 6px 8px; border-radius: 4px; }
+@media (max-width: 860px) { .install-grid { grid-template-columns: 1fr; } }

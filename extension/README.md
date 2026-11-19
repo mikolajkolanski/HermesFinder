@@ -15,6 +15,9 @@ The extension computes nothing itself. It sends the claim to the Hermes Finder s
 
 ## Installation
 
+The quickest way: open **https://hermesfinder.us/#install** and download the package for your
+browser; the page shows the steps. The packages there are built from this directory by the server.
+
 The extension works out of the box with the public server `https://hermesfinder.us`. To use your own server instead, start it (`./start.sh` in the project directory, `http://127.0.0.1:8000`) and enter its address in the extension settings. Installations that still had the old local default (`http://127.0.0.1:8000`) are switched to `https://hermesfinder.us` once, on the first start of version 2.2.
 
 Build the packages:

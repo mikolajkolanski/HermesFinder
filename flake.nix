@@ -51,7 +51,7 @@
 
             share=$out/share/climate-verifier
             mkdir -p "$share" $out/bin
-            cp -r backend frontend "$share/"
+            cp -r backend frontend extension "$share/"
             chmod -R u+w "$share"
             rm -rf "$share/backend/data/cache"
 

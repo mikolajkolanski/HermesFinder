@@ -47,6 +47,7 @@ document.getElementById("langSelect").addEventListener("change", (ev) => {
   validateYears();
   if (lastData) { clearResults(); render(lastData); }
   drawStripes();
+  if (window.HFInstall) HFInstall.render();
 });
 
 /* ============================ lata w ustawieniach zapytania ============================ */

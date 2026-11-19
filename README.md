@@ -274,6 +274,20 @@ a **More** button that opens the full analysis (the normal search on this page) 
 By default the extension talks to the public server **https://hermesfinder.us** (a local server
 can be set in its options). Installation and details: `extension/README.md`.
 
+**Download from the page:** the "Install the browser extension" section (link in the page header,
+`/#install`) offers packages for Firefox (`.xpi`), Chrome/Edge/Brave and Opera (`.zip`) with
+step-by-step instructions; the visitor's browser is highlighted. The server builds the packages on
+the fly from `extension/` (`backend/extension_pkg.py`, the same contents as `extension/build.sh`):
+
+```
+GET /api/extension                     # version + package links
+GET /api/extension/firefox|chromium|opera
+```
+
+A Firefox package signed by Mozilla (`extension/sign-firefox.sh` → `dist/signed/*.xpi`, or the path
+in `CV_FIREFOX_XPI`) is served instead of the unsigned one when it matches the current version; it
+installs permanently with one click.
+
 ## API
 
 ```
